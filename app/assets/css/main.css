@@ -1,0 +1,8 @@
+/* assets/css/main.css */
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Poppins", sans-serif;
+  --color-primary: #ff5722;
+}
