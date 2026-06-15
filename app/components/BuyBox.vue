@@ -57,7 +57,7 @@ const plans: Array<Plan> = [
             >
                 <Text as="h3" variant="h3"> {{ plan.name }} </Text>
                 <div class="mt-small4 flex items-baseline gap-x-small3">
-                    <Text variant="price">${{ plan.price }}</Text>
+                    <Text variant="price" color="primary">€{{ plan.price }}</Text>
                     <Text variant="caption">/month</Text>
                 </div>
                 <Text class="mt-small4" variant="bodyMedium">
