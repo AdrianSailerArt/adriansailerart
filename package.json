@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
+    "predev": "bun scripts/generate-tailwind-theme.ts",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint ."
   },
   "dependencies": {
     "tailwindcss": "^4.2.2",
@@ -20,5 +22,9 @@
     "postcss": "^8.5.15",
     "vue": "^3.5.35",
     "vue-router": "^5.1.0"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^1.16.0",
+    "eslint": "^10.5.0"
   }
 }

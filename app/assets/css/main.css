@@ -1,5 +1,11 @@
 @import "tailwindcss";
+@import "./tailwind.generated.css";
 
 @theme {
   --color-primary: #ff5722;
+}
+
+html,
+body {
+  font-family: var(--font-sans, "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif);
 }

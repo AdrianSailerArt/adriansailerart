@@ -1,96 +1,92 @@
-<template><div class="relative isolate bg-gray-900 px-6 py-24 lg:px-2">
- 
- 
-  <div class="mx-auto max-w-4xl text-center ">
-    <h2 class="text-primary text-base/7 font-semibold text-primary bg-primary">Kosten</h2>
-    <p class="mt-2 text-5xl font-semibold tracking-tight text-balance text-white sm:text-6xl">Choose the right plan for you</p>
-  </div>
-  <p class="mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.</p>
-  <div class="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
-    <div class="rounded-3xl rounded-t-3xl bg-white/2.5 p-8 ring-1 ring-white/10 sm:mx-8 sm:rounded-b-none sm:p-10 lg:mx-0 lg:rounded-tr-none lg:rounded-bl-3xl">
-      <h3 id="tier-hobby" class="text-base/7 font-semibold text-indigo-400">Hobby</h3>
-      <p class="mt-4 flex items-baseline gap-x-2">
-        <span class="text-5xl font-semibold tracking-tight text-white">$29</span>
-        <span class="text-base text-gray-400">/month</span>
-      </p>
-      <p class="mt-6 text-base/7 text-gray-300">The perfect plan if you&#039;re just getting started with our product.</p>
-      <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-300 sm:mt-10">
-        <li class="flex gap-x-3">
-          <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-400">
-            <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
-          </svg>
-          25 products
-        </li>
-        <li class="flex gap-x-3">
-          <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-400">
-            <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
-          </svg>
-          Up to 10,000 subscribers
-        </li>
-        <li class="flex gap-x-3">
-          <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-400">
-            <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
-          </svg>
-          Advanced analytics
-        </li>
-        <li class="flex gap-x-3">
-          <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-400">
-            <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
-          </svg>
-          24-hour support response time
-        </li>
-      </ul>
-      <a href="#" aria-describedby="tier-hobby" class="mt-8 block rounded-md bg-white/10 px-3.5 py-2.5 text-center text-sm font-semibold text-white inset-ring inset-ring-white/5 hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/75 sm:mt-10">Get started today</a>
+<script setup lang="ts">
+import Text from '~/atomics/text/Text.vue';
+
+type Plan = {
+    name: string;
+    price: number;
+    description: string;
+    features: string[];
+};
+const plans: Array<Plan> = [
+    {
+        name: 'Hobby',
+        price: 29,
+        description:
+            "The perfect plan if you're just getting started with our product.",
+        features: ['25 products']
+    },
+    {
+        name: 'Growth',
+        price: 99,
+        description: 'A plan that scales with your rapidly growing business.',
+        features: ['100 products', '100 products'], 
+    },
+    {
+        name: 'Scale',
+        price: 249,
+        description:
+            'Advanced features for scaling your business to the enterprise level.',
+        features: ['Unlimited products']
+    },
+    {
+        name: 'Enterprise',
+        price: 499,
+        description:
+            'Dedicated support and infrastructure for your enterprise needs.',
+        features: ['Unlimited products', 'Dedicated support']
+    }
+];
+</script>
+
+<template>
+    <div class="relative isolate">
+        <div
+            class="mx-auto grid max-w-xl grid-cols-1 items-center gap-y-small3 sm:mt-large4 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-4"
+        >
+            <div
+                v-for="(plan, index) in plans"
+                :class="[
+                    (index + 1) % 2 === 0 ? '-py-medium border-2 ' : '',
+                    index === 0
+                        ? 'rounded-l-rounded'
+                        : index === plans.length - 1
+                          ? 'rounded-r-rounded'
+                          : ''
+                ]"
+                class="bg-secondary h-full p-medium ring-1 ring-white/10 sm:mx-8 sm:p-10 lg:mx-none"
+            >
+                <Text as="h3" variant="h3"> {{ plan.name }} </Text>
+                <div class="mt-small4 flex items-baseline gap-x-small3">
+                    <Text variant="price">${{ plan.price }}</Text>
+                    <Text variant="caption">/month</Text>
+                </div>
+                <Text class="mt-small4" variant="bodyMedium">
+                    {{ plan.description }}
+                </Text>
+                <ul
+                    role="list"
+                    class="mt-medium space-y-small3"
+                    v-for="(feature, index) in plan.features"
+                >
+                    <li class="flex gap-x-small3">
+                        <svg
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            data-slot="icon"
+                            aria-hidden="true"
+                            class="h-6 w-5 flex-none text-indigo-400"
+                        >
+                            <path
+                                d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                                clip-rule="evenodd"
+                                fill-rule="evenodd"
+                            />
+                        </svg>
+                        <Text> {{ feature }} </Text>
+                    </li>
+                </ul>
+                <button href="#">Get started today</button>
+            </div>
+        </div>
     </div>
-    
-    <div class="relative rounded-3xl bg-gray-800 p-8 ring-1 ring-white/10 sm:p-10">
-      <h3 id="tier-enterprise" class="text-base/7 font-semibold text-indigo-400">Enterprise</h3>
-      <p class="mt-4 flex items-baseline gap-x-2">
-        <span class="text-5xl font-semibold tracking-tight text-white">$99</span>
-        <span class="text-base text-gray-400">/month</span>
-      </p>
-      <p class="mt-6 text-base/7 text-gray-300">Dedicated support and infrastructure for your company.</p>
-      <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-300 sm:mt-10">
-        <li class="flex gap-x-3">
-          <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-400">
-            <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
-          </svg>
-          Unlimited products
-        </li>
-        <li class="flex gap-x-3">
-          <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-400">
-            <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
-          </svg>
-          Unlimited subscribers
-        </li>
-        <li class="flex gap-x-3">
-          <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-400">
-            <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
-          </svg>
-          Advanced analytics
-        </li>
-        <li class="flex gap-x-3">
-          <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-400">
-            <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
-          </svg>
-          Dedicated support representative
-        </li>
-        <li class="flex gap-x-3">
-          <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-400">
-            <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
-          </svg>
-          Marketing automations
-        </li>
-        <li class="flex gap-x-3">
-          <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-indigo-400">
-            <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
-          </svg>
-          Custom integrations
-        </li>
-      </ul>
-      <a href="#" aria-describedby="tier-enterprise" class="mt-8 block rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 sm:mt-10">Get started today</a>
-    </div>
-    
-  </div>
-</div>
 </template>
