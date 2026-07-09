@@ -3,6 +3,7 @@ import { computed, onUnmounted, ref } from 'vue';
 import ImageSlideDisplay, {
     type MediumReference
 } from './ImageSlideDisplay.vue';
+import Gallery from './Gallery.vue';
 import Text from '@/atomics/text/Text.vue';
 import IconButton from '~/atomics/button/IconButton.vue';
 
@@ -19,15 +20,34 @@ const imageLabel = (img: MediumReference, index: number) =>
 
 const isFullscreen = ref(false);
 const isSidebarVisible = ref(true);
+const isGalleryView = ref(false);
+
+const galleryImages = computed(() =>
+    props.images.map(img => ({
+        src: img.media?.url || '',
+        alt: img.alt || img.title || '',
+        href: img.media?.url
+    }))
+);
 
 const openFullscreen = () => {
     isFullscreen.value = true;
     isSidebarVisible.value = true;
+    isGalleryView.value = false;
 
     if (import.meta.client) {
         document.body.style.overflow = 'hidden';
         globalThis.addEventListener('keydown', handleKeydown);
     }
+};
+
+const toggleGalleryView = () => {
+    isGalleryView.value = !isGalleryView.value;
+};
+
+const handleGalleryImageClick = (image: any, index: number) => {
+    activeIndex.value = index;
+    isGalleryView.value = false;
 };
 
 const closeFullscreen = () => {
@@ -112,7 +132,13 @@ onUnmounted(() => {
                     <div
                         class="absolute top-small4 right-small4 z-modal flex gap-2"
                     >
-                        <div
+                        <IconButton
+                            icon-name="Grid"
+                            :label="isGalleryView ? 'Zur Bildansicht' : 'Zur Galerieansicht'"
+                            class="lg:hidden"
+                            @click="toggleGalleryView"
+                        />
+                        <IconButton
                             icon-name="Close"
                             class="lg:hidden"
                             label="Schließen"
@@ -133,8 +159,15 @@ onUnmounted(() => {
                         />
                     </div>
 
+                    <Gallery
+                        v-if="isGalleryView && galleryImages.length > 0"
+                        :images="galleryImages"
+                        layout="grid"
+                        class="h-full w-full"
+                        @imageClick="handleGalleryImageClick"
+                    />
                     <ImageSlideDisplay
-                        v-if="currentItem"
+                        v-else-if="currentItem"
                         :image="currentItem"
                         :is-dragging="isDragging"
                         :swipe-handlers="swipeHandlers"

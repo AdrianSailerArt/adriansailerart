@@ -24,9 +24,17 @@ const props = withDefaults(defineProps<Props>(), {
     background: 'white'
 });
 
+const emit = defineEmits<{
+    imageClick: [image: GalleryImage, index: number]
+}>();
+
 const bgClass = computed(() =>
     props.background === 'gray' ? 'bg-gray-50' : 'bg-white'
 );
+
+const handleImageClick = (image: GalleryImage, index: number) => {
+    emit('imageClick', image, index);
+};
 </script>
 
 <template>
@@ -56,7 +64,8 @@ const bgClass = computed(() =>
                 :key="index"
                 :src="image.src"
                 :alt="image.alt"
-                class="aspect-square object-cover"
+                class="aspect-square object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                @click="handleImageClick(image, index)"
             />
         </div>
 
