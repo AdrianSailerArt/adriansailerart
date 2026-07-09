@@ -33,191 +33,153 @@ const bgClass = computed(() =>
     props.background === 'gray' ? 'bg-gray50' : 'bg-white'
 );
 
+// Layout-spezifische Berechnungen
+const firstImage = computed(() => props.images?.[0]);
+const restImages = computed(() => props.images?.slice(1) ?? []);
+const leftColumn = computed(() => props.images?.slice(0, Math.ceil((props.images?.length ?? 0) / 2)) ?? []);
+const rightColumn = computed(() => props.images?.slice(Math.ceil((props.images?.length ?? 0) / 2)) ?? []);
+
 const handleImageClick = (image: GalleryImage, index: number) => {
     emit('imageClick', image, index);
 };
+
+
 </script>
 
 <template>
     <section :class="['max-w-screen-2xl mx-auto px-4 py-16 lg:py-24', bgClass]">
-        <!-- ========================= -->
         <!-- SINGLE -->
-        <!-- ========================= -->
-
-        <div v-if="layout === 'single'">
+        <template v-if="layout === 'single'">
             <img
-                :src="images[0]?.src"
-                :alt="images[0]?.alt"
+                v-if="firstImage"
+                :src="firstImage.src"
+                :alt="firstImage.alt"
                 class="w-full object-cover cursor-pointer hover:opacity-80 transition-opacity"
-                @click="handleImageClick(images[0], 0)"
+                @click="handleImageClick(firstImage, 0)"
             />
-        </div>
+        </template>
 
-        <!-- ========================= -->
         <!-- GRID -->
-        <!-- ========================= -->
-
-        <div
-            v-else-if="layout === 'grid'"
-            class="grid grid-cols-2 md:grid-cols-3 gap-2"
-        >
-            <img
-                v-for="(image, index) in images"
-                :key="index"
-                :src="image.src"
-                :alt="image.alt"
-                class="aspect-square object-cover cursor-pointer hover:opacity-80 transition-opacity"
-                @click="handleImageClick(image, index)"
-            />
-        </div>
-
-        <!-- ========================= -->
-        <!-- BENTO -->
-        <!-- ========================= -->
-
-        <div
-            v-else-if="layout === 'bento'"
-            class="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-2"
-        >
-            <img
-                v-if="images[0]"
-                :src="images[0].src"
-                class="col-span-2 row-span-2 object-cover w-full h-full cursor-pointer hover:opacity-80 transition-opacity"
-                @click="handleImageClick(images[0], 0)"
-            />
-
-            <img
-                v-if="images[1]"
-                :src="images[1].src"
-                class="object-cover w-full h-full cursor-pointer hover:opacity-80 transition-opacity"
-                @click="handleImageClick(images[1], 1)"
-            />
-
-            <img
-                v-if="images[2]"
-                :src="images[2].src"
-                class="object-cover w-full h-full cursor-pointer hover:opacity-80 transition-opacity"
-                @click="handleImageClick(images[2], 2)"
-            />
-
-            <img
-                v-if="images[3]"
-                :src="images[3].src"
-                class="col-span-2 object-cover w-full h-full cursor-pointer hover:opacity-80 transition-opacity"
-                @click="handleImageClick(images[3], 3)"
-            />
-        </div>
-
-        <!-- ========================= -->
-        <!-- HERO SPLIT -->
-        <!-- ========================= -->
-
-        <div
-            v-else-if="layout === 'hero-split'"
-            class="flex flex-col md:flex-row gap-4 items-center"
-        >
-            <div class="flex-1">
+        <template v-else-if="layout === 'grid'">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
                 <img
-                    :src="images[0]?.src"
-                    class="w-full h-[500px] object-cover cursor-pointer hover:opacity-80 transition-opacity"
-                    @click="handleImageClick(images[0], 0)"
-                />
-            </div>
-
-            <div class="flex-1 p-6">
-                <slot name="content">
-                    <h2 class="text-4xl font-bold">Titel</h2>
-
-                    <p class="mt-4">Beschreibung</p>
-                </slot>
-            </div>
-        </div>
-
-        <!-- ========================= -->
-        <!-- CAROUSEL -->
-        <!-- ========================= -->
-
-        <div
-            v-else-if="layout === 'carousel'"
-            class="flex gap-4 overflow-x-auto snap-x"
-        >
-            <img
-                v-for="(image, index) in images"
-                :key="index"
-                :src="image.src"
-                class="w-[80vw] md:w-[400px] h-[400px] object-cover flex-none snap-center cursor-pointer hover:opacity-80 transition-opacity"
-                @click="handleImageClick(image, index)"
-            />
-        </div>
-
-        <!-- ========================= -->
-        <!-- MASONRY -->
-        <!-- ========================= -->
-
-        <div
-            v-else-if="layout === 'masonry'"
-            class="flex flex-col md:flex-row gap-2"
-        >
-            <div class="flex-1 flex flex-col gap-2">
-                <img 
-                    :src="images[0]?.src" 
-                    class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
-                    @click="handleImageClick(images[0], 0)"
-                />
-
-                <div class="grid grid-cols-2 gap-2">
-                    <img
-                        v-for="i in [1, 2]"
-                        :key="i"
-                        :src="images[i]?.src"
-                        class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
-                        @click="handleImageClick(images[i], i)"
-                    />
-                </div>
-            </div>
-
-            <div class="flex-1 flex flex-col gap-2">
-                <div class="grid grid-cols-2 gap-2">
-                    <img
-                        v-for="i in [3, 4]"
-                        :key="i"
-                        :src="images[i]?.src"
-                        class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
-                        @click="handleImageClick(images[i], i)"
-                    />
-                </div>
-
-                <img 
-                    :src="images[5]?.src" 
-                    class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
-                    @click="handleImageClick(images[5], 5)"
-                />
-            </div>
-        </div>
-
-        <!-- ========================= -->
-        <!-- FEATURE -->
-        <!-- ========================= -->
-
-        <div
-            v-else-if="layout === 'feature'"
-            class="flex flex-col md:flex-row gap-2"
-        >
-            <img 
-                :src="images[0]?.src" 
-                class="flex-1 object-cover cursor-pointer hover:opacity-80 transition-opacity"
-                @click="handleImageClick(images[0], 0)"
-            />
-
-            <div class="flex-1 grid grid-cols-2 gap-2">
-                <img
-                    v-for="(image, index) in images.slice(1)"
-                    :key="image.src"
+                    v-for="(image, index) in images"
+                    :key="index"
                     :src="image.src"
-                    class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
-                    @click="handleImageClick(image, index + 1)"
+                    :alt="image.alt"
+                    class="aspect-square object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                    @click="handleImageClick(image, index)"
                 />
             </div>
-        </div>
+        </template>
+
+        <!-- CAROUSEL -->
+        <template v-else-if="layout === 'carousel'">
+            <div class="flex gap-4 overflow-x-auto snap-x">
+                <img
+                    v-for="(image, index) in images"
+                    :key="index"
+                    :src="image.src"
+                    class="w-[80vw] md:w-[400px] h-[400px] object-cover flex-none snap-center cursor-pointer hover:opacity-80 transition-opacity"
+                    @click="handleImageClick(image, index)"
+                />
+            </div>
+        </template>
+
+        <!-- BENTO -->
+        <template v-else-if="layout === 'bento'">
+            <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-2">
+                <template v-for="(image, index) in images" :key="index">
+                    <img
+                        :src="image.src"
+                        :class="{
+                            'col-span-2 row-span-2': index === 0,
+                            'col-span-2': index === 3
+                        }"
+                        class="object-cover w-full h-full cursor-pointer hover:opacity-80 transition-opacity"
+                        @click="handleImageClick(image, index)"
+                    />
+                </template>
+            </div>
+        </template>
+
+        <!-- HERO SPLIT -->
+        <template v-else-if="layout === 'hero-split'">
+            <div v-if="firstImage" class="flex flex-col md:flex-row gap-4 items-center">
+                <div class="flex-1">
+                    <img
+                        :src="firstImage.src"
+                        class="w-full h-[500px] object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                        @click="handleImageClick(firstImage, 0)"
+                    />
+                </div>
+                <div class="flex-1 p-6">
+                    <slot name="content">
+                        <h2 class="text-4xl font-bold">Titel</h2>
+                        <p class="mt-4">Beschreibung</p>
+                    </slot>
+                </div>
+            </div>
+        </template>
+
+        <!-- MASONRY -->
+        <template v-else-if="layout === 'masonry'">
+            <div class="flex flex-col md:flex-row gap-2">
+                <div class="flex-1 flex flex-col gap-2">
+                    <img
+                        v-if="firstImage"
+                        :src="firstImage.src"
+                        class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                        @click="handleImageClick(firstImage, 0)"
+                    />
+                    <div class="grid grid-cols-2 gap-2">
+                        <img
+                            v-for="(image, index) in leftColumn.slice(1, 3)"
+                            :key="index"
+                            :src="image.src"
+                            class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                            @click="handleImageClick(image, leftColumn.indexOf(image))"
+                        />
+                    </div>
+                </div>
+                <div class="flex-1 flex flex-col gap-2">
+                    <div class="grid grid-cols-2 gap-2">
+                        <img
+                            v-for="(image, index) in rightColumn.slice(0, 2)"
+                            :key="index"
+                            :src="image.src"
+                            class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                            @click="handleImageClick(image, leftColumn.length + index)"
+                        />
+                    </div>
+                    <img
+                        v-if="rightColumn[2]"
+                        :src="rightColumn[2]?.src"
+                        class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                        @click="handleImageClick(rightColumn[2], props.images.indexOf(rightColumn[2]))"
+                    />
+                </div>
+            </div>
+        </template>
+
+        <!-- FEATURE -->
+        <template v-else-if="layout === 'feature'">
+            <div v-if="firstImage" class="flex flex-col md:flex-row gap-2">
+                <img
+                    :src="firstImage.src"
+                    class="flex-1 object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                    @click="handleImageClick(firstImage, 0)"
+                />
+                <div class="flex-1 grid grid-cols-2 gap-2">
+                    <img
+                        v-for="(image, index) in restImages"
+                        :key="`${image.src}-${index}`"
+                        :src="image.src"
+                        class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                        @click="handleImageClick(image, index + 1)"
+                    />
+                </div>
+            </div>
+        </template>
     </section>
 </template>
