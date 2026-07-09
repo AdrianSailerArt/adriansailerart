@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import Text from '~/atomics/text/Text.vue';
 
 type HeroProps = {
@@ -6,57 +6,91 @@ type HeroProps = {
     title: string;
     subtitle: string;
     description: string;
+    backgroundImage?: string;
 };
 
 const props = defineProps<HeroProps>();
 </script>
 
 <template>
-    <div
-        class="relative h-screen w-full flex items-center justify-center text-center bg-cover bg-center"
-        style="background-image: url('/images/hero.jpg')"
+    <section
+        class="relative flex min-h-screen items-center justify-center overflow-hidden bg-cover bg-center"
+        :style="props.backgroundImage
+            ? `background-image: url('${props.backgroundImage}')`
+            : `background-image: url('/images/hero.jpg')`"
     >
-      <div class="absolute top-0 right-0 bottom-0 left-0 backdrop-blur-[4px] opacity-50"></div>
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
 
+        <!-- Content -->
+        <div class="relative z-10 mx-auto max-w-4xl px-small4 text-center">
 
-        <div class="px-small4 sm:px-medium sm:py-large z-fixed">
-            <div class="text-center">
-                <div>
-                    <NuxtImg
-                        src="/Logo_Adrian_Sailer_Art.png"
-                        alt="Adrian Sailer Art"
-                        class="mx-auto mb-4 w-40 h-40 sm:w-60 sm:h-60 md:w-80 md:h-80 lg:w-96 lg:h-96"
-                    />
-                    <div
-                        class="border border-white rounded-r-minimal "
-                    >
-                        <Text
-                            class="shape"
-                            as="h1"
-                            variant="h1"
-                            color="primary"
-                        >
-                            {{ title }}
-                        </Text>
-                    </div>
-                 
-                    <Text as="h2" variant="h2" color="standard" class="mt-small4 ">
-                        {{ subtitle }}
-                    </Text>
-                </div>
-                <Text variant="bodyMedium" class="mt-small4">
-                    {{ description }}
+            <NuxtImg
+                src="/Logo_Adrian_Sailer_Art.png"
+                alt="Adrian Sailer Art"
+                class="mx-auto mb-large h-40 w-40 object-contain sm:h-56 sm:w-56 md:h-72 md:w-72 lg:h-80 lg:w-80"
+            />
+
+            <!-- Titel -->
+            <div class="hero-title inline-block -rotate-1 px-medium py-small4">
+                <Text
+                    as="h1"
+                    variant="h1"
+                    color="primary"
+                >
+                    {{ title }}
                 </Text>
             </div>
+
+            <!-- Untertitel -->
+            <Text
+                as="h2"
+                variant="h2"
+                class="mt-medium"
+            >
+                {{ subtitle }}
+            </Text>
+
+            <!-- Beschreibung -->
+            <Text
+                variant="bodyMedium"
+                class="mx-auto mt-small4 max-w-2xl leading-relaxed"
+            >
+                {{ description }}
+            </Text>
+
         </div>
-    </div>
+    </section>
 </template>
+
 <style scoped>
-.shape {
-    border-shape: polygon(0 0, 18% 0, 5% 100%, 0 100%) circle(0);
-    border-color: white;
-    padding: 1rem;
-    width: fit-content;
-    transition: 1.3s;
+.hero-title {
+    position: relative;
+    display: inline-block;
+    border: 1px solid white;
+    background: rgb(0 0 0 / 20%);
+    backdrop-filter: blur(6px);
+    transition: transform .2s ease;
+}
+
+.hero-title::after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    bottom: 6px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+    border: 1px solid white;
+    pointer-events: none;
+    transition: all .2s ease;
+}
+
+.hero-title:hover {
+    transform: translateY(-2px) rotate(-1deg);
+}
+
+.hero-title:hover::after {
+    left: 4px;
+    bottom: 4px;
 }
 </style>

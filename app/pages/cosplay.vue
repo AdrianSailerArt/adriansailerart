@@ -73,10 +73,11 @@ const myImages = <Array<MediumReference>>([
     <div>
         <Hero
             image="/Logo_Adrian_Sailer_Art.png"
-            title="Cosplay Galerie"
-            subtitle="Willkommen in unserer Welt"
+            title="Cosplay Gallerie"
+            subtitle="Cosplay & Fantasy"
             description="Entdecken Sie die besten Produkte und Dienstleistungen für Ihre Bedürfnisse."
+            background-image="/cosplay/Keira Metz - Anna Rosa-2.jpg"
         />
-         <ImagePost :images="myImages" layout="feature" />
+         <ImagePost :images="myImages" layout="grid" />
     </div>
 </template>

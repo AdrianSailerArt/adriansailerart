@@ -6,39 +6,44 @@ type Plan = {
     name: string;
     price: number;
     description: string;
-    features: Array<string>;
+    features: string[];
     highlight?: boolean;
 };
 
-
-const plans: Array<Plan> = [
+const plans: Plan[] = [
     {
         name: 'Hobby',
         price: 29,
-        highlight: true,
+       
         description:
             "The perfect plan if you're just getting started with our product.",
-        features: ['25 products']
+        features: ['25 Produkte']
     },
     {
         name: 'Growth',
         price: 99,
-        description: 'A plan that scales with your rapidly growing business.',
-        features: ['100 products', '100 products'], 
+        
+        description: 'Ein Tarif, der mit deinem Unternehmen wächst.',
+        features: ['100 Produkte', 'Priorisierter Support']
     },
     {
         name: 'Scale',
         price: 249,
+           highlight: true,
         description:
-            'Advanced features for scaling your business to the enterprise level.',
-        features: ['Unlimited products']
+            'Für Unternehmen mit hohen Anforderungen und vielen Projekten.',
+        features: ['Unbegrenzte Produkte', 'Erweiterte Funktionen']
     },
     {
         name: 'Enterprise',
         price: 499,
-        description:
-            'Dedicated support and infrastructure for your enterprise needs.',
-        features: ['Unlimited products', 'Dedicated support']
+      
+        description: 'Maximale Performance mit persönlichem Ansprechpartner.',
+        features: [
+            'Unbegrenzte Produkte',
+            'Dedicated Support',
+            'Individuelle Lösungen'
+        ]
     }
 ];
 </script>
@@ -46,73 +51,134 @@ const plans: Array<Plan> = [
 <template>
     <div class="relative isolate">
         <div
-            class="mx-auto grid max-w-xl grid-cols-1 gap-2 sm:mt-large4 lg:max-w-6xl lg:grid-cols-4"
+            class="mx-auto grid max-w-xl grid-cols-1 gap-6 sm:mt-large4 lg:max-w-7xl lg:grid-cols-4"
         >
             <div
-                v-for="(plan, index) in plans"
+                v-for="plan in plans"
                 :key="plan.name"
                 :class="[
-                    'relative transition-all duration-300',
+                    'pricing-card relative border border-black bg-gray30 rounded-none -rotate-1 transition-all duration-200',
                     plan.highlight
-                        ? 'min-h-96'
-                        : ''
+                        ? 'pricing-card-highlight bg-primaryLightenTwo text-white scale-105 z-10'
+                        : 'hover:-translate-y-1'
                 ]"
-                class="rounded-rounded bg-gray30 ring-1 ring-white/10 hover:inputShadow hover:shadow-primary"
-                :style="plan.highlight ? {
-                    padding: '2rem'
-                } : {
-                    padding: '2rem'
-                }"
             >
-                <!-- Highlight Badge -->
-                <div v-if="plan.highlight" class="absolute -top-small4 left-1/2 -translate-x-1/2">
-                    <Text class="inline-block rounded-full px-small4 py-small  text-white border bg-info">
+                <!-- Badge -->
+                <div
+                    v-if="plan.highlight"
+                    class="absolute -top-4 left-1/2 -translate-x-1/2 -rotate-2"
+                >
+                    <div
+                        class="border border-black bg-info px-small4 py-small2 font-bold text-white"
+                    >
                         ⭐ Empfohlen
-                    </Text>
+                    </div>
                 </div>
 
-                <Text as="h3" variant="h3" >
+                <Text as="h3" variant="h3" color="inherit">
                     {{ plan.name }}
                 </Text>
 
-                <div :class="plan.highlight ? 'mt-small4' : 'mt-medium'" class="flex items-baseline gap-x-2">
-                    <span :class="plan.highlight ? 'text-7xl' : 'text-4xl'" class="font-semibold ">
+                <div class="mt-medium flex items-end gap-small2">
+                    <span class="text-6xl font-black leading-none">
                         €{{ plan.price }}
                     </span>
-                    <Text variant="caption">/Monat</Text>
+
+                    <Text variant="caption" color="inherit"> /Monat </Text>
                 </div>
 
-                <Text :class="plan.highlight ? 'mt-small3' : 'mt-small5'" class="leading-relaxed">
+                <Text class="mt-small4 leading-relaxed" color="inherit">
                     {{ plan.description }}
                 </Text>
 
-                <ul role="list" :class="plan.highlight ? 'mt-medium space-y-small2' : 'mt-medium space-y-small4'">
-                    <li v-for="(feature, idx) in plan.features" :key="idx" class="flex gap-small3">
+                <ul role="list" class="mt-medium space-y-small3">
+                    <li
+                        v-for="(feature, idx) in plan.features"
+                        :key="idx"
+                        class="flex items-start gap-small3"
+                    >
                         <svg
+                            class="mt-1 h-5 w-5 shrink-0"
                             viewBox="0 0 20 20"
                             fill="currentColor"
-                            data-slot="icon"
                             aria-hidden="true"
-                            class="h-5 w-5 flex-none text-info mt-smtall"
                         >
                             <path
-                                d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                                clip-rule="evenodd"
                                 fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
                             />
                         </svg>
-                        <Text >{{ feature }}</Text>
+
+                        <Text color="inherit">
+                            {{ feature }}
+                        </Text>
                     </li>
                 </ul>
 
                 <Button
                     fluid
-                    :variant="plan.highlight ? 'standard': 'outlined'"
-                    :class="plan.highlight ? 'mt-small4' : 'mt-medium'"
+                    :variant="plan.highlight ? 'standard' : 'outlined'"
+                  
+                    class="mt-large4"
                 >
-                   Buchen
+                    Jetzt buchen
                 </Button>
             </div>
         </div>
     </div>
 </template>
+
+<style scoped>
+.pricing-card {
+    padding: 2rem;
+    transform: rotate(-1deg);
+}
+
+.pricing-card:nth-child(even) {
+    transform: rotate(1deg);
+}
+
+.pricing-card::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    bottom: 6px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+    border: 1px solid black;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-6px) rotate(-1deg);
+}
+
+.pricing-card:nth-child(even):hover {
+    transform: translateY(-6px) rotate(1deg);
+}
+
+.pricing-card:hover::after {
+    left: 3px;
+    bottom: 3px;
+}
+
+.pricing-card-highlight {
+    transform: rotate(-2deg) scale(1.05);
+}
+
+.pricing-card-highlight:hover {
+    transform: translateY(-8px) rotate(-2deg) scale(1.05);
+}
+
+.pricing-card-highlight::after {
+    left: 8px;
+    bottom: 8px;
+}
+
+.pricing-card-highlight:hover::after {
+    left: 4px;
+    bottom: 4px;
+}
+</style>
