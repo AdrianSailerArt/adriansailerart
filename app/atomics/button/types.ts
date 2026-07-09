@@ -3,7 +3,7 @@ import type { ButtonHTMLAttributes } from 'vue';
 
 export type ButtonColor = Extract<ColorName, 'primary'> | 'background' | 'transparent';
 
-export type ButtonVariant = 'standard' | 'outlined' | 'text' | 'pill';
+export type ButtonVariant = 'standard' | 'outlined' | 'text' ;
 
 export type ButtonType = {
     color?: ButtonColor;

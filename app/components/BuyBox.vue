@@ -1,16 +1,21 @@
 <script setup lang="ts">
+import Button from '~/atomics/button/Button.vue';
 import Text from '~/atomics/text/Text.vue';
 
 type Plan = {
     name: string;
     price: number;
     description: string;
-    features: string[];
+    features: Array<string>;
+    highlight?: boolean;
 };
+
+
 const plans: Array<Plan> = [
     {
         name: 'Hobby',
         price: 29,
+        highlight: true,
         description:
             "The perfect plan if you're just getting started with our product.",
         features: ['25 products']
@@ -41,40 +46,54 @@ const plans: Array<Plan> = [
 <template>
     <div class="relative isolate">
         <div
-            class="mx-auto grid max-w-xl grid-cols-1 items-center gap-y-small3 sm:mt-large4 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-4"
+            class="mx-auto grid max-w-xl grid-cols-1 gap-2 sm:mt-large4 lg:max-w-6xl lg:grid-cols-4"
         >
             <div
                 v-for="(plan, index) in plans"
+                :key="plan.name"
                 :class="[
-                    (index + 1) % 2 === 0 ? '-py-medium border-2 ' : '',
-                    index === 0
-                        ? 'rounded-l-rounded'
-                        : index === plans.length - 1
-                          ? 'rounded-r-rounded'
-                          : ''
+                    'relative transition-all duration-300',
+                    plan.highlight
+                        ? 'min-h-96'
+                        : ''
                 ]"
-                class="bg-secondary h-full p-medium ring-1 ring-white/10 sm:mx-8 sm:p-10 lg:mx-none"
+                class="rounded-rounded bg-gray30 ring-1 ring-white/10 hover:inputShadow hover:shadow-primary"
+                :style="plan.highlight ? {
+                    padding: '2rem'
+                } : {
+                    padding: '2rem'
+                }"
             >
-                <Text as="h3" variant="h3"> {{ plan.name }} </Text>
-                <div class="mt-small4 flex items-baseline gap-x-small3">
-                    <Text variant="price" color="primary">€{{ plan.price }}</Text>
-                    <Text variant="caption">/month</Text>
+                <!-- Highlight Badge -->
+                <div v-if="plan.highlight" class="absolute -top-small4 left-1/2 -translate-x-1/2">
+                    <Text class="inline-block rounded-full px-small4 py-small  text-white border bg-info">
+                        ⭐ Empfohlen
+                    </Text>
                 </div>
-                <Text class="mt-small4" variant="bodyMedium">
+
+                <Text as="h3" variant="h3" >
+                    {{ plan.name }}
+                </Text>
+
+                <div :class="plan.highlight ? 'mt-small4' : 'mt-medium'" class="flex items-baseline gap-x-2">
+                    <span :class="plan.highlight ? 'text-7xl' : 'text-4xl'" class="font-semibold ">
+                        €{{ plan.price }}
+                    </span>
+                    <Text variant="caption">/Monat</Text>
+                </div>
+
+                <Text :class="plan.highlight ? 'mt-small3' : 'mt-small5'" class="leading-relaxed">
                     {{ plan.description }}
                 </Text>
-                <ul
-                    role="list"
-                    class="mt-medium space-y-small3"
-                    v-for="(feature, index) in plan.features"
-                >
-                    <li class="flex gap-x-small3">
+
+                <ul role="list" :class="plan.highlight ? 'mt-medium space-y-small2' : 'mt-medium space-y-small4'">
+                    <li v-for="(feature, idx) in plan.features" :key="idx" class="flex gap-small3">
                         <svg
                             viewBox="0 0 20 20"
                             fill="currentColor"
                             data-slot="icon"
                             aria-hidden="true"
-                            class="h-6 w-5 flex-none text-indigo-400"
+                            class="h-5 w-5 flex-none text-info mt-smtall"
                         >
                             <path
                                 d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
@@ -82,10 +101,17 @@ const plans: Array<Plan> = [
                                 fill-rule="evenodd"
                             />
                         </svg>
-                        <Text> {{ feature }} </Text>
+                        <Text >{{ feature }}</Text>
                     </li>
                 </ul>
-                <button href="#">Get started today</button>
+
+                <Button
+                    fluid
+                    :variant="plan.highlight ? 'standard': 'outlined'"
+                    :class="plan.highlight ? 'mt-small4' : 'mt-medium'"
+                >
+                   Buchen
+                </Button>
             </div>
         </div>
     </div>

@@ -5,33 +5,31 @@ interface GalleryImage {
     href?: string;
 }
 
-export type LayoutProps =  'masonry'
-        | 'feature'
-        | 'grid'
-        | 'hero-split'
-        | 'bento'
-        | 'carousel'
-        | 'single';
+export type LayoutProps = 
+  | 'single'       // Ein Bild (Full Width)
+  | 'grid'         // Standard Grid 2-3 Spalten
+  | 'carousel'     // Horizontales Scrolling
+  | 'masonry'      // Pinterest-Style (2 Spalten, unterschiedliche Höhen)
+  | 'bento'        // Mixed Grid (1. Bild 2x2, Rest 1x1)
+  | 'feature'      // Feature Image + Gallery (1. Bild groß, Rest in Grid)
+  | 'waterfall'    // Cascade/Waterfall Style (neu)
+
 
 export type Props = {
     layout?: LayoutProps
-
-    background?: 'white' | 'gray';
     images: GalleryImage[];
 }
 
 const props = withDefaults(defineProps<Props>(), {
     layout: 'grid',
-    background: 'white'
+ 
 });
 
 const emit = defineEmits<{
     imageClick: [image: GalleryImage, index: number]
 }>();
 
-const bgClass = computed(() =>
-    props.background === 'gray' ? 'bg-gray50' : 'bg-white'
-);
+
 
 // Layout-spezifische Berechnungen
 const firstImage = computed(() => props.images?.[0]);
@@ -47,7 +45,7 @@ const handleImageClick = (image: GalleryImage, index: number) => {
 </script>
 
 <template>
-    <section :class="['max-w-screen-2xl mx-auto px-4 py-16 lg:py-24', bgClass]">
+    <section class="max-w-screen-2xl mx-auto px-small4 py-medium lg:py-large2">
         <!-- SINGLE -->
         <template v-if="layout === 'single'">
             <img
@@ -103,25 +101,26 @@ const handleImageClick = (image: GalleryImage, index: number) => {
             </div>
         </template>
 
-        <!-- HERO SPLIT -->
-        <template v-else-if="layout === 'hero-split'">
-            <div v-if="firstImage" class="flex flex-col md:flex-row gap-4 items-center">
-                <div class="flex-1">
+        <!-- HERO SPLIT / FEATURE -->
+        <template v-else-if="layout === 'waterfall'">
+            <div class="flex flex-wrap gap-4 justify-center">
+                <div
+                    v-for="(image, index) in images"
+                    :key="index"
+                    class="break-inside-avoid"
+                    :style="{ width: `${200 + (index % 3) * 50}px` }"
+                >
                     <img
-                        :src="firstImage.src"
-                        class="w-full h-[500px] object-cover cursor-pointer hover:opacity-80 transition-opacity"
-                        @click="handleImageClick(firstImage, 0)"
+                        :src="image.src"
+                        :alt="image.alt"
+                        class="w-full h-auto object-cover cursor-pointer hover:opacity-80 transition-opacity rounded"
+                        @click="handleImageClick(image, index)"
                     />
-                </div>
-                <div class="flex-1 p-6">
-                    <slot name="content">
-                        <h2 class="text-4xl font-bold">Titel</h2>
-                        <p class="mt-4">Beschreibung</p>
-                    </slot>
                 </div>
             </div>
         </template>
 
+ 
         <!-- MASONRY -->
         <template v-else-if="layout === 'masonry'">
             <div class="flex flex-col md:flex-row gap-2">

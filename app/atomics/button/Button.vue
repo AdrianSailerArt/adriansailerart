@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<ButtonType>(), {
 const attrs = useAttrs();
 const isTextVariant = computed(() => props.variant === 'text');
 const isOutlinedVariant = computed(() => props.variant === 'outlined');
-const isPillVariant = computed(() => props.variant === 'pill');
+
 
 const bgClass = computed(() => {
     if (isTextVariant.value) return 'bg-transparent';
@@ -103,11 +103,10 @@ const borderClass = computed(() => {
 
 const fluidClass = computed(() => (props.fluid ? 'w-full' : ''));
 const shapeClass = computed(() => {
-    if (isTextVariant.value) return 'px-0 py-0 h-auto rounded-normal shadow-none';
+    if (isTextVariant.value) return 'p-none h-auto rounded-none shadow-none';
 
-    if (isPillVariant.value) return 'px-small3 py-small2 h-normal rounded-full shadow-inputShadow';
 
-    return 'px-small4 py-small3 h-normal rounded-rounded shadow-inputShadow';
+    return 'px-small4 py-small3 h-normal rounded-br-rounded  rounded-tl-rounded shadow-inputShadow';
 });
 </script>
 
