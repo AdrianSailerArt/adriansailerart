@@ -48,7 +48,7 @@ const handleImageClick = (image: GalleryImage, index: number) => {
     <section class="max-w-screen-2xl mx-auto px-small4 py-medium lg:py-large2">
         <!-- SINGLE -->
         <template v-if="layout === 'single'">
-            <img
+            <NuxtImg
                 v-if="firstImage"
                 :src="firstImage.src"
                 :alt="firstImage.alt"
@@ -60,7 +60,7 @@ const handleImageClick = (image: GalleryImage, index: number) => {
         <!-- GRID -->
         <template v-else-if="layout === 'grid'">
             <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
-                <img
+                <NuxtImg
                     v-for="(image, index) in images"
                     :key="index"
                     :src="image.src"
@@ -74,7 +74,7 @@ const handleImageClick = (image: GalleryImage, index: number) => {
         <!-- CAROUSEL -->
         <template v-else-if="layout === 'carousel'">
             <div class="flex gap-4 overflow-x-auto snap-x">
-                <img
+                <NuxtImg
                     v-for="(image, index) in images"
                     :key="index"
                     :src="image.src"
@@ -88,7 +88,7 @@ const handleImageClick = (image: GalleryImage, index: number) => {
         <template v-else-if="layout === 'bento'">
             <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-2">
                 <template v-for="(image, index) in images" :key="index">
-                    <img
+                    <NuxtImg
                         :src="image.src"
                         :class="{
                             'col-span-2 row-span-2': index === 0,
@@ -110,7 +110,7 @@ const handleImageClick = (image: GalleryImage, index: number) => {
                     class="break-inside-avoid"
                     :style="{ width: `${200 + (index % 3) * 50}px` }"
                 >
-                    <img
+                    <NuxtImg
                         :src="image.src"
                         :alt="image.alt"
                         class="w-full h-auto object-cover cursor-pointer hover:opacity-80 transition-opacity rounded"
@@ -125,14 +125,14 @@ const handleImageClick = (image: GalleryImage, index: number) => {
         <template v-else-if="layout === 'masonry'">
             <div class="flex flex-col md:flex-row gap-2">
                 <div class="flex-1 flex flex-col gap-2">
-                    <img
+                    <NuxtImg
                         v-if="firstImage"
                         :src="firstImage.src"
                         class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
                         @click="handleImageClick(firstImage, 0)"
                     />
                     <div class="grid grid-cols-2 gap-2">
-                        <img
+                        <NuxtImg
                             v-for="(image, index) in leftColumn.slice(1, 3)"
                             :key="index"
                             :src="image.src"
@@ -143,7 +143,7 @@ const handleImageClick = (image: GalleryImage, index: number) => {
                 </div>
                 <div class="flex-1 flex flex-col gap-2">
                     <div class="grid grid-cols-2 gap-2">
-                        <img
+                        <NuxtImg
                             v-for="(image, index) in rightColumn.slice(0, 2)"
                             :key="index"
                             :src="image.src"
@@ -151,7 +151,7 @@ const handleImageClick = (image: GalleryImage, index: number) => {
                             @click="handleImageClick(image, leftColumn.length + index)"
                         />
                     </div>
-                    <img
+                    <NuxtImg
                         v-if="rightColumn[2]"
                         :src="rightColumn[2]?.src"
                         class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
@@ -164,13 +164,13 @@ const handleImageClick = (image: GalleryImage, index: number) => {
         <!-- FEATURE -->
         <template v-else-if="layout === 'feature'">
             <div v-if="firstImage" class="flex flex-col md:flex-row gap-2">
-                <img
+                <NuxtImg
                     :src="firstImage.src"
                     class="flex-1 object-cover cursor-pointer hover:opacity-80 transition-opacity"
                     @click="handleImageClick(firstImage, 0)"
                 />
                 <div class="flex-1 grid grid-cols-2 gap-2">
-                    <img
+                    <NuxtImg
                         v-for="(image, index) in restImages"
                         :key="`${image.src}-${index}`"
                         :src="image.src"

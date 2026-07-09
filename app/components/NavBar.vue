@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import Button from '~/atomics/button/Button.vue';
+import { ROUTES } from '~/statics/routes';
 
 type NavItem = {
     name: string;
@@ -7,10 +8,11 @@ type NavItem = {
 };
 
 const nav: Array<NavItem> = [
-    { name: 'Home', href: '/' },
-    { name: 'Hochzeiten', href: '/hochzeiten' },
-    { name: 'Konzerte', href: '/konzerte' },
-    { name: 'Natur', href: '/natur' }
+    { name: 'Home', href: ROUTES.HOME },
+    { name: 'Über mich', href: ROUTES.ABOUT },
+    { name: 'Kontakt', href: ROUTES.CONTACT },
+    { name: 'Cosplay', href: ROUTES.COSPLAY },
+   
 ];
 </script>
 
@@ -25,9 +27,9 @@ const nav: Array<NavItem> = [
                 >
                     <div class="flex shrink-0 items-center">
                         <NuxtImg
-                            src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-                            alt="Your Company"
-                            class="h-8 w-auto"
+                            src="/Logo_Adrian_Sailer_Art.png"
+                            alt="Adrian Sailer Art"
+                            class="h-medium2 w-auto"
                         />
                     </div>
                     <div class="hidden sm:ml-medium sm:block">

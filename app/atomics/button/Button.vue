@@ -63,7 +63,7 @@ const shapeClass = computed(() => {
     
     if (isOutlinedVariant.value) return `px-small4 py-small3 rounded-none -rotate-1`;
 
-    return `px-small4 py-small3 rounded-none -rotate-1`;
+    return `px-small4 py-small3 rounded-none -rotate-1 bg-primary`;
 });
 </script>
 
