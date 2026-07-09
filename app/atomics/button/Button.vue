@@ -13,100 +13,57 @@ const props = withDefaults(defineProps<ButtonType>(), {
 const attrs = useAttrs();
 const isTextVariant = computed(() => props.variant === 'text');
 const isOutlinedVariant = computed(() => props.variant === 'outlined');
-
+const isStandardVariant = computed(() => props.variant === 'standard');
 
 const bgClass = computed(() => {
-    if (isTextVariant.value) return 'bg-transparent';
-
+    if (isTextVariant.value || isOutlinedVariant.value) return 'bg-transparent';
+    
     if (props.disabled) {
-        if (isOutlinedVariant.value) return 'bg-transparent';
-
-        return {
-            primary: 'bg-primaryLightenOne',
-            background: 'bg-backgroundLayer',
-            transparent: 'bg-transparent'
-        }[props.color];
+        return `bg-${props.color}`;
     }
 
-    if (isOutlinedVariant.value) return 'bg-transparent';
-
-    return {
-        primary: 'bg-primary',
-        background: 'bg-backgroundLayer',
-        transparent: 'bg-transparent'
-    }[props.color];
+    return `bg-${props.color}`;
 });
 
 const textClass = computed(() => {
     if (isOutlinedVariant.value || isTextVariant.value) {
-        return {
-            primary: 'text-primary',
-            background: 'text-info',
-            transparent: 'text-info'
-        }[props.color];
+        return `text-${props.color}`;
     }
-
-    if (props.color === 'background' || props.color === 'transparent') {
-        return 'text-info';
-    }
-
     return 'text-white';
+});
+
+const borderClass = computed(() => {
+    if (isTextVariant.value) return '';
+    
+    if (isOutlinedVariant.value) {
+        return `border-2 border-${props.color}`;
+    }
+    
+    return '';
 });
 
 const hoverClass = computed(() => {
     if (props.disabled) return '';
 
     if (isOutlinedVariant.value) {
-        return {
-            primary:
-                'hover:text-primaryDarkenOne hover:border-primaryDarkenOne dark:hover:text-primaryLightenOne dark:hover:border-primaryLightenOne',
-            background:
-                'hover:bg-gray15 hover:border-gray30 dark:hover:bg-secondaryLightenOne dark:hover:border-secondaryLightenOne',
-            transparent: 'hover:bg-gray5'
-        }[props.color];
+        return `hover:bg-${props.color}/5`;
     }
 
     if (isTextVariant.value) {
-        return {
-            primary: 'hover:text-primaryDarkenOne dark:hover:text-primaryLightenOne',
-            background: 'hover:text-infoDarkenOne dark:hover:text-infoLightenOne',
-            transparent: 'hover:text-infoDarkenOne dark:hover:text-infoLightenOne'
-        }[props.color];
+        return `hover:underline`;
     }
 
-    const hoverMap: Record<ButtonColor, string> = {
-        primary: 'hover:bg-primaryDarkenOne dark:hover:bg-primaryLightenOne',
-        background: 'hover:bg-gray5 transition dark:hover:bg-secondaryLightenOne',
-        transparent: 'hover:bg-gray5 dark:hover:bg-white/10'
-    };
-
-    return hoverMap[props.color];
-});
-
-const activeClass = computed(() => {
-    if (props.disabled) return '';
-
-    return 'active:opacity-90';
-});
-
-const borderClass = computed(() => {
-    if (isTextVariant.value) return '';
-
-    if (!isOutlinedVariant.value) return 'border border-2 border-transparent';
-
-    return {
-        primary: 'border border-2 border-primary',
-        background: 'border border-2  border-bg-backgroundLayer',
-        transparent: 'border border-2 border-transparent'
-    }[props.color];
+    return `hover:opacity-90`;
 });
 
 const fluidClass = computed(() => (props.fluid ? 'w-full' : ''));
+
 const shapeClass = computed(() => {
-    if (isTextVariant.value) return 'p-none h-auto rounded-none shadow-none';
+    if (isTextVariant.value) return `px-small4 py-small3 rounded-none -rotate-1`;
+    
+    if (isOutlinedVariant.value) return `px-small4 py-small3 rounded-none -rotate-1`;
 
-
-    return 'px-small4 py-small3 h-normal rounded-br-rounded  rounded-tl-rounded shadow-inputShadow';
+    return `px-small4 py-small3 rounded-none -rotate-1`;
 });
 </script>
 
@@ -115,20 +72,54 @@ const shapeClass = computed(() => {
         :aria-label="ariaLabel"
         :disabled="props.disabled"
         :class="[
-            'flex items-center justify-center',
+            'relative inline-flex items-center justify-center',
+            'font-bold transition-all duration-200',
+            'cursor-pointer select-none',
             shapeClass,
             bgClass,
             textClass,
-            hoverClass,
-            activeClass,
             borderClass,
+            hoverClass,
             fluidClass,
-            props.disabled ? 'cursor-not-allowed ' : 'cursor-pointer'
+            'h-normal',
+            props.disabled ? 'opacity-50 cursor-not-allowed' : '',
+            isStandardVariant && !props.disabled ? 'button-standard-effect' : '',
+            isOutlinedVariant && !props.disabled ? 'button-inverted-effect' : ''
         ]"
+        :style="{
+            '--border-radius': 'var(--radius-standard)',
+            '--padding-x': 'var(--spacing-small4)',
+            '--padding-y': 'var(--spacing-small3)'
+        }"
         v-bind="attrs"
     >
-        <Text as="span" variant="caption" color="inherit" class="inline-flex items-center duration-500 ease-in-out">
-            <slot
-        /></Text>
+        <Text as="span" variant="caption" color="inherit" class="relative z-10 inline-flex items-center font-bold">
+            <slot />
+        </Text>
     </button>
 </template>
+
+<style scoped>
+/* Standard Variant - mit Border-Effekt */
+.button-standard-effect::after {
+    content: '';
+    position: absolute;
+    border: 1px solid rgb(0, 0, 0);
+    bottom: 4px;
+    left: 4px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+    border-radius: var(--radius-none);
+    pointer-events: none;
+    transition: all 200ms ease-in-out;
+}
+
+.button-standard-effect:hover::after {
+    bottom: 2px;
+    left: 2px;
+}
+
+.button-standard-effect:focus::after {
+    outline: 0;
+}
+</style>

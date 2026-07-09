@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import Button from '~/atomics/button/Button.vue';
+
 type NavItem = {
     name: string;
     href: string;
@@ -31,11 +33,12 @@ const nav: Array<NavItem> = [
                     <div class="hidden sm:ml-medium sm:block">
                         <div class="flex space-x-small4">
                             <template v-for="item in nav" :key="item.name">
+                                <Button>
                                 <a
                                     :href="item.href"
-                                    class="rounded-minimal bg-secondary px-small4 py-small2 text-overline font-medium text-white"
+                                  
                                     >{{ item.name }}</a
-                                >
+                                ></Button>
                             </template>
                         </div>
                     </div>
