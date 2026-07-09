@@ -2,6 +2,30 @@
 
 <template><div><Hero title="Herzlich Willkommen" subtitle="Willkommen in unserer Welt" description="Entdecken Sie die besten Produkte und Dienstleistungen für Ihre Bedürfnisse." />
 <BuyBox />
-<ImageGallery />
+<Gallery
+  layout="grid"
+  background="gray"
+  :images="[
+    {
+      src: 'https://images.unsplash.com/photo-1665689285334-b0044b6d2dc7',
+      alt: 'Bild 1',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1666433723497-38d1d053185b',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1665048110211-91d0b74c421c',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1666297599033-09b318f2c8b5',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1664713815297-9ce06950c022',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1666060519824-796d5638d809',
+    },
+  ]"
+/>
 </div>
 </template>
