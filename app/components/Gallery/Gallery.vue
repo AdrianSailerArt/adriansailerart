@@ -5,15 +5,16 @@ interface GalleryImage {
     href?: string;
 }
 
-interface Props {
-    layout?:
-        | 'masonry'
+export type LayoutProps =  'masonry'
         | 'feature'
         | 'grid'
         | 'hero-split'
         | 'bento'
         | 'carousel'
         | 'single';
+
+export type Props = {
+    layout?: LayoutProps
 
     background?: 'white' | 'gray';
     images: GalleryImage[];
@@ -29,7 +30,7 @@ const emit = defineEmits<{
 }>();
 
 const bgClass = computed(() =>
-    props.background === 'gray' ? 'bg-gray-50' : 'bg-white'
+    props.background === 'gray' ? 'bg-gray50' : 'bg-white'
 );
 
 const handleImageClick = (image: GalleryImage, index: number) => {
@@ -47,7 +48,8 @@ const handleImageClick = (image: GalleryImage, index: number) => {
             <img
                 :src="images[0]?.src"
                 :alt="images[0]?.alt"
-                class="w-full object-cover"
+                class="w-full object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                @click="handleImageClick(images[0], 0)"
             />
         </div>
 
@@ -80,25 +82,29 @@ const handleImageClick = (image: GalleryImage, index: number) => {
             <img
                 v-if="images[0]"
                 :src="images[0].src"
-                class="col-span-2 row-span-2 object-cover w-full h-full"
+                class="col-span-2 row-span-2 object-cover w-full h-full cursor-pointer hover:opacity-80 transition-opacity"
+                @click="handleImageClick(images[0], 0)"
             />
 
             <img
                 v-if="images[1]"
                 :src="images[1].src"
-                class="object-cover w-full h-full"
+                class="object-cover w-full h-full cursor-pointer hover:opacity-80 transition-opacity"
+                @click="handleImageClick(images[1], 1)"
             />
 
             <img
                 v-if="images[2]"
                 :src="images[2].src"
-                class="object-cover w-full h-full"
+                class="object-cover w-full h-full cursor-pointer hover:opacity-80 transition-opacity"
+                @click="handleImageClick(images[2], 2)"
             />
 
             <img
                 v-if="images[3]"
                 :src="images[3].src"
-                class="col-span-2 object-cover w-full h-full"
+                class="col-span-2 object-cover w-full h-full cursor-pointer hover:opacity-80 transition-opacity"
+                @click="handleImageClick(images[3], 3)"
             />
         </div>
 
@@ -113,7 +119,8 @@ const handleImageClick = (image: GalleryImage, index: number) => {
             <div class="flex-1">
                 <img
                     :src="images[0]?.src"
-                    class="w-full h-[500px] object-cover"
+                    class="w-full h-[500px] object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                    @click="handleImageClick(images[0], 0)"
                 />
             </div>
 
@@ -138,7 +145,8 @@ const handleImageClick = (image: GalleryImage, index: number) => {
                 v-for="(image, index) in images"
                 :key="index"
                 :src="image.src"
-                class="w-[80vw] md:w-[400px] h-[400px] object-cover flex-none snap-center"
+                class="w-[80vw] md:w-[400px] h-[400px] object-cover flex-none snap-center cursor-pointer hover:opacity-80 transition-opacity"
+                @click="handleImageClick(image, index)"
             />
         </div>
 
@@ -151,14 +159,19 @@ const handleImageClick = (image: GalleryImage, index: number) => {
             class="flex flex-col md:flex-row gap-2"
         >
             <div class="flex-1 flex flex-col gap-2">
-                <img :src="images[0]?.src" class="object-cover" />
+                <img 
+                    :src="images[0]?.src" 
+                    class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                    @click="handleImageClick(images[0], 0)"
+                />
 
                 <div class="grid grid-cols-2 gap-2">
                     <img
                         v-for="i in [1, 2]"
                         :key="i"
                         :src="images[i]?.src"
-                        class="object-cover"
+                        class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                        @click="handleImageClick(images[i], i)"
                     />
                 </div>
             </div>
@@ -169,11 +182,16 @@ const handleImageClick = (image: GalleryImage, index: number) => {
                         v-for="i in [3, 4]"
                         :key="i"
                         :src="images[i]?.src"
-                        class="object-cover"
+                        class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                        @click="handleImageClick(images[i], i)"
                     />
                 </div>
 
-                <img :src="images[5]?.src" class="object-cover" />
+                <img 
+                    :src="images[5]?.src" 
+                    class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                    @click="handleImageClick(images[5], 5)"
+                />
             </div>
         </div>
 
@@ -185,14 +203,19 @@ const handleImageClick = (image: GalleryImage, index: number) => {
             v-else-if="layout === 'feature'"
             class="flex flex-col md:flex-row gap-2"
         >
-            <img :src="images[0]?.src" class="flex-1 object-cover" />
+            <img 
+                :src="images[0]?.src" 
+                class="flex-1 object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                @click="handleImageClick(images[0], 0)"
+            />
 
             <div class="flex-1 grid grid-cols-2 gap-2">
                 <img
-                    v-for="image in images.slice(1)"
+                    v-for="(image, index) in images.slice(1)"
                     :key="image.src"
                     :src="image.src"
-                    class="object-cover"
+                    class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                    @click="handleImageClick(image, index + 1)"
                 />
             </div>
         </div>

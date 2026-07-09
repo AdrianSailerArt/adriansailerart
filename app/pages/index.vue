@@ -18,7 +18,7 @@ const myImages = ref<MediumReference[]>([
     title: 'Bild 2',
     alt: 'Beschreibung',
     media: {
-      url: '/images/bild2.jpg'
+      url: 'https://images.unsplash.com/photo-1665048110211-91d0b74c421c'
     }
   },
   {
@@ -26,7 +26,15 @@ const myImages = ref<MediumReference[]>([
     title: 'Bild 3',
     alt: 'Beschreibung',
     media: {
-      url: '/images/bild3.jpg'
+      url: 'https://images.unsplash.com/photo-1665048110211-91d0b74c421c'
+    }
+  },
+  {
+    id: '4',
+    title: 'Bild 4',
+    alt: 'Beschreibung',
+    media: {
+      url: 'https://images.unsplash.com/photo-1666060519824-796d5638d809'
     }
   }
 ]);
@@ -34,7 +42,7 @@ const myImages = ref<MediumReference[]>([
 
 <template><div><Hero title="Herzlich Willkommen" subtitle="Willkommen in unserer Welt" description="Entdecken Sie die besten Produkte und Dienstleistungen für Ihre Bedürfnisse." />
 <BuyBox />
- <ImagePost :images="myImages" />
+ <ImagePost :images="myImages"  layout="masonry"/>
 
 <Gallery
   layout="grid"
