@@ -1,35 +1,21 @@
 <script lang="ts" setup>
 import { computed, onUnmounted, ref } from 'vue';
-import ImageSlideDisplay, {
-    type MediumReference
-} from './ImageSlideDisplay.vue';
+import ImageSlideDisplay from './ImageSlideDisplay.vue';
 import Gallery, { type LayoutProps } from './Gallery.vue';
-import Text from '@/atomics/text/Text.vue';
 import IconButton from '~/atomics/button/IconButton.vue';
+import type { MediumReference } from '~/types/index.js';
 
 const props = defineProps<{
     images: NonNullable<Array<MediumReference>>;
-        layout: LayoutProps
+    layout: LayoutProps;
 }>();
 
 const { activeIndex, currentItem, next, prev, swipeHandlers, isDragging } =
     useImageSlider(props.images);
 
 const isSingleImage = computed(() => props.images.length === 1);
-const imageLabel = (img: MediumReference, index: number) =>
-    img.title ?? String(index + 1);
 
 const isFullscreen = ref(false);
-
-
-
-const galleryImages = computed(() =>
-    props.images.map(img => ({
-        src: img.media?.url || '',
-        alt: img.alt || img.title || '',
-        href: img.media?.url
-    }))
-);
 
 const openFullscreen = () => {
     isFullscreen.value = true;
@@ -40,9 +26,7 @@ const openFullscreen = () => {
     }
 };
 
-
-
-const handleGalleryImageClick = (image: any, index: number) => {
+const handleGalleryImageClick = (image: MediumReference, index: number) => {
     activeIndex.value = index;
     openFullscreen();
 };
@@ -76,7 +60,7 @@ onUnmounted(() => {
     <div>
         <!-- PREVIEW: Gallery -->
         <Gallery
-            :images="galleryImages"
+            :images="images"
             :layout="layout"
             class="cursor-pointer"
             @imageClick="handleGalleryImageClick"

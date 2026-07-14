@@ -6,15 +6,9 @@ import { NuxtImg } from '#components';
 import { usePinchZoom } from '@/composables/usePinchZoom';
 import IconButton from '~/atomics/button/IconButton.vue';
 import Button from '~/atomics/button/Button.vue';
+import type { MediumReference } from '~/types';
 
-export type MediumReference = {
-    id: string;
-    alt?: string;
-    title?: string;
-    media?: {
-        url: string;
-    };
-};
+
 
 export type ImageSliderProps = {
     image: MediumReference;
@@ -68,7 +62,7 @@ onUnmounted(() => unbind());
                 >
                     <NuxtImg
                         :key="image.id"
-                        :src="image.media?.url"
+                        :src="image.media"
                         :alt="image.alt"
                         class="pointer-events-none animate-fade-in"
                         :class="[

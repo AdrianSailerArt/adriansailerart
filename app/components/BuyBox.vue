@@ -1,57 +1,19 @@
 <script setup lang="ts">
 import Button from '~/atomics/button/Button.vue';
 import Text from '~/atomics/text/Text.vue';
+import type { Plan } from '~/types';
 
-type Plan = {
-    name: string;
-    price: number;
-    description: string;
-    features: string[];
-    highlight?: boolean;
-};
+ defineProps<{
+    plans: Array<Plan>;
+}>();
 
-const plans: Plan[] = [
-    {
-        name: 'Hobby',
-        price: 29,
-       
-        description:
-            "The perfect plan if you're just getting started with our product.",
-        features: ['25 Produkte']
-    },
-    {
-        name: 'Growth',
-        price: 99,
-        
-        description: 'Ein Tarif, der mit deinem Unternehmen wächst.',
-        features: ['100 Produkte', 'Priorisierter Support']
-    },
-    {
-        name: 'Scale',
-        price: 249,
-           highlight: true,
-        description:
-            'Für Unternehmen mit hohen Anforderungen und vielen Projekten.',
-        features: ['Unbegrenzte Produkte', 'Erweiterte Funktionen']
-    },
-    {
-        name: 'Enterprise',
-        price: 499,
-      
-        description: 'Maximale Performance mit persönlichem Ansprechpartner.',
-        features: [
-            'Unbegrenzte Produkte',
-            'Dedicated Support',
-            'Individuelle Lösungen'
-        ]
-    }
-];
+
 </script>
 
 <template>
-    <div class="relative isolate">
+    <div class="relative isolate" >
         <div
-            class="mx-auto grid max-w-xl grid-cols-1 gap-6 sm:mt-large4 lg:max-w-7xl lg:grid-cols-4"
+            class="mx-auto grid max-w-xl grid-cols-1 gap-small4 sm:mt-large4 lg:max-w-7xl lg:grid-cols-4"
         >
             <div
                 v-for="plan in plans"
@@ -59,7 +21,7 @@ const plans: Plan[] = [
                 :class="[
                     'pricing-card relative border border-black bg-gray30 rounded-none -rotate-1 transition-all duration-200',
                     plan.highlight
-                        ? 'pricing-card-highlight bg-primaryLightenTwo text-white scale-105 z-10'
+                        ? 'pricing-card-highlight bg-primaryLightenTwo text-white scale-105 z-fixed'
                         : 'hover:-translate-y-1'
                 ]"
             >
@@ -84,7 +46,7 @@ const plans: Plan[] = [
                         €{{ plan.price }}
                     </span>
 
-                    <Text variant="caption" color="inherit"> /Monat </Text>
+                  
                 </div>
 
                 <Text class="mt-small4 leading-relaxed" color="inherit">

@@ -1,9 +1,7 @@
 <script setup lang="ts">
-interface GalleryImage {
-    src: string;
-    alt?: string;
-    href?: string;
-}
+import type { MediumReference } from '~/types';
+
+
 
 export type LayoutProps = 
   | 'single'       // Ein Bild (Full Width)
@@ -17,7 +15,7 @@ export type LayoutProps =
 
 export type Props = {
     layout?: LayoutProps
-    images: GalleryImage[];
+    images: Array<MediumReference>;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -26,7 +24,7 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const emit = defineEmits<{
-    imageClick: [image: GalleryImage, index: number]
+    imageClick: [image: MediumReference, index: number]
 }>();
 
 
@@ -37,7 +35,7 @@ const restImages = computed(() => props.images?.slice(1) ?? []);
 const leftColumn = computed(() => props.images?.slice(0, Math.ceil((props.images?.length ?? 0) / 2)) ?? []);
 const rightColumn = computed(() => props.images?.slice(Math.ceil((props.images?.length ?? 0) / 2)) ?? []);
 
-const handleImageClick = (image: GalleryImage, index: number) => {
+const handleImageClick = (image: MediumReference, index: number) => {
     emit('imageClick', image, index);
 };
 
@@ -50,7 +48,7 @@ const handleImageClick = (image: GalleryImage, index: number) => {
         <template v-if="layout === 'single'">
             <NuxtImg
                 v-if="firstImage"
-                :src="firstImage.src"
+                :src="firstImage.media"
                 :alt="firstImage.alt"
                 class="w-full object-cover cursor-pointer hover:opacity-80 transition-opacity"
                 @click="handleImageClick(firstImage, 0)"
@@ -63,7 +61,7 @@ const handleImageClick = (image: GalleryImage, index: number) => {
                 <NuxtImg
                     v-for="(image, index) in images"
                     :key="index"
-                    :src="image.src"
+                    :src="image.media"
                     :alt="image.alt"
                     class="aspect-square object-cover cursor-pointer hover:opacity-80 transition-opacity"
                     @click="handleImageClick(image, index)"
@@ -77,7 +75,7 @@ const handleImageClick = (image: GalleryImage, index: number) => {
                 <NuxtImg
                     v-for="(image, index) in images"
                     :key="index"
-                    :src="image.src"
+                    :src="image.media"
                     class="w-[80vw] md:w-[400px] h-[400px] object-cover flex-none snap-center cursor-pointer hover:opacity-80 transition-opacity"
                     @click="handleImageClick(image, index)"
                 />
@@ -89,7 +87,7 @@ const handleImageClick = (image: GalleryImage, index: number) => {
             <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-2">
                 <template v-for="(image, index) in images" :key="index">
                     <NuxtImg
-                        :src="image.src"
+                        :src="image.media"
                         :class="{
                             'col-span-2 row-span-2': index === 0,
                             'col-span-2': index === 3
@@ -111,7 +109,7 @@ const handleImageClick = (image: GalleryImage, index: number) => {
                     :style="{ width: `${200 + (index % 3) * 50}px` }"
                 >
                     <NuxtImg
-                        :src="image.src"
+                        :src="image.media"
                         :alt="image.alt"
                         class="w-full h-auto object-cover cursor-pointer hover:opacity-80 transition-opacity rounded"
                         @click="handleImageClick(image, index)"
@@ -127,7 +125,7 @@ const handleImageClick = (image: GalleryImage, index: number) => {
                 <div class="flex-1 flex flex-col gap-2">
                     <NuxtImg
                         v-if="firstImage"
-                        :src="firstImage.src"
+                        :src="firstImage.media"
                         class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
                         @click="handleImageClick(firstImage, 0)"
                     />
@@ -135,7 +133,7 @@ const handleImageClick = (image: GalleryImage, index: number) => {
                         <NuxtImg
                             v-for="(image, index) in leftColumn.slice(1, 3)"
                             :key="index"
-                            :src="image.src"
+                            :src="image.media"
                             class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
                             @click="handleImageClick(image, leftColumn.indexOf(image))"
                         />
@@ -146,14 +144,14 @@ const handleImageClick = (image: GalleryImage, index: number) => {
                         <NuxtImg
                             v-for="(image, index) in rightColumn.slice(0, 2)"
                             :key="index"
-                            :src="image.src"
+                            :src="image.media"
                             class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
                             @click="handleImageClick(image, leftColumn.length + index)"
                         />
                     </div>
                     <NuxtImg
                         v-if="rightColumn[2]"
-                        :src="rightColumn[2]?.src"
+                        :src="rightColumn[2]?.media"
                         class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
                         @click="handleImageClick(rightColumn[2], props.images.indexOf(rightColumn[2]))"
                     />
@@ -165,15 +163,15 @@ const handleImageClick = (image: GalleryImage, index: number) => {
         <template v-else-if="layout === 'feature'">
             <div v-if="firstImage" class="flex flex-col md:flex-row gap-2">
                 <NuxtImg
-                    :src="firstImage.src"
+                    :src="firstImage.media"
                     class="flex-1 object-cover cursor-pointer hover:opacity-80 transition-opacity"
                     @click="handleImageClick(firstImage, 0)"
                 />
                 <div class="flex-1 grid grid-cols-2 gap-2">
                     <NuxtImg
                         v-for="(image, index) in restImages"
-                        :key="`${image.src}-${index}`"
-                        :src="image.src"
+                        :key="`${image.media}-${index}`"
+                        :src="image.media"
                         class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
                         @click="handleImageClick(image, index + 1)"
                     />
