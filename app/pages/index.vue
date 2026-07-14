@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import Sheet from '~/atomics/Sheet.vue';
 import { weddingPlans } from '~/resources/buyBoxes/wedding';
 import md from '~/resources/intro.md?raw';
 </script>
@@ -11,7 +12,7 @@ import md from '~/resources/intro.md?raw';
             subtitle="Willkommen in unserer Welt"
             description="Entdecken Sie die besten Produkte und Dienstleistungen für Ihre Bedürfnisse."
         />
-  <MarkdownRenderer :markdown-content="md" class="m-medium" />
+        <MarkdownRenderer :markdown-content="md" class="m-medium" />
         <BuyBox :plans="weddingPlans" />
     </div>
 </template>

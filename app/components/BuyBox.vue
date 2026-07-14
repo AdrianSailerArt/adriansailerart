@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Button from '~/atomics/button/Button.vue';
+import Sheet from '~/atomics/Sheet.vue';
 import Tag from '~/atomics/Tag.vue';
 import Text from '~/atomics/text/Text.vue';
 import type { Plan } from '~/types';
@@ -14,11 +15,11 @@ defineProps<{
         <div
             class="mx-auto grid max-w-xl grid-cols-1 gap-small4 sm:mt-large4 xl:max-w-7xl xl:grid-cols-4"
         >
-            <div
+            <Sheet
                 v-for="plan in plans"
                 :key="plan.name"
                 :class="[
-                    'pricing-card relative border border-black bg-gray30 rounded-none -rotate-1 transition-all duration-200',
+                    'pricing-card ',
                     plan.highlight
                         ? 'pricing-card-highlight bg-primaryLightenTwo text-white scale-105 z-fixed'
                         : 'hover:-translate-y-small'
@@ -79,45 +80,13 @@ defineProps<{
                 >
                     Jetzt buchen
                 </Button>
-            </div>
+            </Sheet>
         </div>
     </div>
 </template>
 
 <style scoped>
-.pricing-card {
-    padding: 2rem;
-    transform: rotate(-1deg);
-}
 
-.pricing-card:nth-child(even) {
-    transform: rotate(1deg);
-}
-
-.pricing-card::after {
-    content: '';
-    position: absolute;
-    left: 6px;
-    bottom: 6px;
-    width: calc(100% - 1px);
-    height: calc(100% - 1px);
-    border: 1px solid black;
-    pointer-events: none;
-    transition: all 0.2s ease;
-}
-
-.pricing-card:hover {
-    transform: translateY(-6px) rotate(-1deg);
-}
-
-.pricing-card:nth-child(even):hover {
-    transform: translateY(-6px) rotate(1deg);
-}
-
-.pricing-card:hover::after {
-    left: 3px;
-    bottom: 3px;
-}
 
 .pricing-card-highlight {
     transform: rotate(-2deg) scale(1.05);
