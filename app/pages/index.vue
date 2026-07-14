@@ -1,10 +1,4 @@
-<script lang="ts" setup>
-import ImagePost from '~/components/Gallery/ImagePost.vue';
-import type { MediumReference } from '~/components/Gallery/ImageSlideDisplay.vue';
-
-
-
-</script>
+<script lang="ts" setup></script>
 
 <template>
     <div>
@@ -14,7 +8,7 @@ import type { MediumReference } from '~/components/Gallery/ImageSlideDisplay.vue
             subtitle="Willkommen in unserer Welt"
             description="Entdecken Sie die besten Produkte und Dienstleistungen für Ihre Bedürfnisse."
         />
+
         <BuyBox />
-   
     </div>
 </template>
