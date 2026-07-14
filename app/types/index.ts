@@ -10,4 +10,5 @@ export type Plan = {
     description: string;
     features: Array<string>;
     highlight?: boolean;
+    cta: () => void;
 };

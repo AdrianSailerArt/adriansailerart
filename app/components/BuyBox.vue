@@ -75,6 +75,7 @@ defineProps<{
                     fluid
                     :variant="plan.highlight ? 'standard' : 'outlined'"
                     class="mt-large4"
+                    @click="plan.cta()"
                 >
                     Jetzt buchen
                 </Button>

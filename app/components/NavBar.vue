@@ -1,19 +1,6 @@
 <script lang="ts" setup>
 import Button from '~/atomics/button/Button.vue';
-import { ROUTES } from '~/statics/routes';
-
-type NavItem = {
-    name: string;
-    href: string;
-};
-
-const nav: Array<NavItem> = [
-    { name: 'Home', href: ROUTES.HOME },
-    { name: 'Über mich', href: ROUTES.ABOUT },
-    { name: 'Kontakt', href: ROUTES.CONTACT },
-    { name: 'Cosplay', href: ROUTES.COSPLAY },
-   
-];
+import { navigationRoutes } from '~/statics/routes';
 </script>
 
 <template>
@@ -34,13 +21,15 @@ const nav: Array<NavItem> = [
                     </div>
                     <div class="hidden sm:ml-medium sm:block">
                         <div class="flex space-x-small4">
-                            <template v-for="item in nav" :key="item.name">
+                            <template
+                                v-for="(item, index) in navigationRoutes"
+                                :key="index"
+                            >
                                 <Button>
-                                <a
-                                    :href="item.href"
-                                  
-                                    >{{ item.name }}</a
-                                ></Button>
+                                    <a :href="item.path">{{
+                                        item.name
+                                    }}</a></Button
+                                >
                             </template>
                         </div>
                     </div>
