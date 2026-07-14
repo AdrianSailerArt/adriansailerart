@@ -3,7 +3,7 @@ export type MediumReference = {
     alt?: string;
     title?: string;
     media: string;
-};
+};  
 export type Plan = {
     name: string;
     price: number | string;

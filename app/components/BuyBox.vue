@@ -1,19 +1,18 @@
 <script setup lang="ts">
 import Button from '~/atomics/button/Button.vue';
+import Tag from '~/atomics/Tag.vue';
 import Text from '~/atomics/text/Text.vue';
 import type { Plan } from '~/types';
 
- defineProps<{
+defineProps<{
     plans: Array<Plan>;
 }>();
-
-
 </script>
 
 <template>
-    <div class="relative isolate" >
+    <div class="relative isolate">
         <div
-            class="mx-auto grid max-w-xl grid-cols-1 gap-small4 sm:mt-large4 lg:max-w-7xl lg:grid-cols-4"
+            class="mx-auto grid max-w-xl grid-cols-1 gap-small4 sm:mt-large4 xl:max-w-7xl xl:grid-cols-4"
         >
             <div
                 v-for="plan in plans"
@@ -22,20 +21,16 @@ import type { Plan } from '~/types';
                     'pricing-card relative border border-black bg-gray30 rounded-none -rotate-1 transition-all duration-200',
                     plan.highlight
                         ? 'pricing-card-highlight bg-primaryLightenTwo text-white scale-105 z-fixed'
-                        : 'hover:-translate-y-1'
+                        : 'hover:-translate-y-small'
                 ]"
             >
-                <!-- Badge -->
-                <div
+                <Tag
+                    color="secondary"
                     v-if="plan.highlight"
-                    class="absolute -top-4 left-1/2 -translate-x-1/2 -rotate-2"
+                    class="absolute -top-4 left-1/2 -translate-x-1/2 -rotate-2 z-fixed"
                 >
-                    <div
-                        class="border border-black bg-info px-small4 py-small2 font-bold text-white"
-                    >
-                        ⭐ Empfohlen
-                    </div>
-                </div>
+                    ⭐ Empfohlen
+                </Tag>
 
                 <Text as="h3" variant="h3" color="inherit">
                     {{ plan.name }}
@@ -45,8 +40,6 @@ import type { Plan } from '~/types';
                     <span class="text-6xl font-black leading-none">
                         €{{ plan.price }}
                     </span>
-
-                  
                 </div>
 
                 <Text class="mt-small4 leading-relaxed" color="inherit">
@@ -81,7 +74,6 @@ import type { Plan } from '~/types';
                 <Button
                     fluid
                     :variant="plan.highlight ? 'standard' : 'outlined'"
-                  
                     class="mt-large4"
                 >
                     Jetzt buchen

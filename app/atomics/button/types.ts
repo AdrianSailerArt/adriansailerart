@@ -4,7 +4,7 @@ import type { ButtonHTMLAttributes } from 'vue';
 export type ButtonColor =
     | Extract<
           ColorName,
-          'primary' | 'secondary' | 'success' | 'warning' 
+          'primary' | 'secondary' | 'success' | 'warning' | 'info'
       >
    
 
@@ -50,5 +50,11 @@ export const colorMap: ColorMap = {
         text: 'text-warning',
         border: 'border-warning',
         hoverBg: 'hover:bg-warning/5'
+    },
+    info: {
+        bg: 'bg-info',
+        text: 'text-info',
+        border: 'border-info',
+        hoverBg: 'hover:bg-info/5'
     }
 };
