@@ -10,7 +10,7 @@ export const ROUTES = {
 
 type RouteName = (typeof ROUTES)[keyof typeof ROUTES];
 
-type NavigationRoute = {
+export type NavigationRoute = {
     name: string;
     icon?: string;
     path: RouteName;
