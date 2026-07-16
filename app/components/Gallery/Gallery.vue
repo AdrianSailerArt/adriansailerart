@@ -1,45 +1,45 @@
 <script setup lang="ts">
 import type { MediumReference } from '~/types';
 
-
-
-export type LayoutProps = 
-  | 'single'       // Ein Bild (Full Width)
-  | 'grid'         // Standard Grid 2-3 Spalten
-  | 'carousel'     // Horizontales Scrolling
-  | 'masonry'      // Pinterest-Style (2 Spalten, unterschiedliche Höhen)
-  | 'bento'        // Mixed Grid (1. Bild 2x2, Rest 1x1)
-  | 'feature'      // Feature Image + Gallery (1. Bild groß, Rest in Grid)
-  | 'waterfall'    // Cascade/Waterfall Style (neu)
-
+export type LayoutProps =
+    | 'single' // Ein Bild (Full Width)
+    | 'grid' // Standard Grid 2-3 Spalten
+    | 'carousel' // Horizontales Scrolling
+    | 'masonry' // Pinterest-Style (2 Spalten, unterschiedliche Höhen)
+    | 'bento' // Mixed Grid (1. Bild 2x2, Rest 1x1)
+    | 'feature' // Feature Image + Gallery (1. Bild groß, Rest in Grid)
+    | 'waterfall'; // Cascade/Waterfall Style (neu)
 
 export type Props = {
-    layout?: LayoutProps
+    layout?: LayoutProps;
     images: Array<MediumReference>;
-}
+};
 
 const props = withDefaults(defineProps<Props>(), {
-    layout: 'grid',
- 
+    layout: 'grid'
 });
 
 const emit = defineEmits<{
-    imageClick: [image: MediumReference, index: number]
+    imageClick: [image: MediumReference, index: number];
 }>();
 
 
-
-// Layout-spezifische Berechnungen
 const firstImage = computed(() => props.images?.[0]);
 const restImages = computed(() => props.images?.slice(1) ?? []);
-const leftColumn = computed(() => props.images?.slice(0, Math.ceil((props.images?.length ?? 0) / 2)) ?? []);
-const rightColumn = computed(() => props.images?.slice(Math.ceil((props.images?.length ?? 0) / 2)) ?? []);
 
 const handleImageClick = (image: MediumReference, index: number) => {
     emit('imageClick', image, index);
 };
 
+const imageGroups = computed(() => {
+    const groups = [];
 
+    for (let i = 0; i < props.images.length; i += 6) {
+        groups.push(props.images.slice(i, i + 6));
+    }
+
+    return groups;
+});
 </script>
 
 <template>
@@ -84,7 +84,9 @@ const handleImageClick = (image: MediumReference, index: number) => {
 
         <!-- BENTO -->
         <template v-else-if="layout === 'bento'">
-            <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-2">
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-2"
+            >
                 <template v-for="(image, index) in images" :key="index">
                     <NuxtImg
                         :src="image.media"
@@ -118,44 +120,82 @@ const handleImageClick = (image: MediumReference, index: number) => {
             </div>
         </template>
 
- 
         <!-- MASONRY -->
         <template v-else-if="layout === 'masonry'">
-            <div class="flex flex-col md:flex-row gap-2">
-                <div class="flex-1 flex flex-col gap-2">
-                    <NuxtImg
-                        v-if="firstImage"
-                        :src="firstImage.media"
-                        class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
-                        @click="handleImageClick(firstImage, 0)"
-                    />
-                    <div class="grid grid-cols-2 gap-2">
-                        <NuxtImg
-                            v-for="(image, index) in leftColumn.slice(1, 3)"
-                            :key="index"
-                            :src="image.media"
-                            class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
-                            @click="handleImageClick(image, leftColumn.indexOf(image))"
-                        />
+            <div class="flex flex-col gap-2">
+                <template
+                    v-for="(group, groupIndex) in imageGroups"
+                    :key="groupIndex"
+                >
+                    <div class="flex flex-col md:flex-row gap-2">
+                        <!-- Linke Spalte -->
+
+                        <div class="flex-1 flex flex-col gap-2">
+                            <NuxtImg
+                                v-if="group[0]"
+                                :src="group[0].media"
+                                class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                                @click="
+                                    handleImageClick(group[0], groupIndex * 6)
+                                "
+                            />
+
+                            <div
+                                v-if="group.length > 1"
+                                class="grid grid-cols-2 gap-2"
+                            >
+                                <NuxtImg
+                                    v-for="(image, index) in group.slice(1, 3)"
+                                    :key="index"
+                                    :src="image.media"
+                                    class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                                    @click="
+                                        handleImageClick(
+                                            image,
+
+                                            groupIndex * 6 + index + 1
+                                        )
+                                    "
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Rechte Spalte -->
+
+                        <div class="flex-1 flex flex-col gap-2">
+                            <div
+                                v-if="group.length > 3"
+                                class="grid grid-cols-2 gap-2"
+                            >
+                                <NuxtImg
+                                    v-for="(image, index) in group.slice(3, 5)"
+                                    :key="index"
+                                    :src="image.media"
+                                    class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                                    @click="
+                                        handleImageClick(
+                                            image,
+
+                                            groupIndex * 6 + index + 3
+                                        )
+                                    "
+                                />
+                            </div>
+
+                            <NuxtImg
+                                v-if="group[5]"
+                                :src="group[5].media"
+                                class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                                @click="
+                                    handleImageClick(
+                                        group[5],
+                                        groupIndex * 6 + 5
+                                    )
+                                "
+                            />
+                        </div>
                     </div>
-                </div>
-                <div class="flex-1 flex flex-col gap-2">
-                    <div class="grid grid-cols-2 gap-2">
-                        <NuxtImg
-                            v-for="(image, index) in rightColumn.slice(0, 2)"
-                            :key="index"
-                            :src="image.media"
-                            class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
-                            @click="handleImageClick(image, leftColumn.length + index)"
-                        />
-                    </div>
-                    <NuxtImg
-                        v-if="rightColumn[2]"
-                        :src="rightColumn[2]?.media"
-                        class="object-cover cursor-pointer hover:opacity-80 transition-opacity"
-                        @click="handleImageClick(rightColumn[2], props.images.indexOf(rightColumn[2]))"
-                    />
-                </div>
+                </template>
             </div>
         </template>
 
