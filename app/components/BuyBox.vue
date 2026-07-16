@@ -26,8 +26,8 @@ defineProps<{
                 ]"
             >
                 <Tag
-                    color="secondary"
                     v-if="plan.highlight"
+                    color="secondary"
                     class="absolute -top-4 left-1/2 -translate-x-1/2 -rotate-2 z-fixed"
                 >
                     ⭐ Empfohlen

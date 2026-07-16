@@ -29,37 +29,37 @@ const handleImageClick = (image: MediumReference, index: number) => {
     <section class="max-w-screen-2xl mx-auto px-small4 py-medium lg:py-large2">
         <!-- SINGLE -->
         <template v-if="layout === 'single'">
-            <Single :images="images" @imageClick="handleImageClick" />
+            <Single :images="images" @image-click="handleImageClick" />
         </template>
 
         <!-- GRID -->
         <template v-else-if="layout === 'grid'">
-            <Grid :images="images" @imageClick="handleImageClick" />
+            <Grid :images="images" @image-click="handleImageClick" />
         </template>
 
         <!-- CAROUSEL -->
         <template v-else-if="layout === 'carousel'">
-            <Carousel :images="images" @imageClick="handleImageClick" />
+            <Carousel :images="images" @image-click="handleImageClick" />
         </template>
 
         <!-- BENTO -->
         <template v-else-if="layout === 'bento'">
-            <Bento :images="images" @imageClick="handleImageClick" />
+            <Bento :images="images" @image-click="handleImageClick" />
         </template>
 
         <!-- WATERFALL -->
         <template v-else-if="layout === 'waterfall'">
-            <Waterfall :images="images" @imageClick="handleImageClick" />
+            <Waterfall :images="images" @image-click="handleImageClick" />
         </template>
 
         <!-- MASONRY -->
         <template v-else-if="layout === 'masonry'">
-            <Masonry :images="images" @imageClick="handleImageClick" />
+            <Masonry :images="images" @image-click="handleImageClick" />
         </template>
 
         <!-- FEATURE -->
         <template v-else-if="layout === 'feature'">
-            <Feature :images="images" @imageClick="handleImageClick" />
+            <Feature :images="images" @image-click="handleImageClick" />
         </template>
     </section>
 </template>

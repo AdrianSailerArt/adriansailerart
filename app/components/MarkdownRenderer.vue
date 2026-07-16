@@ -17,7 +17,7 @@ defineExpose({ htmlOutput });
 </script>
 
 <template>
-    <div class="markdown-content" v-html="htmlOutput"></div>
+    <div class="markdown-content" v-html="htmlOutput"/>
 </template>
 
 <style scoped>

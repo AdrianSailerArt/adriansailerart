@@ -63,7 +63,7 @@ onUnmounted(() => {
             :images="images"
             :layout="layout"
             class="cursor-pointer"
-            @imageClick="handleGalleryImageClick"
+            @image-click="handleGalleryImageClick"
         />
 
         <!-- FULLSCREEN: ImageSlideDisplay -->
