@@ -1,43 +1,68 @@
 <script lang="ts" setup>
-import md from '~/resources/intro.md?raw';
+import { ROUTES } from '~/statics/routes';
 </script>
 
 <template>
     <div>
-        <Hero
-            image="/Logo_Adrian_Sailer_Art.png"
-            title="Herzlich Willkommen"
-            subtitle="auf adriansailer.art"
-            description=""
+        <HeroStack
+            background-image="/people/Myra.jpg"
+            line1="Emotion"
+            line2="Menschen"
+            line3="Schwarzwald"
+            align="left"
         />
-        <div class="my-none mx-auto">
-            <div
-                class="flex flex-col md:flex-row gap-small3 py-medium items-start"
-            >
-                <NuxtImg
-                    src="/Logo_Adrian_Sailer_Art.png"
-                    alt="Adrian Sailer"
-                    class="w-full md:w-1/2 h-auto shrink-0"
-                />
-
-                <div class="md:w-1/2">
-                    <MarkdownRenderer :markdown-content="md" class="m-medium" />
-                </div>
-            </div>
-
-            <div
-                class="flex flex-col md:flex-row gap-small3 py-medium items-start"
-            >
-                <div class="md:w-1/2 order-2 md:order-1">
-                    <MarkdownRenderer :markdown-content="md" class="m-medium" />
-                </div>
-
-                <NuxtImg
-                    src="/Logo_Adrian_Sailer_Art.png"
-                    alt="Adrian Sailer"
-                    class="w-full md:w-1/2 h-auto shrink-0 order-1 md:order-2"
-                />
-            </div>
-        </div>
+        <FeatureSection
+            image="/people/Vintage-2.jpg"
+            title="Wedding Fotogragfie"
+            description="Text für Hochzeiten"
+            button-text="Mehr entdecken & buchen"
+            :button-link="ROUTES.WEDDING"
+            image-ratio="landscape"
+            layout="left"
+        />
+        <ParallaxSection
+            background-image="/people/Myra.jpg"
+            title="Portraitfotografie"
+            description="Authentische Bilder mit Charakter und Persönlichkeit."
+            button-text="Termin buchen"
+            height="large"
+            button-link="/kontakt"
+            align="left"
+        />
+        <FeatureSection
+            image="/people/Vintage-2.jpg"
+            title="Portraitfotografie"
+            description="Zeitlose Portraits mit Fokus auf Persönlichkeit statt steifen Posen. Gemeinsam schaffen wir natürliche Bilder mit Charakter."
+            button-text="Mehr erfahren"
+            :button-link="ROUTES.PEOPLE"
+            layout="right"
+            image-ratio="square"
+            image-style="rounded"
+            background="light"
+        />
+        <ParallaxSection
+            background-image="/people/Elvira.jpg"
+            height="large"
+            image-only
+        />
+        <FeatureSection
+            image="/people/Vintage-2.jpg"
+            title="Konzertfotografie"
+            description="Von kleinen Clubshows bis hin zu Festivals halte ich Emotionen, Energie und Atmosphäre in einzigartigen Bildern fest."
+            button-text="Mehr entdecken"
+            :button-link="ROUTES.WEDDING"
+            image-ratio="landscape"
+            layout="left"
+        />
+        <FeatureSection
+            image="/adrian-sailer.jpg"
+            title="Über mich"
+            description="Von kleinen Clubshows bis hin zu Festivals halte ich Emotionen, Energie und Atmosphäre in einzigartigen Bildern fest."
+            button-text="Referenzen"
+            :button-link="ROUTES.ABOUT"
+            layout="left"
+            image-style="frame"
+            background="dark"
+        />
     </div>
 </template>
