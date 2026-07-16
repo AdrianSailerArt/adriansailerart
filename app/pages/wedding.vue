@@ -1,15 +1,19 @@
 <script lang="ts" setup>
+import ImagePost from '~/components/Gallery/ImagePost.vue';
+import Hero from '~/components/Hero.vue';
+import md from '~/resources/about.md?raw';
+import { cosplayImages } from '~/resources/imageSrc/cosplay';
 import { weddingPlans } from '~/resources/buyBoxes/wedding';
-import md from '~/resources/intro.md?raw';
 </script>
 
 <template>
     <div>
         <Hero
             image="/Logo_Adrian_Sailer_Art.png"
-            title="Herzlich Willkommen"
-            subtitle="auf adriansailer.art"
-            description=""
+            title="Cosplay Gallerie"
+            subtitle="Cosplay & Fantasy"
+            description="Entdecken Sie die besten Produkte und Dienstleistungen für Ihre Bedürfnisse."
+            background-image="/cosplay/Keira Metz - Anna Rosa-2.jpg"
         />
         <div class="my-none mx-auto">
             <div
@@ -40,5 +44,7 @@ import md from '~/resources/intro.md?raw';
                 />
             </div>
         </div>
+        <ImagePost :images="cosplayImages" layout="grid" />
+        <BuyBox :plans="weddingPlans" />
     </div>
 </template>

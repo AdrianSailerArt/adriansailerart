@@ -3,12 +3,15 @@ import md from '~/resources/about.md?raw';
 </script>
 
 <template>
-    <div class="my-none mx-auto flex gap-small3">
+    <div class="my-none mx-auto flex flex-col md:flex-row gap-small3 py-medium">
         <NuxtImg
             src="/Logo_Adrian_Sailer_Art.png"
             alt="Adrian Sailer"
-            class="w-1/2 h-auto"
+            class="w-full md:w-1/2 h-auto shrink-0"
         />
-        <MarkdownRenderer :markdown-content="md" class="m-medium" />
+
+        <div class="md:w-1/2">
+            <MarkdownRenderer :markdown-content="md" class="m-medium" />
+        </div>
     </div>
 </template>
