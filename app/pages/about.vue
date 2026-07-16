@@ -5,7 +5,7 @@ import md from '~/resources/about.md?raw';
 <template>
     <div class="my-none mx-auto flex flex-col md:flex-row gap-small3 py-medium">
         <NuxtImg
-            src="/Logo_Adrian_Sailer_Art.png"
+            src="/adrian-sailer.jpg"
             alt="Adrian Sailer"
             class="w-full md:w-1/2 h-auto shrink-0"
         />

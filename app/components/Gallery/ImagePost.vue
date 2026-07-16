@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import { computed, onUnmounted, ref } from 'vue';
 import ImageSlideDisplay from './ImageSlideDisplay.vue';
-import Gallery, { type LayoutProps } from './Gallery.vue';
+import Gallery  from './Gallery.vue';
 import IconButton from '~/atomics/button/IconButton.vue';
 import type { MediumReference } from '~/types/index.js';
+import type { LayoutProps } from './variants/types.js';
 
 const props = defineProps<{
     images: NonNullable<Array<MediumReference>>;
