@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { weddingPlans } from '~/resources/buyBoxes/wedding';
 import md from '~/resources/intro.md?raw';
 </script>
 

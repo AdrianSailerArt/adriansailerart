@@ -2,7 +2,7 @@
 import type { MediumReference } from '~/types';
 import type { EmitGalleryType } from './types';
 
-const props = defineProps<{
+defineProps<{
     images: Array<MediumReference>;
 }>();
 
@@ -10,7 +10,7 @@ const emit = defineEmits<EmitGalleryType>();
 </script>
 
 <template>
-    <div class="flex flex-wrap gap-4 justify-center">
+    <div class="flex flex-wrap gap-small4 justify-center">
         <div
             v-for="(image, index) in images"
             :key="index"

@@ -14,7 +14,7 @@ type Props = {
     images: Array<MediumReference>;
 };
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
     layout: 'grid'
 });
 

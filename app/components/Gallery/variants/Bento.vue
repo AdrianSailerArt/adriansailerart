@@ -2,7 +2,7 @@
 import type { MediumReference } from '~/types';
 import type { EmitGalleryType } from './types';
 
-const props = defineProps<{
+ defineProps<{
     images: Array<MediumReference>;
 }>();
 
