@@ -1,8 +1,6 @@
 import { createMailtoCta } from '~/helpers/ctaMail';
 import type { Plan } from '~/types';
 
-
-
 export const weddingPlans: Array<Plan> = [
     {
         name: 'Standesamt',
@@ -55,25 +53,7 @@ export const weddingPlans: Array<Plan> = [
         ],
         cta: createMailtoCta('Premium')
     },
-    {
-        name: 'Exclusive',
-        price: 2890,
-        description:
-            'Für Paare, die ihren gesamten Hochzeitstag ohne Kompromisse festhalten möchten.',
-        features: [
-            'Bis zu 12 Stunden Begleitung',
-            'Persönliches Vorgespräch',
-            'Professionelle Bildbearbeitung',
-            'Mind. 800 bearbeitete Fotos',
-            'Online-Galerie',
-            'Getting Ready bis Party',
-            'Drohnenaufnahmen (wenn möglich)',
-            'After-Wedding-Shooting',
-            'Highlight-Slideshow',
-            'Private Nutzungsrechte'
-        ],
-        cta: createMailtoCta('Exclusive')
-    },
+  
     {
         name: 'Individuell',
 

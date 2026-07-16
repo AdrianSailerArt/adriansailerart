@@ -3,6 +3,7 @@ export const ROUTES = {
     ABOUT: '/about',
     WEDDING: '/wedding',
     COSPLAY: '/cosplay',
+    PEOPLE: '/people',
     IMPRESSUM: '/impressum',
     DATA_SECURITY: '/datenschutz'
 } as const;
@@ -29,6 +30,11 @@ export const navigationRoutes: Array<NavigationRoute> = [
         name: 'Wedding',
         icon: 'heart',
         path: ROUTES.WEDDING
+    },
+     {
+        name: 'People',
+        icon: 'mask',
+        path: ROUTES.PEOPLE
     },
     {
         name: 'Cosplay',

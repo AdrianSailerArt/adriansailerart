@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import ImagePost from '~/components/Gallery/ImagePost.vue';
-import { cosplayImages } from '~/resources/imageSrc/cosplay';
+import { peopleImages } from '~/resources/imageSrc/people';
 </script>
 <template>
     <div>
@@ -9,8 +9,8 @@ import { cosplayImages } from '~/resources/imageSrc/cosplay';
             title="Cosplay Gallerie"
             subtitle="Cosplay & Fantasy"
             description="Entdecken Sie die besten Produkte und Dienstleistungen für Ihre Bedürfnisse."
-            background-image="/cosplay/Viking-3.jpg"
+            background-image="/people/Elvira-2.jpg"
         />
-        <ImagePost :images="cosplayImages" layout="grid" />
+        <ImagePost :images="peopleImages" layout="grid" />
     </div>
 </template>
