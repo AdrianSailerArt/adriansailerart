@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { NuxtImg } from '#components';
 import { ref } from 'vue';
 import Button from '~/atomics/button/Button.vue';
 import type { NavigationRoute } from '~/statics/routes';
@@ -15,7 +16,6 @@ const close = () => {
 
 <template>
     <div>
-        <!-- Overlay -->
         <Transition
             enter-active-class="transition-all duration-700"
             enter-from-class="opacity-0 scale-0"
@@ -28,19 +28,23 @@ const close = () => {
                 v-if="isOpen"
                 class="fixed inset-0 z-dropdown flex items-center justify-center"
             >
-                <!-- Blob -->
                 <div
                     class="animate-blob bg-gray90"
                     :class="{
                         open: isOpen,
-
                         paused: isOpen
                     }"
                 />
 
-                <!-- Navigation -->
                 <nav class="relative z-dropdown">
                     <ul class="flex flex-col items-center gap-8">
+                        <li>
+                            <NuxtImg
+                                src="/Logo_Adrian_Sailer_Art.png"
+                                alt="Adrian Sailer Art"
+                                class="h-large5 w-auto"
+                            />
+                        </li>
                         <li
                             v-for="(item, index) in items"
                             :key="item.path"
@@ -88,21 +92,13 @@ const close = () => {
 <style scoped>
 .animate-blob {
     position: absolute;
-
     top: 50%;
-
     left: 50%;
-
     width: 80px;
-
     height: 80px;
-
     transform: translate(-50%, -50%);
-
     animation: blob 8s linear infinite;
-
     animation-fill-mode: forwards;
-
     transition:
         width 0.8s ease,
         height 0.8s ease;
@@ -110,7 +106,6 @@ const close = () => {
 
 .animate-blob.open {
     width: 220vmax;
-
     height: 220vmax;
 }
 
