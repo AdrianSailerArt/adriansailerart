@@ -2,21 +2,21 @@
 import Text from '~/atomics/text/Text.vue';
 
 type HeroProps = {
-    image: string;
+    image?: string;
     title: string;
     subtitle: string;
     description: string;
     backgroundImage?: string;
 };
 
-const props = defineProps<HeroProps>();
+ defineProps<HeroProps>();
 </script>
 
 <template>
     <section
         class="relative flex min-h-screen items-center justify-center overflow-hidden bg-cover bg-center"
-        :style="props.backgroundImage
-            ? `background-image: url('${props.backgroundImage}')`
+        :style="backgroundImage
+            ? `background-image: url('${backgroundImage}')`
             : `background-image: url('/images/hero.jpg')`"
     >
         <!-- Overlay -->
@@ -26,7 +26,8 @@ const props = defineProps<HeroProps>();
         <div class="relative z-10 mx-auto max-w-4xl px-small4 text-center">
 
             <NuxtImg
-                src="/Logo_Adrian_Sailer_Art.png"
+            v-if="image"
+                :src="image"
                 alt="Adrian Sailer Art"
                 class="mx-auto mb-large h-40 w-40 object-contain sm:h-56 sm:w-56 md:h-72 md:w-72 lg:h-80 lg:w-80"
             />
