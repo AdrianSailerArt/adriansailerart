@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { NuxtImg } from '#components';
-import Button from '~/atomics/button/Button.vue';
 import Hamburger from '~/atomics/button/Hamburger.vue';
 import { navigationRoutes } from '~/statics/routes';
-const {isOpen, setClosed, setOpen} = useNavigationTrigger();
+const {isOpen, setClosed} = useNavigationTrigger();
 
 
 </script>
