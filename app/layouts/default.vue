@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <NavBar />
-    <slot />
-  </div>
+    <div>
+        <NavBar />
+
+        <main class="pt-large">
+            <slot />
+        </main>
+    </div>
 </template>
