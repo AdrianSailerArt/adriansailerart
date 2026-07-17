@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { navigationRoutes } from '~/statics/routes';
+import Hamburger from '~/atomics/button/Hamburger.vue';
 </script>
 
 <template>
@@ -19,7 +19,7 @@ import { navigationRoutes } from '~/statics/routes';
                         />
                     </div>
                 </div>
-                <BlobMenu :items="navigationRoutes" />
+                <Hamburger />
             </div>
         </div>
     </nav>

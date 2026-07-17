@@ -1,21 +1,16 @@
 <script setup lang="ts">
 import { NuxtImg } from '#components';
-import { ref } from 'vue';
 import Button from '~/atomics/button/Button.vue';
-import type { NavigationRoute } from '~/statics/routes';
-defineProps<{
-    items: Array<NavigationRoute>;
-}>();
+import Hamburger from '~/atomics/button/Hamburger.vue';
+import { navigationRoutes } from '~/statics/routes';
+const {isOpen, setClosed, setOpen} = useNavigationTrigger();
 
-const isOpen = ref(false);
 
-const close = () => {
-    isOpen.value = false;
-};
 </script>
 
 <template>
     <div>
+        
         <Transition
             enter-active-class="transition-all duration-700"
             enter-from-class="opacity-0 scale-0"
@@ -26,8 +21,10 @@ const close = () => {
         >
             <div
                 v-if="isOpen"
-                class="fixed inset-0 z-dropdown flex items-center justify-center"
+                class="fixed inset-0 z-modal flex items-center justify-center"
             >
+            <div class="absolute right-small top-small" >
+               <Hamburger /></div>
                 <div
                     class="animate-blob bg-gray90"
                     :class="{
@@ -36,7 +33,8 @@ const close = () => {
                     }"
                 />
 
-                <nav class="relative z-dropdown">
+                <nav class="relative z-modal">
+                    
                     <ul class="flex flex-col items-center gap-8">
                         <li>
                             <NuxtImg
@@ -46,7 +44,7 @@ const close = () => {
                             />
                         </li>
                         <li
-                            v-for="(item, index) in items"
+                            v-for="(item, index) in navigationRoutes"
                             :key="item.path"
                             class="animate-fade-up"
                             :style="{
@@ -56,7 +54,7 @@ const close = () => {
                             <NuxtLink
                                 :to="item.path"
                                 class="text-white uppercase font-black tracking-wider text-4xl md:text-6xl hover:text-primary transition-colors"
-                                @click="close"
+                                @click="setClosed"
                             >
                                 {{ item.name }}
                             </NuxtLink>
@@ -65,27 +63,6 @@ const close = () => {
                 </nav>
             </div>
         </Transition>
-
-        <!-- Hamburger -->
-        <Button
-            class="z-dropdown w-10 h-10 flex items-center justify-center"
-            @click="isOpen = !isOpen"
-        >
-            <div class="relative w-8 h-6">
-                <span
-                    class="absolute left-0 top-0 w-full h-0.5 bg-white transition-all duration-300"
-                    :class="isOpen ? 'translate-y-[11px] rotate-45' : ''"
-                />
-                <span
-                    class="absolute left-0 top-[11px] w-full h-0.5 bg-white transition-all duration-300"
-                    :class="isOpen ? 'opacity-0' : ''"
-                />
-                <span
-                    class="absolute left-0 bottom-0 w-full h-0.5 bg-white transition-all duration-300"
-                    :class="isOpen ? '-translate-y-[11px] -rotate-45' : ''"
-                />
-            </div>
-        </Button>
     </div>
 </template>
 
