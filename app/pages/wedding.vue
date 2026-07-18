@@ -7,6 +7,8 @@ import md3 from '~/resources/hochzeitsfotograf-freiburg.md?raw';
 
 import { weddingPlans } from '~/resources/buyBoxes/wedding';
 import { hochzeitImages } from '~/resources/imageSrc/hochzeit';
+import Text from '~/atomics/text/Text.vue';
+import Sheet from '~/atomics/Sheet.vue';
 </script>
 
 <template>
@@ -37,21 +39,14 @@ import { hochzeitImages } from '~/resources/imageSrc/hochzeit';
                 </div>
             </div>
 
-
             <div class="w-full max-w-full overflow-hidden">
-                <ImagePost
-                    :images="hochzeitImages"
-                    layout="carousel"
-                />
+                <ImagePost :images="hochzeitImages" layout="carousel" />
             </div>
-
 
             <div
                 class="flex flex-col md:flex-row gap-small3 py-medium items-start"
             >
-                <div
-                    class="w-full md:w-1/2 order-2 md:order-1"
-                >
+                <div class="w-full md:w-1/2 order-2 md:order-1">
                     <MarkdownRenderer
                         :markdown-content="md2"
                         class="m-medium"
@@ -65,13 +60,11 @@ import { hochzeitImages } from '~/resources/imageSrc/hochzeit';
                 />
             </div>
 
-
             <ParallaxSection
                 background-image="/hochzeit/Hochzeit-7.jpg"
                 height="large"
                 image-only
             />
-
 
             <div
                 class="flex flex-col md:flex-row gap-small3 py-medium items-start"
@@ -90,9 +83,16 @@ import { hochzeitImages } from '~/resources/imageSrc/hochzeit';
                 </div>
             </div>
 
-
             <div id="buchen">
                 <BuyBox :plans="weddingPlans" />
+                <div class="mt-large p-large flex items-center-safe">
+                    <Sheet>
+                        <Text variant="title" color="gray">
+                            Nichts dabei? Gerne können wir auch ein
+                            individeulles Paket erstellen</Text
+                        >
+                    </Sheet>
+                </div>
             </div>
         </div>
     </div>

@@ -20,6 +20,7 @@ export const weddingPlans: Array<Plan> = [
     {
         name: 'Classic',
         price: 1290,
+           highlight: true,
         description:
             'Die perfekte Wahl für die meisten Hochzeiten – von der Trauung bis zum Sektempfang.',
         features: [
@@ -36,7 +37,7 @@ export const weddingPlans: Array<Plan> = [
     {
         name: 'Premium',
         price: 1990,
-        highlight: true,
+       
         description:
             'Eure Geschichte vom Getting Ready bis zur ausgelassenen Feier – authentisch und emotional dokumentiert.',
         features: [
@@ -54,31 +55,5 @@ export const weddingPlans: Array<Plan> = [
         cta: createMailtoCta('Premium')
     },
   
-    {
-        name: 'Individuell',
-
-        price: 0,
-
-        description:
-            'Eure Hochzeit passt in keines der Pakete? Gerne erstelle ich euch ein individuelles Angebot – perfekt abgestimmt auf eure Wünsche, euren Zeitplan und eure Location.',
-
-        features: [
-            'Individuelle Begleitungsdauer',
-
-            'Persönliche Beratung',
-
-            'Flexibler Leistungsumfang',
-
-            'Destination Weddings möglich',
-
-            'Zusätzliche Shootings',
-
-            'Drohnenaufnahmen (wenn möglich)',
-
-            'Fotoalben & hochwertige Prints',
-
-            'Persönliches Angebot'
-        ],
-        cta: createMailtoCta('Individuell')
-    }
+  
 ];

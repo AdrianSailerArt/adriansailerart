@@ -13,7 +13,7 @@ defineProps<{
 <template>
     <div class="relative isolate">
         <div
-            class="mx-auto grid max-w-xl grid-cols-1 gap-small4 sm:mt-large4 xl:max-w-7xl xl:grid-cols-4"
+            class="mx-auto grid max-w-xl grid-cols-1 gap-small4 sm:mt-large4 xl:max-w-7xl xl:grid-cols-3"
         >
             <Sheet
                 v-for="plan in plans"
