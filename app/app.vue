@@ -2,11 +2,12 @@
     <NuxtLayout>
         <BlobMenu />
 
-        <Transition
+       <!--  <Transition
             name="page"
             mode="out-in"
         >
-            <NuxtPage :key="$route.fullPath" />
-        </Transition>
+          
+        </Transition> -->
+          <NuxtPage :key="$route.fullPath" />
     </NuxtLayout>
 </template>
