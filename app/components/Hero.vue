@@ -29,11 +29,11 @@ defineProps<HeroProps>();
                 class="mx-auto mb-large h-40 w-40 object-contain sm:h-56 sm:w-56 md:h-72 md:w-72 lg:h-80 lg:w-80"
             />
             <div class="hero-title inline-block -rotate-1 px-medium py-small4">
-                <Text as="h1" variant="h1" color="primary">
+                <Text as="h1" variant="h1" color="white">
                     {{ title }}
                 </Text>
             </div>
-            <Text as="h2" variant="h2" class="mt-medium" color="info">
+            <Text as="h2" variant="h2" class="mt-medium" color="primary">
                 {{ subtitle }}
             </Text>
         </div>
