@@ -38,7 +38,7 @@ const {isOpen, setClosed} = useNavigationTrigger();
                     <ul class="flex flex-col items-center gap-8">
                         <li>
                             <NuxtImg
-                                src="/Logo_Adrian_Sailer_Art.png"
+                                src="Logo_Adrian_Sailer_Art.png"
                                 alt="Adrian Sailer Art"
                                 class="h-large5 w-auto"
                             />
