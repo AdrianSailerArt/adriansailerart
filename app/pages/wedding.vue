@@ -73,7 +73,7 @@ import { hochzeitImages } from '~/resources/imageSrc/hochzeit';
                 </div>
             </div>
         </div>
-
+<div id="buchen">
         <BuyBox :plans="weddingPlans" />
-    </div>
+    </div></div>
 </template>
