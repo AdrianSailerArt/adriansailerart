@@ -6,8 +6,8 @@
             name="page"
             mode="out-in"
         >
-          
+            <NuxtPage :key="$route.fullPath" />
         </Transition> -->
-          <NuxtPage :key="$route.fullPath" />
+          <NuxtPage  />
     </NuxtLayout>
 </template>
