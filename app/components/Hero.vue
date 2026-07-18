@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import Text from '~/atomics/text/Text.vue';
 
 type HeroProps = {
@@ -12,20 +13,25 @@ const props = defineProps<HeroProps>();
 
 const config = useRuntimeConfig();
 
-const backgroundUrl = computed(() => {
-    const image = props.backgroundImage ?? 'images/hero.jpg';
+const backgroundImageUrl = computed(() => {
+    const image = props.backgroundImage ?? '/images/hero.jpg';
 
     return `${config.app.baseURL}${image.replace(/^\//, '')}`;
 });
 </script>
 
 <template>
-    <section
-        class="relative flex min-h-screen items-center justify-center overflow-hidden bg-cover bg-center"
-        :style="{
-            backgroundImage: `url('${backgroundUrl}')`
-        }"
-    >
+   <section
+
+    class="relative flex min-h-screen items-center justify-center overflow-hidden bg-cover bg-center"
+
+    :style="{
+
+        backgroundImage: `url('${backgroundImageUrl}')`
+
+    }"
+
+>
         <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
 
         <div class="relative z-fixed mx-auto max-w-4xl px-small4 text-center">
