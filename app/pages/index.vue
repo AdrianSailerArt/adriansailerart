@@ -12,7 +12,7 @@ import { ROUTES } from '~/statics/routes';
             align="left"
         />
         <FeatureSection
-            image="/people/Vintage-2.jpg"
+            image="/people/Elvira.jpg"
             title="Wedding Fotogragfie"
             description="Text für Hochzeiten"
             button-text="Mehr entdecken & buchen"
@@ -30,7 +30,7 @@ import { ROUTES } from '~/statics/routes';
             align="left"
         />
         <FeatureSection
-            image="/people/Vintage-2.jpg"
+            image="/people/Elvira.jpg"
             title="Portraitfotografie"
             description="Zeitlose Portraits mit Fokus auf Persönlichkeit statt steifen Posen. Gemeinsam schaffen wir natürliche Bilder mit Charakter."
             button-text="Mehr erfahren"
@@ -46,7 +46,7 @@ import { ROUTES } from '~/statics/routes';
             image-only
         />
         <FeatureSection
-            image="/people/Vintage-2.jpg"
+            image="/people/Elvira.jpg"
             title="Konzertfotografie"
             description="Von kleinen Clubshows bis hin zu Festivals halte ich Emotionen, Energie und Atmosphäre in einzigartigen Bildern fest."
             button-text="Mehr entdecken"
