@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import ImagePost from '~/components/Gallery/ImagePost.vue';
 import { concertImages } from '~/resources/imageSrc/concet';
-import { regenImages } from '~/resources/imageSrc/regen';
-import { trachtImages } from '~/resources/imageSrc/tracht';
 </script>
 <template>
     <div>
@@ -14,7 +12,6 @@ import { trachtImages } from '~/resources/imageSrc/tracht';
            
         />
         <ImagePost :images="concertImages" layout="grid" />
-         <ImagePost :images="trachtImages" layout="feature" />
-          <ImagePost :images="regenImages" layout="masonry" />
+      
     </div>
 </template>

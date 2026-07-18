@@ -1,5 +1,5 @@
 export type MediumReference = {
-    id: string;
+    id: number;
     alt?: string;
     title?: string;
     media: string;
