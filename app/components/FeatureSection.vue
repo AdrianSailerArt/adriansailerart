@@ -111,6 +111,7 @@ const imageClass = computed(() => {
                 <!-- Image -->
                 <div>
                     <NuxtImg
+                     preset="static"
                         :src="image"
                         :alt="title"
                         class="h-full w-full object-cover"

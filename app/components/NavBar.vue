@@ -58,6 +58,7 @@ onUnmounted(() => {
                             src="/Logo_Adrian_Sailer_Art.png"
                             alt="Adrian Sailer Art"
                             class="h-medium4 w-auto"
+                             preset="static"
                         />
                     </NuxtLink>
 

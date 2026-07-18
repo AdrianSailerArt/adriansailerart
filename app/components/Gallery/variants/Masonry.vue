@@ -37,6 +37,7 @@ const imageGroups = computed(() => {
                         <NuxtImg
                             :src="group[0].media"
                             :alt="group[0].alt"
+                             preset="static"
                             class="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
 
@@ -71,6 +72,7 @@ const imageGroups = computed(() => {
                             <NuxtImg
                                 :src="image.media"
                                 :alt="image.alt"
+                                 preset="static"
                                 class="object-cover transition-transform duration-500 group-hover:scale-105"
                             />
 
@@ -111,6 +113,7 @@ const imageGroups = computed(() => {
                             <NuxtImg
                                 :src="image.media"
                                 :alt="image.alt"
+                                 preset="static"
                                 class="object-cover transition-transform duration-500 group-hover:scale-105"
                             />
 
@@ -137,6 +140,7 @@ const imageGroups = computed(() => {
                         <NuxtImg
                             :src="group[5].media"
                             :alt="group[5].alt"
+                             preset="static"
                             class="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
 

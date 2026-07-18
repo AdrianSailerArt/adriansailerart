@@ -42,13 +42,23 @@ export default defineNuxtConfig({
         preset: 'github-pages'
     },
 
-    image: {
-        presets: {
-            static: {
-                modifiers: {
-                    format: undefined
-                }
+   image: {
+
+    provider: 'ipx',
+
+    presets: {
+
+        static: {
+
+            modifiers: {
+
+                format: undefined
+
             }
+
         }
+
     }
+
+},
 });

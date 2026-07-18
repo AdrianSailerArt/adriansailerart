@@ -28,6 +28,7 @@ import Sheet from '~/atomics/Sheet.vue';
                 <NuxtImg
                     src="/hochzeit/Hochzeit-2.jpg"
                     alt="Adrian Sailer"
+                     preset="static"
                     class="w-full md:w-1/2 h-auto shrink-0"
                 />
 
@@ -56,6 +57,7 @@ import Sheet from '~/atomics/Sheet.vue';
                 <NuxtImg
                     src="/hochzeit/Hochzeit-9.jpg"
                     alt="Adrian Sailer"
+                     preset="static"
                     class="w-full md:w-1/2 h-auto shrink-0 order-1 md:order-2"
                 />
             </div>
@@ -72,6 +74,7 @@ import Sheet from '~/atomics/Sheet.vue';
                 <NuxtImg
                     src="/hochzeit/Hochzeit-4.jpg"
                     alt="Adrian Sailer"
+                     preset="static"
                     class="w-full md:w-1/2 h-auto shrink-0"
                 />
 

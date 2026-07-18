@@ -14,6 +14,7 @@ const emit = defineEmits<EmitGalleryType>();
         <template v-for="(image, index) in images" :key="index">
             <NuxtImg
                 :src="image.media"
+                 preset="static"
                 :class="{
                     'col-span-2 row-span-2': index === 0,
                     'col-span-2': index === 3

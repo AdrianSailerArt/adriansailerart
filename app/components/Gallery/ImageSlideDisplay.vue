@@ -64,6 +64,7 @@ onUnmounted(() => unbind());
                         :key="image.id"
                         :src="image.media"
                         :alt="image.alt"
+                         preset="static"
                         class="pointer-events-none animate-fade-in"
                         :class="[
                             mode === 'preview'

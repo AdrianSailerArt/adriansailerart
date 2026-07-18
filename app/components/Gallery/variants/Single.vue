@@ -15,6 +15,7 @@ const emit = defineEmits<EmitGalleryType>();
         v-if="firstImage"
         :src="firstImage.media"
         :alt="firstImage.alt"
+         preset="static"
         class="w-full object-cover cursor-pointer hover:opacity-80 transition-opacity"
         @click="emit('imageClick', firstImage, 0)"
     />

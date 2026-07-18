@@ -24,6 +24,8 @@ const emit = defineEmits<EmitGalleryType>();
             <NuxtImg
                 :src="firstImage.media"
                 :alt="firstImage.alt"
+                
+                 preset="static"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
 
@@ -49,6 +51,7 @@ const emit = defineEmits<EmitGalleryType>();
                 <NuxtImg
                     :src="image.media"
                     :alt="image.alt"
+                     preset="static"
                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 

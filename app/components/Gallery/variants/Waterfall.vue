@@ -20,6 +20,7 @@ const emit = defineEmits<EmitGalleryType>();
             <NuxtImg
                 :src="image.media"
                 :alt="image.alt"
+                 preset="static"
                 class="w-full h-auto object-cover cursor-pointer hover:opacity-80 transition-opacity rounded"
                 @click="emit('imageClick', image, index)"
             />

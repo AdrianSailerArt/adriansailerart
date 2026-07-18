@@ -25,6 +25,7 @@ defineProps<HeroProps>();
             <NuxtImg
                 v-if="image"
                 :src="image"
+                 preset="static"
                 alt="Adrian Sailer Art"
                 class="mx-auto mb-large h-40 w-40 object-contain sm:h-56 sm:w-56 md:h-72 md:w-72 lg:h-80 lg:w-80"
             />

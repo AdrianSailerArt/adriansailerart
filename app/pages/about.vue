@@ -7,6 +7,7 @@ import md from '~/resources/about.md?raw';
         <NuxtImg
             src="/adrian-sailer.jpg"
             alt="Adrian Sailer"
+             preset="static"
             class="w-full md:w-1/2 h-auto shrink-0"
         />
 
