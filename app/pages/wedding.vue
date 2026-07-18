@@ -1,14 +1,16 @@
 <script lang="ts" setup>
 import ImagePost from '~/components/Gallery/ImagePost.vue';
+
 import md1 from '~/resources/hochzeitsfotografie.md?raw';
 import md2 from '~/resources/hochzeitsfotografie-leistungen.md?raw';
 import md3 from '~/resources/hochzeitsfotograf-freiburg.md?raw';
+
 import { weddingPlans } from '~/resources/buyBoxes/wedding';
 import { hochzeitImages } from '~/resources/imageSrc/hochzeit';
 </script>
 
 <template>
-    <div>
+    <div class="overflow-x-hidden">
         <HeroStack
             background-image="/hochzeit/Hochzeit-5.jpg"
             line1="Liebe"
@@ -16,8 +18,8 @@ import { hochzeitImages } from '~/resources/imageSrc/hochzeit';
             line3="Leidenschaft"
             align="left"
         />
-       
-        <div class="my-none mx-auto">
+
+        <div class="mx-auto max-w-full">
             <div
                 class="flex flex-col md:flex-row gap-small3 py-medium items-start"
             >
@@ -27,18 +29,29 @@ import { hochzeitImages } from '~/resources/imageSrc/hochzeit';
                     class="w-full md:w-1/2 h-auto shrink-0"
                 />
 
-                <div class="md:w-1/2">
+                <div class="w-full md:w-1/2">
                     <MarkdownRenderer
                         :markdown-content="md1"
                         class="m-medium"
                     />
                 </div>
             </div>
-            <ImagePost :images="hochzeitImages" layout="carousel" />
+
+
+            <div class="w-full max-w-full overflow-hidden">
+                <ImagePost
+                    :images="hochzeitImages"
+                    layout="carousel"
+                />
+            </div>
+
+
             <div
                 class="flex flex-col md:flex-row gap-small3 py-medium items-start"
             >
-                <div class="md:w-1/2 order-2 md:order-1">
+                <div
+                    class="w-full md:w-1/2 order-2 md:order-1"
+                >
                     <MarkdownRenderer
                         :markdown-content="md2"
                         class="m-medium"
@@ -51,11 +64,15 @@ import { hochzeitImages } from '~/resources/imageSrc/hochzeit';
                     class="w-full md:w-1/2 h-auto shrink-0 order-1 md:order-2"
                 />
             </div>
-           <ParallaxSection
-            background-image="/hochzeit/Hochzeit-7.jpg"
-            height="large"
-            image-only
-        />
+
+
+            <ParallaxSection
+                background-image="/hochzeit/Hochzeit-7.jpg"
+                height="large"
+                image-only
+            />
+
+
             <div
                 class="flex flex-col md:flex-row gap-small3 py-medium items-start"
             >
@@ -65,15 +82,18 @@ import { hochzeitImages } from '~/resources/imageSrc/hochzeit';
                     class="w-full md:w-1/2 h-auto shrink-0"
                 />
 
-                <div class="md:w-1/2">
+                <div class="w-full md:w-1/2">
                     <MarkdownRenderer
                         :markdown-content="md3"
                         class="m-medium"
                     />
                 </div>
             </div>
+
+
+            <div id="buchen">
+                <BuyBox :plans="weddingPlans" />
+            </div>
         </div>
-<div id="buchen">
-        <BuyBox :plans="weddingPlans" />
-    </div></div>
+    </div>
 </template>
