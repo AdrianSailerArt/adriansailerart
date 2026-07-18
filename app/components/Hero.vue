@@ -20,31 +20,22 @@ defineProps<HeroProps>();
                 : `background-image: url('/images/hero.jpg')`
         "
     >
-        <!-- Overlay -->
         <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
-
-        <!-- Content -->
-        <div class="relative z-10 mx-auto max-w-4xl px-small4 text-center">
+        <div class="relative z-fixed mx-auto max-w-4xl px-small4 text-center">
             <NuxtImg
                 v-if="image"
                 :src="image"
                 alt="Adrian Sailer Art"
                 class="mx-auto mb-large h-40 w-40 object-contain sm:h-56 sm:w-56 md:h-72 md:w-72 lg:h-80 lg:w-80"
             />
-
-            <!-- Titel -->
             <div class="hero-title inline-block -rotate-1 px-medium py-small4">
                 <Text as="h1" variant="h1" color="primary">
                     {{ title }}
                 </Text>
             </div>
-
-            <!-- Untertitel -->
             <Text as="h2" variant="h2" class="mt-medium" color="info">
                 {{ subtitle }}
             </Text>
-
-            
         </div>
     </section>
 </template>
@@ -53,7 +44,7 @@ defineProps<HeroProps>();
 .hero-title {
     position: relative;
     display: inline-block;
-    border: 1px solid white ;
+    border: 1px solid white;
     background: rgb(0 0 0 / 20%);
     backdrop-filter: blur(6px);
     transition: transform 0.2s ease;

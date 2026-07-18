@@ -24,9 +24,9 @@ defineExpose({ htmlOutput });
 .markdown-content {
     color: inherit;
     font-family: var(--font-sans);
-    font-size: var(--text-base);
-    line-height: var(--body-base-line-height);
-    font-weight: var(--body-base-font-weight);
+    font-size: var(--text-lg);
+    line-height: var(--body-lg-line-height);
+    font-weight: var(--body-lg-font-weight);
 }
 
 .markdown-content :deep(h1),
