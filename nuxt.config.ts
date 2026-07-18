@@ -2,20 +2,43 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
-    devtools: { enabled: true },
 
-    css: ['~/assets/css/main.css', '~/assets/css/tailwind.generated.css'],
-    vite: {
-        plugins: [tailwindcss()]
+    devtools: {
+        enabled: true
     },
-    modules: ['@nuxt/a11y', '@nuxt/image', '@nuxtjs/sitemap','@nuxtjs/seo'],
+
     ssr: true,
 
-    nitro: {
-        preset: 'github-pages'
+    css: [
+        '~/assets/css/main.css',
+        '~/assets/css/tailwind.generated.css'
+    ],
+
+    vite: {
+        plugins: [
+            tailwindcss()
+        ]
+    },
+
+    modules: [
+        '@nuxt/a11y',
+        '@nuxt/image',
+        '@nuxtjs/sitemap',
+        '@nuxtjs/seo'
+    ],
+
+    site: {
+        url: 'https://adriansailerart.github.io/adriansailerart',
+        name: 'Adrian Sailer Art'
     },
 
     app: {
-        baseURL: '/adriansailerart/'
+        baseURL: process.env.NODE_ENV === 'production'
+            ? '/adriansailerart/'
+            : '/'
+    },
+
+    nitro: {
+        preset: 'github-pages'
     }
 });
