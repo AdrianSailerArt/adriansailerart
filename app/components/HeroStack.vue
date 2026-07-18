@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import Text from '~/atomics/text/Text.vue';
 
 type HeroStackProps = {
@@ -12,13 +13,21 @@ type HeroStackProps = {
 const props = withDefaults(defineProps<HeroStackProps>(), {
     align: 'left'
 });
+
+const config = useRuntimeConfig();
+
+const backgroundImageUrl = computed(() => {
+    const image = props.backgroundImage || '/images/hero.jpg';
+
+    return `${config.app.baseURL}${image.replace(/^\//, '')}`;
+});
 </script>
 
 <template>
     <section
         class="relative flex min-h-screen items-end overflow-hidden bg-cover bg-center"
         :style="{
-            backgroundImage: `url('${props.backgroundImage || '/images/hero.jpg'}')`
+            backgroundImage: `url('${backgroundImageUrl}')`
         }"
     >
         <!-- Overlay -->
@@ -60,9 +69,7 @@ const props = withDefaults(defineProps<HeroStackProps>(), {
 <style scoped>
 .hero-word {
     text-transform: uppercase;
-
     text-shadow: var(--shadow-inner);
-
     transition: transform 0.25s ease;
 }
 

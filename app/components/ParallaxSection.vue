@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { computed, ref, onMounted, onUnmounted } from 'vue';
 
 import Text from '~/atomics/text/Text.vue';
 import Button from '~/atomics/button/Button.vue';
@@ -30,6 +30,12 @@ const props = withDefaults(defineProps<ParallaxSectionProps>(), {
     align: 'center',
     overlay: true,
     imageOnly: false
+});
+
+const config = useRuntimeConfig();
+
+const backgroundImageUrl = computed(() => {
+    return `${config.app.baseURL}${props.backgroundImage.replace(/^\//, '')}`;
 });
 
 const section = ref<HTMLElement | null>(null);
@@ -96,7 +102,7 @@ const hasContent = computed(() => {
         <div
             class="absolute inset-0 scale-150 bg-cover bg-center will-change-transform"
             :style="{
-                backgroundImage: `url('${backgroundImage}')`,
+                backgroundImage: `url('${backgroundImageUrl}')`,
                 transform: `translateY(${offset}px)`
             }"
         />
