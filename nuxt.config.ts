@@ -9,56 +9,39 @@ export default defineNuxtConfig({
 
     ssr: true,
 
-    css: [
-        '~/assets/css/main.css',
-        '~/assets/css/tailwind.generated.css'
-    ],
+    css: ['~/assets/css/main.css', '~/assets/css/tailwind.generated.css'],
 
     vite: {
-        plugins: [
-            tailwindcss()
-        ]
+        plugins: [tailwindcss()]
     },
 
-    modules: [
-        '@nuxt/a11y',
-        '@nuxt/image',
-        '@nuxtjs/sitemap',
-        '@nuxtjs/seo'
-    ],
+    modules: ['@nuxt/a11y', '@nuxt/image', '@nuxtjs/sitemap', '@nuxtjs/seo'],
 
     site: {
         url: 'https://adriansailerart.github.io/adriansailerart',
         name: 'Adrian Sailer Art'
     },
-
+    robots: {
+        robotsTxt: false
+    },
     app: {
-        baseURL: process.env.NODE_ENV === 'production'
-            ? '/adriansailerart/'
-            : '/'
+        baseURL:
+            process.env.NODE_ENV === 'production' ? '/adriansailerart/' : '/'
     },
 
     nitro: {
         preset: 'github-pages'
     },
 
-   image: {
+    image: {
+        provider: 'ipx',
 
-    provider: 'ipx',
-
-    presets: {
-
-        static: {
-
-            modifiers: {
-
-                format: undefined
-
+        presets: {
+            static: {
+                modifiers: {
+                    format: undefined
+                }
             }
-
         }
-
     }
-
-},
 });

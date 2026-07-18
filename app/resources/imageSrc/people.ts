@@ -102,8 +102,8 @@ export const peopleImages: Array<MediumReference> = [
         title: 'Valon',
         alt: 'Valon',
         media: '/people/Valon.jpg'
-    },
-    {
+    }
+    /* {
         id: 18,
         title: 'VIntage-2',
         alt: 'VIntage-2',
@@ -114,5 +114,5 @@ export const peopleImages: Array<MediumReference> = [
         title: 'VIntage',
         alt: 'VIntage',
         media: '/people/VIntage.jpg'
-    }
+    } */
 ];
