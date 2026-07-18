@@ -8,32 +8,41 @@ type HeroProps = {
     backgroundImage?: string;
 };
 
-defineProps<HeroProps>();
+const props = defineProps<HeroProps>();
+
+const config = useRuntimeConfig();
+
+const backgroundUrl = computed(() => {
+    const image = props.backgroundImage ?? 'images/hero.jpg';
+
+    return `${config.app.baseURL}${image.replace(/^\//, '')}`;
+});
 </script>
 
 <template>
     <section
         class="relative flex min-h-screen items-center justify-center overflow-hidden bg-cover bg-center"
-        :style="
-            backgroundImage
-                ? `background-image: url('${backgroundImage}')`
-                : `background-image: url('/images/hero.jpg')`
-        "
+        :style="{
+            backgroundImage: `url('${backgroundUrl}')`
+        }"
     >
         <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+
         <div class="relative z-fixed mx-auto max-w-4xl px-small4 text-center">
             <NuxtImg
                 v-if="image"
                 :src="image"
-                 preset="static"
+                preset="static"
                 alt="Adrian Sailer Art"
                 class="mx-auto mb-large h-40 w-40 object-contain sm:h-56 sm:w-56 md:h-72 md:w-72 lg:h-80 lg:w-80"
             />
+
             <div class="hero-title inline-block -rotate-1 px-medium py-small4">
                 <Text as="h1" variant="h1" color="white">
                     {{ title }}
                 </Text>
             </div>
+
             <Text as="h2" variant="h2" class="mt-medium" color="primary">
                 {{ subtitle }}
             </Text>
