@@ -8,10 +8,9 @@ import { trachtImages } from '~/resources/imageSrc/tracht';
     <div>
         <Hero
             image="/Logo_Adrian_Sailer_Art.png"
-            title="Cosplay Gallerie"
+            title="Konzerte und Artist Gallerie"
             subtitle="Cosplay & Fantasy"
-          
-            background-image="/people/Elvira-2.jpg"
+           
         />
         <ImagePost :images="peopleImages" layout="grid" />
          <ImagePost :images="trachtImages" layout="feature" />

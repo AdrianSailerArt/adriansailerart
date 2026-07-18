@@ -8,7 +8,7 @@ import { cosplayImages } from '~/resources/imageSrc/cosplay';
             image="/Logo_Adrian_Sailer_Art.png"
             title="Cosplay Gallerie"
             subtitle="Cosplay & Fantasy"
-            description="Entdecken Sie die besten Produkte und Dienstleistungen für Ihre Bedürfnisse."
+        
             background-image="/cosplay/Viking-3.jpg"
         />
         <ImagePost :images="cosplayImages" layout="grid" />

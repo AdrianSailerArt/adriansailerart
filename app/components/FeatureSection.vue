@@ -132,7 +132,7 @@ const imageClass = computed(() => {
                     </Text>
 
                     <div v-if="buttonText">
-                        <Button @click="navigateTo(buttonLink)" color="primary" fluid>
+                        <Button color="primary" fluid @click="navigateTo(buttonLink)">
                             {{ buttonText }} 
                         </Button>
                     </div>

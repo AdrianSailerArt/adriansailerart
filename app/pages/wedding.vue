@@ -1,10 +1,8 @@
 <script lang="ts" setup>
 import ImagePost from '~/components/Gallery/ImagePost.vue';
-import Hero from '~/components/Hero.vue';
 import md1 from '~/resources/hochzeitsfotografie.md?raw';
 import md2 from '~/resources/hochzeitsfotografie-leistungen.md?raw';
 import md3 from '~/resources/hochzeitsfotograf-freiburg.md?raw';
-
 import { weddingPlans } from '~/resources/buyBoxes/wedding';
 import { hochzeitImages } from '~/resources/imageSrc/hochzeit';
 </script>

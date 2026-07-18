@@ -5,7 +5,6 @@ type HeroProps = {
     image?: string;
     title: string;
     subtitle: string;
-    description: string;
     backgroundImage?: string;
 };
 
@@ -41,17 +40,11 @@ defineProps<HeroProps>();
             </div>
 
             <!-- Untertitel -->
-            <Text as="h2" variant="h2" class="mt-medium">
+            <Text as="h2" variant="h2" class="mt-medium" color="info">
                 {{ subtitle }}
             </Text>
 
-            <!-- Beschreibung -->
-            <Text
-                variant="bodyMedium"
-                class="mx-auto mt-small4 max-w-2xl leading-relaxed"
-            >
-                {{ description }}
-            </Text>
+            
         </div>
     </section>
 </template>
@@ -60,7 +53,7 @@ defineProps<HeroProps>();
 .hero-title {
     position: relative;
     display: inline-block;
-    border: 1px solid white;
+    border: 1px solid white ;
     background: rgb(0 0 0 / 20%);
     backdrop-filter: blur(6px);
     transition: transform 0.2s ease;
