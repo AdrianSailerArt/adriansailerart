@@ -1,6 +1,12 @@
 <template>
     <NuxtLayout>
-           <BlobMenu />
-        <NuxtPage />
+        <BlobMenu />
+
+        <Transition
+            name="page"
+            mode="out-in"
+        >
+            <NuxtPage :key="$route.fullPath" />
+        </Transition>
     </NuxtLayout>
 </template>

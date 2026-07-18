@@ -25,6 +25,13 @@ export default defineNuxtConfig({
         robotsTxt: false
     },
     app: {
+         pageTransition: {
+
+        name: 'page',
+
+        mode: 'out-in'
+
+    },
         baseURL:
             process.env.NODE_ENV === 'production' ? '/adriansailerart/' : '/'
     },
