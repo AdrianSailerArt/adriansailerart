@@ -30,7 +30,15 @@ export default defineNuxtConfig({
             htmlAttrs: {
                 lang: 'de'
             },
-            link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }]
+            link: [
+                {
+                    rel: 'icon',
+
+                    type: 'image/png',
+
+                    href: `${process.env.NODE_ENV === 'production' ? '/adriansailerart/' : '/'}favicon.png`
+                }
+            ]
         },
         pageTransition: {
             name: 'page',

@@ -1,4 +1,10 @@
 <script setup lang="ts">
+const config = useRuntimeConfig();
+
+const faviconUrl = computed(() => {
+    return `${config.app.baseURL}favicon.png`;
+});
+
 useSeoMeta({
     title: 'Adrian Sailer Art | Fotograf aus dem Schwarzwald',
     ogTitle: 'Adrian Sailer Art | Hochzeits-, Portrait- & Konzertfotograf',
@@ -10,16 +16,14 @@ useSeoMeta({
     keywords:
         'Fotograf Schwarzwald, Fotograf Freiburg, Hochzeitsfotograf Freiburg, Hochzeitsfotograf Schwarzwald, Portraitfotograf Freiburg, Konzertfotograf, Naturfotografie, People Fotografie, Adrian Sailer',
 
-    ogImage:
-        'https://adriansailerart.github.io/adriansailerart/favicon.png',
-   
-        
+    ogImage: faviconUrl,
+    twitterImage: faviconUrl,
 
     ogType: 'website',
     ogLocale: 'de_DE',
 
     author: 'Adrian Sailer',
-    robots: 'index, follow'
+    robots: 'index, follow',
 });
 </script>
 
