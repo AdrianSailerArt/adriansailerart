@@ -7,7 +7,7 @@ import { cosplayImages } from '~/resources/imageSrc/cosplay';
         <Hero
             image="/Logo_Adrian_Sailer_Art.png"
             title="Cosplay Gallerie"
-            subtitle="Cosplay & Fantasy"
+            subtitle="Mystische Welten & Fantasy"
         
             background-image="/cosplay/Viking-3.jpg"
         />

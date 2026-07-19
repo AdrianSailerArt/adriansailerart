@@ -12,7 +12,7 @@ import { ROUTES } from '~/statics/routes';
             align="left"
         />
         <FeatureSection
-            image="/people/Elvira.jpg"
+            image="/hochzeit/Hochzeit-3.jpg"
             title="Wedding Fotogragfie"
             description="Text für Hochzeiten"
             button-text="Mehr entdecken & buchen"
@@ -21,44 +21,34 @@ import { ROUTES } from '~/statics/routes';
             layout="left"
         />
         <ParallaxSection
-            background-image="/people/Myra.jpg"
-            title="Portraitfotografie"
-            description="Authentische Bilder mit Charakter und Persönlichkeit."
-            button-text="Termin buchen"
-            height="large"
-            button-link="/kontakt"
-            align="left"
-        />
-        <FeatureSection
-            image="/people/Elvira.jpg"
+            background-image="/people/Vintage2.jpg"
             title="Portraitfotografie"
             description="Zeitlose Portraits mit Fokus auf Persönlichkeit statt steifen Posen. Gemeinsam schaffen wir natürliche Bilder mit Charakter."
-            button-text="Mehr erfahren"
-            :button-link="ROUTES.PEOPLE"
-            layout="right"
-            image-ratio="square"
-            image-style="rounded"
-            background="light"
-        />
-        <ParallaxSection
-            background-image="/people/Elvira.jpg"
+            button-text="Schau vorbei"
             height="large"
-            image-only
+            :button-link="ROUTES.PEOPLE""
+            align="left"
         />
+       
+      
         <FeatureSection
-            image="/people/Elvira.jpg"
+            image="/concert/KD Wacken 2022.jpg"
             title="Konzertfotografie"
             description="Von kleinen Clubshows bis hin zu Festivals halte ich Emotionen, Energie und Atmosphäre in einzigartigen Bildern fest."
             button-text="Mehr entdecken"
             :button-link="ROUTES.WEDDING"
             image-ratio="landscape"
-            layout="left"
+            layout="right"
+        />  <ParallaxSection
+            background-image="/people/Elvira.jpg"
+            height="large"
+            image-only
         />
         <FeatureSection
             image="/adrian-sailer.jpg"
             title="Über mich"
-            description="Von kleinen Clubshows bis hin zu Festivals halte ich Emotionen, Energie und Atmosphäre in einzigartigen Bildern fest."
-            button-text="Referenzen"
+            description="Seit über zehn Jahren begleite ich Konzerte, Festivals, Künstler und Menschen mit meiner Kamera. Angefangen hat alles in der Musikszene, wo ich durch meine Arbeit für Tribe Online die ersten Konzerte fotografierte. Was damals als Leidenschaft begann, entwickelte sich schnell zu meinem persönlichen Stil: authentische Bilder mit Atmosphäre, Emotion und Charakter."
+            button-text="Über mich"
             :button-link="ROUTES.ABOUT"
             layout="left"
             image-style="frame"

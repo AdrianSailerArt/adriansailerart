@@ -7,7 +7,7 @@ import { concertImages } from '~/resources/imageSrc/concet';
         <Hero
             image="/Logo_Adrian_Sailer_Art.png"
             title="Konzerte und Artist Gallerie"
-            subtitle="Cosplay & Fantasy"
+            subtitle="Einzigartige Momente & Energie"
             background-image="/concert/BossHoss.jpg"
            
         />
