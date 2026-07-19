@@ -24,14 +24,19 @@ export default defineNuxtConfig({
     robots: {
         robotsTxt: false
     },
+
     app: {
-         pageTransition: {
+        head: {
+            htmlAttrs: {
+                lang: 'de'
+            },
+            link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }]
+        },
+        pageTransition: {
+            name: 'page',
 
-        name: 'page',
-
-        mode: 'out-in'
-
-    },
+            mode: 'out-in'
+        },
         baseURL:
             process.env.NODE_ENV === 'production' ? '/adriansailerart/' : '/'
     },

@@ -9,6 +9,19 @@ import { weddingPlans } from '~/resources/buyBoxes/wedding';
 import { hochzeitImages } from '~/resources/imageSrc/hochzeit';
 import Text from '~/atomics/text/Text.vue';
 import Sheet from '~/atomics/Sheet.vue';
+useSeoMeta({
+    title: 'Hochzeitsfotografie | Adrian Sailer Art',
+    ogTitle: 'Hochzeitsfotograf Schwarzwald & Freiburg',
+    description:
+        'Authentische Hochzeitsreportagen voller Emotionen. Begleitung vom Getting Ready bis zur Feier in Freiburg und dem Schwarzwald.',
+    ogDescription:
+        'Emotionale Hochzeitsfotografie mit natürlichen Bildern und echten Momenten.',
+    keywords:
+        'Hochzeitsfotograf Freiburg, Hochzeitsfotograf Schwarzwald, Hochzeitsreportage, Hochzeit Baden-Württemberg',
+    // ogImage: '/images/social/wedding.jpg',
+
+    ogType: 'article'
+});
 </script>
 
 <template>
@@ -28,7 +41,7 @@ import Sheet from '~/atomics/Sheet.vue';
                 <NuxtImg
                     src="/hochzeit/Hochzeit-2.jpg"
                     alt="Adrian Sailer"
-                     preset="static"
+                    preset="static"
                     class="w-full md:w-1/2 h-auto shrink-0"
                 />
 
@@ -57,7 +70,7 @@ import Sheet from '~/atomics/Sheet.vue';
                 <NuxtImg
                     src="/hochzeit/Hochzeit-9.jpg"
                     alt="Adrian Sailer"
-                     preset="static"
+                    preset="static"
                     class="w-full md:w-1/2 h-auto shrink-0 order-1 md:order-2"
                 />
             </div>
@@ -74,7 +87,7 @@ import Sheet from '~/atomics/Sheet.vue';
                 <NuxtImg
                     src="/hochzeit/Hochzeit-4.jpg"
                     alt="Adrian Sailer"
-                     preset="static"
+                    preset="static"
                     class="w-full md:w-1/2 h-auto shrink-0"
                 />
 

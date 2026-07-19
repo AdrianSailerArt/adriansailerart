@@ -3,6 +3,20 @@ import ImagePost from '~/components/Gallery/ImagePost.vue';
 import { peopleImages } from '~/resources/imageSrc/people';
 import { regenImages } from '~/resources/imageSrc/regen';
 import { trachtImages } from '~/resources/imageSrc/tracht';
+useSeoMeta({
+  title: 'Portraitfotografie | Adrian Sailer Art',
+  ogTitle: 'Portraitfotograf Freiburg & Schwarzwald',
+  description:
+    'Natürliche Portraits für Privatpersonen, Paare und Business. Authentische Bilder mit Persönlichkeit.',
+  ogDescription:
+    'Portraitfotografie in Freiburg und dem Schwarzwald.',
+  keywords:
+    'Portraitfotograf Freiburg, Business Portrait, Paarshooting, People Fotografie',
+//  ogImage: '/images/social/portrait.jpg',
+
+  ogType: 'article'
+});
+
 </script>
 <template>
     <div>
