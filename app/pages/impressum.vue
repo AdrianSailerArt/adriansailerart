@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import md from '~/resources/impressum.md?raw';
+import md from '~/resources/markdown/impressum.md?raw';
 </script>
 
 <template>

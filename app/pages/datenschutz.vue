@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import md from '~/resources/datenschutz.md?raw';
+import md from '~/resources/markdown/datenschutz.md?raw';
 </script>
 
 <template>

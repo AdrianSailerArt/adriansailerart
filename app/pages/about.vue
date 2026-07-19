@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import md from '~/resources/about.md?raw';
+import md from '~/resources/markdown/about.md?raw';
 </script>
 
 <template>
