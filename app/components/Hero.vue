@@ -34,7 +34,7 @@ const backgroundImageUrl = computed(() => {
 >
         <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
 
-        <div class="relative z-fixed mx-auto max-w-4xl px-small4 text-center">
+        <div class="relative z-base mx-auto max-w-4xl px-small4 text-center">
             <NuxtImg
                 v-if="image"
                 :src="image"

@@ -35,7 +35,7 @@ const backgroundImageUrl = computed(() => {
 
         <!-- Content -->
         <div
-            class="relative z-fixed w-full px-small4 pb-medium2 md:pb-large3 md:ml-large2"
+            class="relative z-base w-full px-small4 pb-medium2 md:pb-large3 md:ml-large2"
             :class="
                 props.align === 'right'
                     ? 'flex justify-end'
