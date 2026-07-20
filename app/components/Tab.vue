@@ -24,7 +24,7 @@ const selectTab = (index: number) => {
 
 <template>
     <div class="flex flex-col w-full">
-        <div class=" -mb-px relative ">
+        <div class="-mb-px relative">
             <div class="flex flex-wrap gap-small3">
                 <button
                     v-for="(tab, index) in tabs"
@@ -44,17 +44,16 @@ const selectTab = (index: number) => {
             </div>
         </div>
 
-        <Transition
-            name="fade"
-            mode="out-in"
-        >
+        <div class="tab-content relative p-small">
             <div
-                :key="activeIndex"
-                class="tab-content relative p-small"
+                v-for="(_, index) in tabs"
+                :key="index"
+                v-show="activeIndex === index"
+                class="relative"
             >
-                <slot :name="'tab-' + activeIndex" />
+                <slot :name="'tab-' + index" />
             </div>
-        </Transition>
+        </div>
     </div>
 </template>
 
@@ -92,7 +91,7 @@ const selectTab = (index: number) => {
 
 .tab-button.is-active {
     background: var(--color-primary);
-    color:  var(--color-white);
+    color: var(--color-white);
 }
 
 .tab-button.is-active::after {
@@ -119,13 +118,4 @@ const selectTab = (index: number) => {
     pointer-events: none;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 250ms ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-    opacity: 0;
-}
 </style>
