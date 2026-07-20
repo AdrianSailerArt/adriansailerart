@@ -21,7 +21,7 @@ import { ROUTES } from '~/statics/routes';
             layout="left"
         />
         <ParallaxSection
-            background-image="/people/Vintage2.jpg"
+            background-image="/people/Charlotte.jpg"
             title="Portraitfotografie"
             description="Zeitlose Portraits mit Fokus auf Persönlichkeit statt steifen Posen. Gemeinsam schaffen wir natürliche Bilder mit Charakter."
             button-text="Schau vorbei"

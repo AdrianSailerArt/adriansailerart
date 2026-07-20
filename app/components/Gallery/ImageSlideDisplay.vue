@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
-
 import { NuxtImg } from '#components';
-
 import { usePinchZoom } from '@/composables/usePinchZoom';
 import IconButton from '~/atomics/button/IconButton.vue';
 import Button from '~/atomics/button/Button.vue';
 import type { MediumReference } from '~/types';
-
-
+import Text from '~/atomics/text/Text.vue';
 
 export type ImageSliderProps = {
     image: MediumReference;
@@ -31,14 +28,18 @@ withDefaults(defineProps<ImageSliderProps>(), {
 const emit = defineEmits(['prev', 'next']);
 
 const imgWrapper = ref<HTMLElement | null>(null);
-const { scale, translateX, translateY, reset, bind, unbind } = usePinchZoom(imgWrapper);
+const { scale, translateX, translateY, reset, bind, unbind } =
+    usePinchZoom(imgWrapper);
 
 onMounted(() => bind());
 onUnmounted(() => unbind());
 </script>
 
 <template>
-    <div class="flex flex-col w-full" :class="mode === 'fullscreen' ? 'h-full' : ''">
+    <div
+        class="flex flex-col w-full"
+        :class="mode === 'fullscreen' ? 'h-full' : ''"
+    >
         <div
             class="relative flex items-center justify-center select-none touch-none transition-all overflow-hidden"
             :class="[
@@ -56,7 +57,8 @@ onUnmounted(() => unbind());
                     class="w-full h-full flex items-center justify-center"
                     :style="{
                         transform: `scale(${scale}) translate(${translateX / scale}px, ${translateY / scale}px)`,
-                        transition: scale === 1 ? 'transform 0.3s ease' : 'none',
+                        transition:
+                            scale === 1 ? 'transform 0.3s ease' : 'none',
                         transformOrigin: 'center center'
                     }"
                 >
@@ -64,7 +66,7 @@ onUnmounted(() => unbind());
                         :key="image.id"
                         :src="image.media"
                         :alt="image.alt"
-                         preset="static"
+                        preset="static"
                         class="pointer-events-none animate-fade-in"
                         :class="[
                             mode === 'preview'
@@ -78,7 +80,11 @@ onUnmounted(() => unbind());
                 <!-- Actions Slot -->
                 <div
                     class="absolute top-2 right-2 z-modal transition-opacity bg-white rounded-minimal"
-                    :class="mode === 'preview' ? 'lg:opacity-20 group-hover:opacity-100' : ''"
+                    :class="
+                        mode === 'preview'
+                            ? 'lg:opacity-20 group-hover:opacity-100'
+                            : ''
+                    "
                 >
                     <slot name="actions" />
                 </div>
@@ -97,15 +103,27 @@ onUnmounted(() => unbind());
         </div>
 
         <!-- Footer: Pagination + Navigation -->
-        <div v-if="image" class="flex items-center justify-between gap-small2 pt-small2">
+        <div
+            v-if="image"
+            class="flex items-center justify-between gap-small2 pt-small2"
+        >
             <div
                 class="flex overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             >
+                <Text color="info">{{ image.title }}</Text>
                 <slot name="footer" />
             </div>
             <div v-if="!hidePagination" class="flex shrink-0 gap-small">
-                <IconButton icon-name="ChevronLeft" label="Vorherige" @click.stop="emit('prev')" />
-                <IconButton icon-name="ChevronRight" label="Nächste" @click.stop="emit('next')" />
+                <IconButton
+                    icon-name="ChevronLeft"
+                    label="Vorherige"
+                    @click.stop="emit('prev')"
+                />
+                <IconButton
+                    icon-name="ChevronRight"
+                    label="Nächste"
+                    @click.stop="emit('next')"
+                />
             </div>
         </div>
     </div>

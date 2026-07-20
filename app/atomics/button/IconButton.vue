@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-//import type { IconProps } from '~/atomics/icons/types';
-//import { Icon } from '@/atomics/icons';
+import type { IconProps } from '~/atomics/icons/types';
+import Icon from '../icons/Icon.vue';
+
 
 type IconButtonColor = 'primary' | 'info' | 'gray';
 type IconButtonSize = 'standard' | 'big';
@@ -10,7 +11,7 @@ interface Props {
     color?: IconButtonColor;
     disabled?: boolean;
     size?: IconButtonSize;
-    iconName: string// IconProps['name'];
+    iconName: IconProps['name'];
     label?: string;
 }
 
@@ -68,8 +69,8 @@ const iconSize = computed(() => {
         class="inline-flex items-center justify-center rounded-circle transition-colors duration-200 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary"
         :class="[colorClass, sizeClass, disabled ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer']"
         @click="emit('click', $event)"
-    > click
-     <!--    <Icon :name="iconName" :size="iconSize" color="inherit" /> -->
+    > 
+    <Icon :name="iconName" :size="iconSize" color="inherit" /> 
     </button>
 </template>
 

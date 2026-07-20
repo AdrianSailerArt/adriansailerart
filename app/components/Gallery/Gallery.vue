@@ -26,7 +26,7 @@ const handleImageClick = (image: MediumReference, index: number) => {
 </script>
 
 <template>
-    <section class="max-w-screen-2xl mx-auto px-small4 py-medium lg:py-large2">
+    <section class="max-w-screen-2xl mx-auto px-small4 py-medium">
         <!-- SINGLE -->
         <template v-if="layout === 'single'">
             <Single :images="images" @image-click="handleImageClick" />
