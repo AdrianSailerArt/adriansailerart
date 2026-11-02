@@ -110,18 +110,18 @@ onUnmounted(() => unbind());
             <div
                 class="flex overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             >
-                <Text color="info">{{ image.title }}</Text>
+                <Text color="info" aria-live="polite">{{ image.title }}</Text>
                 <slot name="footer" />
             </div>
             <div v-if="!hidePagination" class="flex shrink-0 gap-small">
                 <IconButton
                     icon-name="ChevronLeft"
-                    label="Vorherige"
+                    label="Vorheriges Bild"
                     @click.stop="emit('prev')"
                 />
                 <IconButton
                     icon-name="ChevronRight"
-                    label="Nächste"
+                    label="Nächstes Bild"
                     @click.stop="emit('next')"
                 />
             </div>

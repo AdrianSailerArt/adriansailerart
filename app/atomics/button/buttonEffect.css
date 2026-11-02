@@ -1,0 +1,22 @@
+.button-standard-effect::after {
+    content: '';
+    position: absolute;
+    border: 1px solid var(--color-black);
+    bottom: var(--spacing-small);
+    left: var(--spacing-small);
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+    border-radius: var(--radius-none);
+    pointer-events: none;
+    transition: all 200ms ease-in-out;
+}
+
+.button-standard-effect:hover::after,
+.button-standard-effect:focus-visible::after {
+    bottom: 2px;
+    left: 2px;
+}
+
+.button-standard-effect:focus::after {
+    outline: 0;
+}

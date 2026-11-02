@@ -42,8 +42,10 @@ onUnmounted(() => {
             'fixed top-0 left-0 right-0 z-sticky transition-transform duration-300',
             visible ? 'translate-y-0' : '-translate-y-full'
         ]"
+        @focusin="visible = true"
     >
         <nav
+            aria-label="Kopfnavigation"
             :class="[
                 'transition-colors duration-300',
                 scrolled
@@ -53,10 +55,10 @@ onUnmounted(() => {
         >
             <div class="mx-auto max-w-7xl px-small2 lg:px-medium">
                 <div class="flex h-16 items-center justify-between">
-                    <NuxtLink to="/">
+                    <NuxtLink to="/" aria-label="Adrian Sailer Art – Startseite">
                         <NuxtImg
                             src="/Logo_Adrian_Sailer_Art.png"
-                            alt="Adrian Sailer Art"
+                            alt=""
                             class="h-medium4 w-auto"
                              preset="static"
                         />

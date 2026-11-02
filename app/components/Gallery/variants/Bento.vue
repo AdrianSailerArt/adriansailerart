@@ -12,23 +12,23 @@ const emit = defineEmits<EmitGalleryType>();
 <template>
     <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-small2">
         <template v-for="(image, index) in images" :key="index">
-            <NuxtImg
-                :src="image.media"
-                 preset="static"
+            <button
+                type="button"
+                :aria-label="`Bild vergrößern: ${image.title ?? image.alt}`"
                 :class="{
                     'col-span-2 row-span-2': index === 0,
                     'col-span-2': index === 3
                 }"
-                class="object-cover w-full h-full cursor-pointer hover:opacity-80 transition-opacity"
+                class="block w-full h-full cursor-pointer"
                 @click="emit('imageClick', image, index)"
-            />
-              <div
-                class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
             >
-                <div class="px-small4 py-small3 bg-black/30 backdrop-blur-md">
-                    <Text color="white"> {{ image.title }}</Text>
-                </div>
-            </div>
+                <NuxtImg
+                    :src="image.media"
+                    :alt="image.alt"
+                    preset="static"
+                    class="object-cover w-full h-full hover:opacity-80 transition-opacity"
+                />
+            </button>
         </template>
     </div>
 </template>

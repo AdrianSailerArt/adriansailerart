@@ -29,6 +29,7 @@ const colorClass = computed(() => ICON_COLORS[props.color || 'standard']);
 
 <template>
     <i
+        aria-hidden="true"
         :class="['inline-flex items-center justify-center align-middle', colorClass]"
         :style="{ width: spacing[props.size || 'medium'], height: spacing[props.size || 'medium'] }"
         @click="$emit('click', $event)"

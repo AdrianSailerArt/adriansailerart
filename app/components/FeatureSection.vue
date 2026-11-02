@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import Text from '~/atomics/text/Text.vue';
-import Button from '~/atomics/button/Button.vue';
+import Link from '~/atomics/link/Link.vue';
 
 type FeatureSectionProps = {
     image: string;
+    /**
+     * Alternativtext fürs Bild, Fallback ist der Titel
+     */
+    imageAlt?: string;
     title: string;
     description: string;
     buttonText?: string;
@@ -109,18 +113,18 @@ const imageClass = computed(() => {
                 ]"
             >
                 <!-- Image -->
-                <div>
+                <div v-reveal>
                     <NuxtImg
                      preset="static"
                         :src="image"
-                        :alt="title"
+                        :alt="imageAlt ?? title"
                         class="h-full w-full object-cover"
                         :class="[imageRatioClass, imageClass]"
                     />
                 </div>
 
                 <!-- Content -->
-                <div class="flex flex-col justify-center max-w-xl">
+                <div v-reveal="150" class="flex flex-col justify-center max-w-xl">
                     <Text as="h2" variant="h2" class="mb-medium">
                         {{ title }}
                     </Text>
@@ -132,10 +136,10 @@ const imageClass = computed(() => {
                         {{ description }}
                     </Text>
 
-                    <div v-if="buttonText">
-                        <Button color="primary" fluid @click="navigateTo(buttonLink)">
-                            {{ buttonText }} 
-                        </Button>
+                    <div v-if="buttonText && buttonLink">
+                        <Link color="primary" fluid :to="buttonLink">
+                            {{ buttonText }}
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -150,7 +154,8 @@ img {
         filter 0.5s ease;
 }
 
-section:hover img {
+section:hover img,
+section:focus-within img {
     transform: scale(1.02);
 }
 

@@ -33,7 +33,7 @@ export const navigationRoutes: Array<NavigationRoute> = [
         path: ROUTES.WEDDING
     },
     {
-        name: 'Musik & Artist ',
+        name: 'Musik & Artist',
         icon: 'mask',
         path: ROUTES.CONCERTS
     },

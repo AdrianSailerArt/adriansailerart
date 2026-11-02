@@ -46,8 +46,8 @@ export function usePinchZoom(el: Ref<HTMLElement | null>) {
             );
             scale.value = newScale;
         } else if (e.touches.length === 1 && isPanning) {
-            translateX.value += e.touches[0]?.clientX ?? 0 - lastTouchX;
-            translateY.value += e.touches[0]?.clientY ?? 0 - lastTouchY;
+            translateX.value += (e.touches[0]?.clientX ?? 0) - lastTouchX;
+            translateY.value += (e.touches[0]?.clientY ?? 0) - lastTouchY;
             lastTouchX = e.touches[0]?.clientX ?? 0;
             lastTouchY = e.touches[0]?.clientY ?? 0;
         }

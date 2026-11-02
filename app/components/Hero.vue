@@ -21,35 +21,33 @@ const backgroundImageUrl = computed(() => {
 </script>
 
 <template>
-   <section
-
-    class="relative flex min-h-screen items-center justify-center overflow-hidden bg-cover bg-center"
-
-    :style="{
-
-        backgroundImage: `url('${backgroundImageUrl}')`
-
-    }"
-
->
-        <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+    <section
+        class="relative flex min-h-screen items-center justify-center overflow-hidden bg-cover bg-center"
+        :style="{
+            backgroundImage: `url('${backgroundImageUrl}')`
+        }"
+    >
+        <div
+            class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"
+            aria-hidden="true"
+        />
 
         <div class="relative z-base mx-auto max-w-4xl px-small4 text-center">
             <NuxtImg
                 v-if="image"
                 :src="image"
                 preset="static"
-                alt="Adrian Sailer Art"
-                class="mx-auto mb-large h-40 w-40 object-contain sm:h-56 sm:w-56 md:h-72 md:w-72 lg:h-80 lg:w-80"
+                alt=""
+                class="hero-in mx-auto mb-large h-40 w-40 object-contain sm:h-56 sm:w-56 md:h-72 md:w-72 lg:h-80 lg:w-80"
             />
 
-            <div class="hero-title inline-block -rotate-1 px-medium py-small4">
+            <div class="hero-in hero-title inline-block -rotate-1 px-medium py-small4">
                 <Text as="h1" variant="h1" color="white">
                     {{ title }}
                 </Text>
             </div>
 
-            <Text as="h2" variant="h2" class="mt-medium" color="primary">
+            <Text as="p" variant="h2" class="hero-in mt-medium" color="primary">
                 {{ subtitle }}
             </Text>
         </div>
@@ -57,6 +55,29 @@ const backgroundImageUrl = computed(() => {
 </template>
 
 <style scoped>
+.hero-in {
+    animation: heroIn 0.9s cubic-bezier(.22,1,.36,1) both;
+}
+
+.hero-in:nth-child(2) {
+    animation-delay: 150ms;
+}
+
+.hero-in:nth-child(3) {
+    animation-delay: 300ms;
+}
+
+@keyframes heroIn {
+    from {
+        opacity: 0;
+        translate: 0 24px;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
 .hero-title {
     position: relative;
     display: inline-block;

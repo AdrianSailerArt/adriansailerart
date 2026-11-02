@@ -1,5 +1,5 @@
 import type { ColorName } from '@/styles/colors';
-import type { ButtonHTMLAttributes } from 'vue';
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'vue';
 
 export type ButtonColor =
     | Extract<
@@ -10,13 +10,23 @@ export type ButtonColor =
 
 export type ButtonVariant = 'standard' | 'outlined' | 'text';
 
-export type ButtonType = {
+/**
+ * Gemeinsame Optik von Button und Link
+ */
+export type ButtonStyleProps = {
     color?: ButtonColor;
     variant?: ButtonVariant;
     fluid?: boolean;
     ariaLabel?: string;
+};
+
+export type ButtonType = ButtonStyleProps & {
     disabled?: boolean;
 } & /* @vue-ignore */ Omit<ButtonHTMLAttributes, 'disabled' | 'color'>;
+
+export type LinkType = ButtonStyleProps & {
+    to: string;
+} & /* @vue-ignore */ Omit<AnchorHTMLAttributes, 'color'>;
 
 type ColorMap = {
     [key in ButtonColor]: {

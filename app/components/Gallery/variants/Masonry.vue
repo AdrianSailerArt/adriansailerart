@@ -29,11 +29,12 @@ const imageGroups = computed(() => {
                 <!-- Linke Spalte -->
                 <div class="flex-1 flex flex-col gap-small2">
 
-                    <div
+                    <button
                         v-if="group[0]"
-                        class="relative overflow-hidden group cursor-pointer"
-                        @click="emit('imageClick', group[0], groupIndex * 6)"
-                    >
+                        type="button"
+:aria-label="`Bild vergrößern: ${group[0].title ?? group[0].alt}`"
+class="relative block w-full overflow-hidden group cursor-pointer"
+                        @click="emit('imageClick', group[0], groupIndex * 6)">
                         <NuxtImg
                             :src="group[0].media"
                             :alt="group[0].alt"
@@ -42,33 +43,34 @@ const imageGroups = computed(() => {
                         />
 
                         <div
-                            class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+                            class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 group-focus-visible:translate-y-0 transition-transform duration-300"
                         >
                             <div class="px-small4 py-small3 bg-black/30 backdrop-blur-md">
-                                <Text color="white">
+                                <Text as="span" color="white">
                                     {{ group[0].title }}
                                 </Text>
                             </div>
                         </div>
-                    </div>
+                    </button>
 
 
                     <div
                         v-if="group.length > 1"
                         class="grid grid-cols-2 gap-small2"
                     >
-                        <div
+                        <button
                             v-for="(image, index) in group.slice(1, 3)"
                             :key="image.id"
-                            class="relative overflow-hidden group cursor-pointer"
+                            type="button"
+:aria-label="`Bild vergrößern: ${image.title ?? image.alt}`"
+class="relative block w-full overflow-hidden group cursor-pointer"
                             @click="
                                 emit(
                                     'imageClick',
                                     image,
                                     groupIndex * 6 + index + 1
                                 )
-                            "
-                        >
+                            ">
                             <NuxtImg
                                 :src="image.media"
                                 :alt="image.alt"
@@ -77,15 +79,15 @@ const imageGroups = computed(() => {
                             />
 
                             <div
-                                class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+                                class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 group-focus-visible:translate-y-0 transition-transform duration-300"
                             >
                                 <div class="px-small4 py-small3 bg-black/30 backdrop-blur-md">
-                                    <Text color="white">
+                                    <Text as="span" color="white">
                                         {{ image.title }}
                                     </Text>
                                 </div>
                             </div>
-                        </div>
+                        </button>
                     </div>
 
                 </div>
@@ -98,18 +100,19 @@ const imageGroups = computed(() => {
                         v-if="group.length > 3"
                         class="grid grid-cols-2 gap-small2"
                     >
-                        <div
+                        <button
                             v-for="(image, index) in group.slice(3, 5)"
                             :key="image.id"
-                            class="relative overflow-hidden group cursor-pointer"
+                            type="button"
+:aria-label="`Bild vergrößern: ${image.title ?? image.alt}`"
+class="relative block w-full overflow-hidden group cursor-pointer"
                             @click="
                                 emit(
                                     'imageClick',
                                     image,
                                     groupIndex * 6 + index + 3
                                 )
-                            "
-                        >
+                            ">
                             <NuxtImg
                                 :src="image.media"
                                 :alt="image.alt"
@@ -118,25 +121,26 @@ const imageGroups = computed(() => {
                             />
 
                             <div
-                                class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+                                class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 group-focus-visible:translate-y-0 transition-transform duration-300"
                             >
                                 <div class="px-small4 py-small3 bg-black/30 backdrop-blur-md">
-                                    <Text color="white">
+                                    <Text as="span" color="white">
                                         {{ image.title }}
                                     </Text>
                                 </div>
                             </div>
-                        </div>
+                        </button>
                     </div>
 
 
-                    <div
+                    <button
                         v-if="group[5]"
-                        class="relative overflow-hidden group cursor-pointer"
+                        type="button"
+:aria-label="`Bild vergrößern: ${group[5].title ?? group[5].alt}`"
+class="relative block w-full overflow-hidden group cursor-pointer"
                         @click="
                             emit('imageClick', group[5], groupIndex * 6 + 5)
-                        "
-                    >
+                        ">
                         <NuxtImg
                             :src="group[5].media"
                             :alt="group[5].alt"
@@ -145,15 +149,15 @@ const imageGroups = computed(() => {
                         />
 
                         <div
-                            class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+                            class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 group-focus-visible:translate-y-0 transition-transform duration-300"
                         >
                             <div class="px-small4 py-small3 bg-black/30 backdrop-blur-md">
-                                <Text color="white">
+                                <Text as="span" color="white">
                                     {{ group[5].title }}
                                 </Text>
                             </div>
                         </div>
-                    </div>
+                    </button>
 
                 </div>
             </div>

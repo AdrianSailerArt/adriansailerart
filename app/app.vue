@@ -28,6 +28,7 @@ useSeoMeta({
 </script>
 
 <template>
+    <NuxtRouteAnnouncer />
     <NuxtLayout>
         <BlobMenu />
 

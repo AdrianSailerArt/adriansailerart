@@ -9,6 +9,10 @@ import { weddingPlans } from '~/resources/buyBoxes/wedding';
 import { hochzeitImages } from '~/resources/imageSrc/hochzeit';
 import Text from '~/atomics/text/Text.vue';
 import Sheet from '~/atomics/Sheet.vue';
+import Button from '~/atomics/button/Button.vue';
+import { createMailtoCta } from '~/helpers/ctaMail';
+
+const requestIndividual = createMailtoCta('Individuelles Paket');
 useSeoMeta({
     title: 'Hochzeitsfotografie | Adrian Sailer Art',
     ogTitle: 'Hochzeitsfotograf Schwarzwald & Freiburg',
@@ -40,7 +44,7 @@ useSeoMeta({
             >
                 <NuxtImg
                     src="/hochzeit/Hochzeit-2.jpg"
-                    alt="Adrian Sailer"
+                    alt="Lächelnde Braut mit buntem Brautstrauß im Grünen"
                     preset="static"
                     class="w-full md:w-1/2 h-auto shrink-0"
                 />
@@ -69,7 +73,7 @@ useSeoMeta({
 
                 <NuxtImg
                     src="/hochzeit/Hochzeit-9.jpg"
-                    alt="Adrian Sailer"
+                    alt="Schwarzweißfoto: Brautpaar tanzt auf einer Wiese"
                     preset="static"
                     class="w-full md:w-1/2 h-auto shrink-0 order-1 md:order-2"
                 />
@@ -86,7 +90,7 @@ useSeoMeta({
             >
                 <NuxtImg
                     src="/hochzeit/Hochzeit-4.jpg"
-                    alt="Adrian Sailer"
+                    alt="Brautpaar im verschneiten, nebligen Winterwald"
                     preset="static"
                     class="w-full md:w-1/2 h-auto shrink-0"
                 />
@@ -102,11 +106,18 @@ useSeoMeta({
             <div id="buchen">
                 <BuyBox :plans="weddingPlans" />
                 <div class="mt-large p-large flex items-center-safe">
-                    <Sheet>
+                    <Sheet v-reveal>
                         <Text variant="title" color="gray">
                             Nichts dabei? Gerne können wir auch ein
-                            individeulles Paket erstellen</Text
+                            individuelles Paket erstellen</Text
                         >
+                        <Button
+                            class="mt-medium"
+                            aria-label="Individuelles Paket per E-Mail anfragen"
+                            @click="requestIndividual"
+                        >
+                            Jetzt anfragen
+                        </Button>
                     </Sheet>
                 </div>
             </div>

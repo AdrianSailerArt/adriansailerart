@@ -11,12 +11,18 @@ const emit = defineEmits<EmitGalleryType>();
 </script>
 
 <template>
-    <NuxtImg
+    <button
         v-if="firstImage"
-        :src="firstImage.media"
-        :alt="firstImage.alt"
-         preset="static"
-        class="w-full object-cover cursor-pointer hover:opacity-80 transition-opacity"
+        type="button"
+        :aria-label="`Bild vergrößern: ${firstImage.title ?? firstImage.alt}`"
+        class="block w-full cursor-pointer"
         @click="emit('imageClick', firstImage, 0)"
-    />
+    >
+        <NuxtImg
+            :src="firstImage.media"
+            :alt="firstImage.alt"
+            preset="static"
+            class="w-full object-cover hover:opacity-80 transition-opacity"
+        />
+    </button>
 </template>

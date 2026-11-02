@@ -19,7 +19,7 @@ useSeoMeta({
     <div class="my-none mx-auto flex flex-col md:flex-row gap-small3 py-medium">
         <NuxtImg
             src="/adrian-sailer.jpg"
-            alt="Adrian Sailer"
+            alt="Adrian Sailer mit Sofortbildkamera im Studio"
             preset="static"
             class="w-full md:w-1/2 h-auto shrink-0"
         />

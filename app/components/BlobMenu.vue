@@ -4,7 +4,63 @@ import { NuxtImg } from '#components';
 import Hamburger from '~/atomics/button/Hamburger.vue';
 import { navigationRoutes } from '~/statics/routes';
 const {isOpen, setClosed} = useNavigationTrigger();
+const route = useRoute();
 
+const dialog = ref<HTMLElement | null>(null);
+let previouslyFocused: HTMLElement | null = null;
+
+const getFocusable = () =>
+    Array.from(
+        dialog.value?.querySelectorAll<HTMLElement>('a[href], button:not([disabled])') ?? []
+    );
+
+const handleKeydown = (e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+        setClosed();
+        return;
+    }
+
+    // Fokus im Menü halten
+    if (e.key !== 'Tab') return;
+
+    const focusable = getFocusable();
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (!first || !last) return;
+
+    if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+    }
+};
+
+watch(isOpen, async (open) => {
+    if (!import.meta.client) return;
+
+    if (open) {
+        previouslyFocused = document.activeElement as HTMLElement | null;
+        document.body.style.overflow = 'hidden';
+        globalThis.addEventListener('keydown', handleKeydown);
+
+        await nextTick();
+        dialog.value?.querySelector<HTMLElement>('nav a')?.focus();
+    } else {
+        document.body.style.overflow = '';
+        globalThis.removeEventListener('keydown', handleKeydown);
+        previouslyFocused?.focus();
+    }
+});
+
+onUnmounted(() => {
+    if (!import.meta.client) return;
+
+    document.body.style.overflow = '';
+    globalThis.removeEventListener('keydown', handleKeydown);
+});
 
 </script>
 
@@ -21,11 +77,17 @@ const {isOpen, setClosed} = useNavigationTrigger();
         >
             <div
                 v-if="isOpen"
-                class="fixed inset-0 z-modal flex items-center justify-center"
+                id="main-menu"
+                ref="dialog"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Hauptmenü"
+                class="fixed inset-0 z-modal flex items-center justify-center overflow-y-auto"
             >
             <div class="absolute right-small top-small" >
                <Hamburger /></div>
                 <div
+                    aria-hidden="true"
                     class="animate-blob bg-gray90"
                     :class="{
                         open: isOpen,
@@ -33,14 +95,14 @@ const {isOpen, setClosed} = useNavigationTrigger();
                     }"
                 />
 
-                <nav class="relative z-modal">
+                <nav class="relative z-modal py-large" aria-label="Hauptnavigation">
                     
                     <ul class="flex flex-col items-center gap-8">
-                        <li>
+                        <li aria-hidden="true">
                             <NuxtImg
                              preset="static"
                                 src="Logo_Adrian_Sailer_Art.png"
-                                alt="Adrian Sailer Art"
+                                alt=""
                                 class="h-large5 w-auto"
                             />
                         </li>
@@ -54,7 +116,8 @@ const {isOpen, setClosed} = useNavigationTrigger();
                         >
                             <NuxtLink
                                 :to="item.path"
-                                class="text-white uppercase font-black tracking-wider text-4xl md:text-6xl hover:text-primary transition-colors"
+                                :aria-current="route.path === item.path ? 'page' : undefined"
+                                class="text-white uppercase font-black tracking-wider text-4xl md:text-6xl hover:text-primary focus-visible:text-primary aria-[current=page]:text-primary transition-colors"
                                 @click="setClosed"
                             >
                                 {{ item.name }}

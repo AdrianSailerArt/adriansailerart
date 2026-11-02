@@ -17,8 +17,10 @@ const emit = defineEmits<EmitGalleryType>();
 <template>
     <div v-if="firstImage" class="flex flex-col md:flex-row gap-small2">
         <!-- Hauptbild -->
-        <div
-            class="relative flex-1 overflow-hidden group cursor-pointer"
+        <button
+            type="button"
+            :aria-label="`Bild vergrößern: ${firstImage.title ?? firstImage.alt}`"
+            class="relative block flex-1 overflow-hidden group cursor-pointer"
             @click="emit('imageClick', firstImage, 0)"
         >
             <NuxtImg
@@ -30,22 +32,25 @@ const emit = defineEmits<EmitGalleryType>();
             />
 
             <div
-                class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+                class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 group-focus-visible:translate-y-0 transition-transform duration-300"
             >
                 <div class="px-small4 py-small3 bg-black/30 backdrop-blur-md">
-                    <Text color="white">
+                    <Text as="span" color="white">
                         {{ firstImage.title }}
                     </Text>
                 </div>
             </div>
-        </div>
+        </button>
 
         <!-- Kleine Bilder -->
         <div class="flex-1 grid grid-cols-2 gap-small2">
-            <div
+            <button
                 v-for="(image, index) in restImages"
                 :key="`${image.media}-${index}`"
-                class="relative overflow-hidden group cursor-pointer"
+                v-reveal="(index % 2) * 80"
+                type="button"
+                :aria-label="`Bild vergrößern: ${image.title ?? image.alt}`"
+                class="relative block overflow-hidden group cursor-pointer"
                 @click="emit('imageClick', image, index + 1)"
             >
                 <NuxtImg
@@ -56,17 +61,17 @@ const emit = defineEmits<EmitGalleryType>();
                 />
 
                 <div
-                    class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+                    class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 group-focus-visible:translate-y-0 transition-transform duration-300"
                 >
                     <div
                         class="px-small4 py-small3 bg-black/30 backdrop-blur-md"
                     >
-                        <Text color="white">
+                        <Text as="span" color="white">
                             {{ image.title }}
                         </Text>
                     </div>
                 </div>
-            </div>
+            </button>
         </div>
     </div>
 </template>

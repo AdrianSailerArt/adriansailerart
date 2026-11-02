@@ -2,7 +2,7 @@
 
 Hi, ich bin **Adrian Sailer** – Fotograf und Medieninformatiker aus dem Schwarzwald.
 
-Seit über zehn Jahren begleite ich Konzerte, Festivals, Künstler und Menschen mit meiner Kamera. Angefangen hat alles in der Musikszene, wo ich durch meine Arbeit für **Tribe Online** die ersten Konzerte fotografierte. Was damals als Leidenschaft begann, entwickelte sich schnell zu meinem persönlichen Stil: authentische Bilder mit Atmosphäre, Emotion und Charakter.  [oai_citation:1‡konzertfotos.app](https://www.konzertfotos.app/konzertfotografie-und-expertentipps-von-adrian-sailer?utm_source=chatgpt.com)
+Seit über zehn Jahren begleite ich Konzerte, Festivals, Künstler und Menschen mit meiner Kamera. Angefangen hat alles in der Musikszene, wo ich durch meine Arbeit für **Tribe Online** die ersten Konzerte fotografierte. Was damals als Leidenschaft begann, entwickelte sich schnell zu meinem persönlichen Stil: authentische Bilder mit Atmosphäre, Emotion und Charakter.
 
 Heute arbeite ich sowohl im Studio als auch on Location. Mein Schwerpunkt liegt auf Künstler-, Band- und Portraitfotografie sowie außergewöhnlichen Inszenierungen mit gezieltem Licht, kreativen Sets und einer cineastischen Bildsprache. Dabei entstehen keine austauschbaren Fotos, sondern Aufnahmen, die Persönlichkeit zeigen und Geschichten erzählen. 
 

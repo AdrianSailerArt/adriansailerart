@@ -2,7 +2,7 @@
 import { computed, ref, onMounted, onUnmounted } from 'vue';
 
 import Text from '~/atomics/text/Text.vue';
-import Button from '~/atomics/button/Button.vue';
+import Link from '~/atomics/link/Link.vue';
 
 type ParallaxSectionProps = {
     backgroundImage: string;
@@ -41,17 +41,27 @@ const backgroundImageUrl = computed(() => {
 const section = ref<HTMLElement | null>(null);
 const offset = ref(0);
 
+let frame = 0;
+
 const handleScroll = () => {
-    if (!section.value) return;
+    if (frame) return;
 
-    const rect = section.value.getBoundingClientRect();
+    // Pro Frame nur einmal rechnen
+    frame = requestAnimationFrame(() => {
+        frame = 0;
 
-    const scrollPosition = window.innerHeight - rect.top;
+        if (!section.value) return;
 
-    offset.value = scrollPosition * 0.15;
+        const rect = section.value.getBoundingClientRect();
+
+        const scrollPosition = window.innerHeight - rect.top;
+
+        offset.value = scrollPosition * 0.15;
+    });
 };
 
 onMounted(() => {
+    handleScroll();
     window.addEventListener('scroll', handleScroll, {
         passive: true
     });
@@ -59,6 +69,7 @@ onMounted(() => {
 
 onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll);
+    cancelAnimationFrame(frame);
 });
 
 const heightClass = computed(() => {
@@ -100,6 +111,7 @@ const hasContent = computed(() => {
     >
         <!-- Parallax Image -->
         <div
+            aria-hidden="true"
             class="absolute inset-0 scale-150 bg-cover bg-center will-change-transform"
             :style="{
                 backgroundImage: `url('${backgroundImageUrl}')`,
@@ -110,6 +122,7 @@ const hasContent = computed(() => {
         <!-- Overlay nur wenn Inhalt vorhanden -->
         <div
             v-if="overlay && hasContent"
+            aria-hidden="true"
             class="absolute inset-0 bg-black/40"
         />
 
@@ -119,7 +132,7 @@ const hasContent = computed(() => {
             class="relative z-background mx-auto flex w-full max-w-screen-2xl px-small4"
             :class="alignClass"
         >
-            <div class="max-w-3xl">
+            <div v-reveal class="max-w-3xl">
                 <Text v-if="title" as="h2" variant="h1" color="primary">
                     {{ title }}
                 </Text>
@@ -133,13 +146,13 @@ const hasContent = computed(() => {
                     {{ description }}
                 </Text>
 
-                <Button
-                    v-if="buttonText"
+                <Link
+                    v-if="buttonText && buttonLink"
                     class="mt-large"
-                    @click="navigateTo(buttonLink)"
+                    :to="buttonLink"
                 >
                     {{ buttonText }}
-                </Button>
+                </Link>
             </div>
         </div>
     </section>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import Text from '~/atomics/text/Text.vue';
+import Icon from '~/atomics/icons/Icon.vue';
 
 type HeroStackProps = {
     backgroundImage?: string;
@@ -16,6 +17,17 @@ const props = withDefaults(defineProps<HeroStackProps>(), {
 
 const config = useRuntimeConfig();
 
+const scrollToContent = () => {
+    const reduceMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    window.scrollBy({
+        top: window.innerHeight * 0.85,
+        behavior: reduceMotion ? 'auto' : 'smooth'
+    });
+};
+
 const backgroundImageUrl = computed(() => {
     const image = props.backgroundImage || '/images/hero.jpg';
 
@@ -25,13 +37,19 @@ const backgroundImageUrl = computed(() => {
 
 <template>
     <section
-        class="relative flex min-h-screen items-end overflow-hidden bg-cover bg-center"
-        :style="{
-            backgroundImage: `url('${backgroundImageUrl}')`
-        }"
+        class="relative flex min-h-screen items-end overflow-hidden"
     >
+        <!-- Hintergrund mit langsamem Ken-Burns-Zoom -->
+        <div
+            aria-hidden="true"
+            class="hero-bg absolute inset-0 bg-cover bg-center"
+            :style="{
+                backgroundImage: `url('${backgroundImageUrl}')`
+            }"
+        />
+
         <!-- Overlay -->
-        <div class="absolute inset-0 bg-black/30" />
+        <div class="absolute inset-0 bg-black/30" aria-hidden="true" />
 
         <!-- Content -->
         <div
@@ -42,7 +60,7 @@ const backgroundImageUrl = computed(() => {
                     : 'flex justify-start'
             "
         >
-            <div
+            <h1
                 class="flex flex-col gap-small"
                 :class="
                     props.align === 'right'
@@ -50,31 +68,109 @@ const backgroundImageUrl = computed(() => {
                         : 'items-start text-left'
                 "
             >
-                <Text variant="display" color="primary" class="hero-word">
+                <Text
+                    as="span"
+                    variant="display"
+                    color="primary"
+                    class="hero-word"
+                    style="--i: 0"
+                >
                     {{ props.line1 }}
                 </Text>
 
-                <Text variant="display" color="white" class="hero-word">
+                <Text
+                    as="span"
+                    variant="display"
+                    color="white"
+                    class="hero-word"
+                    style="--i: 1"
+                >
                     {{ props.line2 }}
                 </Text>
 
-                <Text variant="display" color="white" class="hero-word">
+                <Text
+                    as="span"
+                    variant="display"
+                    color="white"
+                    class="hero-word"
+                    style="--i: 2"
+                >
                     {{ props.line3 }}
                 </Text>
-            </div>
+            </h1>
         </div>
+
+        <!-- Scroll-Hinweis -->
+        <button
+            type="button"
+            class="scroll-cue absolute bottom-small4 left-1/2 z-base -translate-x-1/2 text-white cursor-pointer p-small2"
+            aria-label="Zum Inhalt scrollen"
+            @click="scrollToContent"
+        >
+            <Icon name="ChevronDown" color="inherit" size="medium2" />
+        </button>
     </section>
 </template>
 
 <style scoped>
+.hero-bg {
+    animation: kenBurns 24s ease-out forwards;
+    transform-origin: 60% 40%;
+}
+
+@keyframes kenBurns {
+    from {
+        transform: scale(1.12);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
 .hero-word {
+    display: block;
     text-transform: uppercase;
     text-shadow: var(--shadow-inner);
     transition: transform 0.25s ease;
+    animation: heroWordIn 0.9s cubic-bezier(.22,1,.36,1) both;
+    animation-delay: calc(var(--i) * 180ms + 200ms);
+}
+
+@keyframes heroWordIn {
+    from {
+        opacity: 0;
+        translate: -48px 0;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
 }
 
 .hero-word:hover {
     transform: translateX(4px);
+}
+
+.scroll-cue {
+    animation:
+        fadeIn 0.6s ease 1.2s both,
+        bounce 2.4s ease-in-out 1.8s infinite;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(8px);
+    }
 }
 
 @media (min-width: 640px) {

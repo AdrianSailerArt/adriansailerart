@@ -17,8 +17,9 @@ defineProps<{
             class="mx-auto grid max-w-xl grid-cols-1 gap-small4 sm:mt-large4 xl:max-w-7xl xl:grid-cols-3"
         >
             <Sheet
-                v-for="plan in plans"
+                v-for="(plan, planIndex) in plans"
                 :key="plan.name"
+                v-reveal="planIndex * 120"
                 :class="[
                     'pricing-card ',
                     plan.highlight
@@ -31,7 +32,7 @@ defineProps<{
                     color="secondary"
                     class="absolute -top-4 left-1/2 -translate-x-1/2 -rotate-2 z-fixed"
                 >
-                    ⭐ Empfohlen
+                    <span aria-hidden="true">⭐</span> Empfohlen
                 </Tag>
 
                 <Text as="h3" variant="h3" color="inherit">
@@ -40,7 +41,8 @@ defineProps<{
 
                 <div class="mt-medium flex items-end gap-small2">
                     <span class="text-6xl font-black leading-none">
-                        €{{ plan.price }}
+                        <span aria-hidden="true">€{{ plan.price }}</span>
+                        <span class="sr-only">{{ plan.price }} Euro</span>
                     </span>
                 </div>
 
@@ -66,6 +68,7 @@ defineProps<{
                     fluid
                     :variant="plan.highlight ? 'standard' : 'outlined'"
                     class="mt-large4"
+                    :aria-label="`Paket ${plan.name} jetzt per E-Mail anfragen`"
                     @click="plan.cta()"
                 >
                     Jetzt buchen

@@ -1,12 +1,20 @@
 <script lang="ts" setup>
 import ImagePost from '~/components/Gallery/ImagePost.vue';
 import { cosplayImages } from '~/resources/imageSrc/cosplay';
+
+useSeoMeta({
+    title: 'Cosplay Fotografie | Adrian Sailer Art',
+    ogTitle: 'Cosplay Fotografie',
+    description:
+        'Cosplay-Shootings voller mystischer Welten und Fantasy – inszeniert mit gezieltem Licht und cineastischer Bildsprache.',
+    ogType: 'article'
+});
 </script>
 <template>
     <div>
         <Hero
             image="/Logo_Adrian_Sailer_Art.png"
-            title="Cosplay Gallerie"
+            title="Cosplay Galerie"
             subtitle="Mystische Welten & Fantasy"
         
             background-image="/cosplay/Viking-3.jpg"

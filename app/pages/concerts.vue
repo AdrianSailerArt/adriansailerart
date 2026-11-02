@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import ImagePost from '~/components/Gallery/ImagePost.vue';
 import { concertImages } from '~/resources/imageSrc/concet';
+import Text from '~/atomics/text/Text.vue';
 
 useSeoMeta({
     title: 'Konzertfotografie | Adrian Sailer Art',
@@ -19,7 +20,7 @@ useSeoMeta({
     <div>
         <Hero
             image="/Logo_Adrian_Sailer_Art.png"
-            title="Konzerte und Artist Gallerie"
+            title="Konzerte und Artist Galerie"
             subtitle="Einzigartige Momente & Energie"
             background-image="/concert/BossHoss.jpg"
         />
@@ -29,7 +30,7 @@ useSeoMeta({
                     <ImagePost :images="concertImages" layout="grid"
                 /></template>
                 <template #tab-1>
-                    <div>Comming soon</div>
+                    <Text class="p-medium" variant="bodySemibold">Coming soon</Text>
                 </template>
             </Tab>
         </div>

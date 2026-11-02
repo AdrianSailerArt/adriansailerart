@@ -17,13 +17,19 @@ const emit = defineEmits<EmitGalleryType>();
             class="break-inside-avoid"
             :style="{ width: `${200 + (index % 3) * 50}px` }"
         >
-            <NuxtImg
-                :src="image.media"
-                :alt="image.alt"
-                 preset="static"
-                class="w-full h-auto object-cover cursor-pointer hover:opacity-80 transition-opacity rounded"
+            <button
+                type="button"
+                :aria-label="`Bild vergrößern: ${image.title ?? image.alt}`"
+                class="block w-full cursor-pointer"
                 @click="emit('imageClick', image, index)"
-            />
+            >
+                <NuxtImg
+                    :src="image.media"
+                    :alt="image.alt"
+                    preset="static"
+                    class="w-full h-auto object-cover hover:opacity-80 transition-opacity rounded"
+                />
+            </button>
         </div>
     </div>
 </template>

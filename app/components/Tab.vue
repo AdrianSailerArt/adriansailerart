@@ -16,23 +16,50 @@ const emit = defineEmits<EmitProps>();
 
 const activeIndex = ref(props.initActiveTab ?? 0);
 
+const uid = useId();
+const tabRefs = ref<Array<HTMLButtonElement>>([]);
+
 const selectTab = (index: number) => {
     activeIndex.value = index;
     emit('update:activeTab', index);
+};
+
+// Pfeiltasten / Home / End laut WAI-ARIA Tabs-Pattern
+const handleKeydown = (e: KeyboardEvent, index: number) => {
+    const last = props.tabs.length - 1;
+    let target: number | null = null;
+
+    if (e.key === 'ArrowRight') target = index === last ? 0 : index + 1;
+    if (e.key === 'ArrowLeft') target = index === 0 ? last : index - 1;
+    if (e.key === 'Home') target = 0;
+    if (e.key === 'End') target = last;
+
+    if (target === null) return;
+
+    e.preventDefault();
+    selectTab(target);
+    tabRefs.value[target]?.focus();
 };
 </script>
 
 <template>
     <div class="flex flex-col w-full">
         <div class="-mb-px relative">
-            <div class="flex flex-wrap gap-small3">
+            <div class="flex flex-wrap gap-small3" role="tablist">
                 <button
                     v-for="(tab, index) in tabs"
+                    :id="`${uid}-tab-${index}`"
                     :key="index"
-                    :aria-label="tab"
+                    ref="tabRefs"
+                    type="button"
+                    role="tab"
+                    :aria-selected="activeIndex === index"
+                    :aria-controls="`${uid}-panel-${index}`"
+                    :tabindex="activeIndex === index ? 0 : -1"
                     class="tab-button relative px-small4 py-small3"
                     :class="{ 'is-active': activeIndex === index }"
                     @click="selectTab(index)"
+                    @keydown="handleKeydown($event, index)"
                 >
                     <Text
                         variant="linkText"
@@ -47,9 +74,12 @@ const selectTab = (index: number) => {
         <div class="tab-content relative p-small">
             <div
                 v-for="(_, index) in tabs"
+                :id="`${uid}-panel-${index}`"
                 :key="index"
                 v-show="activeIndex === index"
-                class="relative"
+                role="tabpanel"
+                :aria-labelledby="`${uid}-tab-${index}`"
+                class="relative tab-panel"
             >
                 <slot :name="'tab-' + index" />
             </div>
@@ -118,4 +148,14 @@ const selectTab = (index: number) => {
     pointer-events: none;
 }
 
+.tab-panel {
+    animation: tabIn 0.4s ease both;
+}
+
+@keyframes tabIn {
+    from {
+        opacity: 0;
+        translate: 0 12px;
+    }
+}
 </style>

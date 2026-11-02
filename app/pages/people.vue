@@ -23,19 +23,19 @@ useSeoMeta({
     <div>
         <Hero
             image="/Logo_Adrian_Sailer_Art.png"
-            title="People Gallerie"
+            title="People Galerie"
             subtitle="Menschen & Emotionen"
             background-image="/people/Elvira-2.jpg"
         />
         <div class="mx-auto px-medium my-medium">
-            <Tab :tabs="['Portaits', 'Regenschooting', 'Trachten']">
+            <Tab :tabs="['Portraits', 'Regenshooting', 'Trachten']">
                 <template #tab-0>
                     <div>
-                        <Text class="pl-medium pt-medium" variant="display"
-                            >Portaits</Text
+                        <Text as="h2" class="pl-medium pt-medium" variant="display"
+                            >Portraits</Text
                         >
                         <Text class="pl-medium pt-medium" variant="bodySemibold"
-                            >Lorem Ipsum</Text
+                            >Zeitlose Portraits mit Fokus auf Persönlichkeit statt steifen Posen. Gemeinsam schaffen wir natürliche Bilder mit Charakter.</Text
                         >
                         <ImagePost :images="peopleImages" layout="grid" />
                     </div>
@@ -43,22 +43,22 @@ useSeoMeta({
 
                 <template #tab-1>
                     <div>
-                        <Text class="pl-medium pt-medium" variant="display"
-                            >Regenschooting</Text
+                        <Text as="h2" class="pl-medium pt-medium" variant="display"
+                            >Regenshooting</Text
                         >
                         <Text class="pl-medium pt-medium" variant="bodySemibold"
-                            >Lorem Ipsum</Text
+                            >Aufwendige Regenshootings in meinem Studio in Sexau – mit gezieltem Licht, kreativen Sets und einer cineastischen Bildsprache.</Text
                         >
                         <ImagePost :images="regenImages" layout="masonry" />
                     </div>
                 </template>
                 <template #tab-2>
                     <div>
-                        <Text class="pl-medium pt-medium" variant="display"
+                        <Text as="h2" class="pl-medium pt-medium" variant="display"
                             >Trachten</Text
                         >
                         <Text class="pl-medium pt-medium" variant="bodySemibold"
-                            >Lorem Ipsum</Text
+                            >Traditionen und Heimat des Schwarzwaldes – fernab von Klischees und immer mit dem Blick für die kleinen Details.</Text
                         >
                         <ImagePost :images="trachtImages" layout="feature" />
                     </div>
