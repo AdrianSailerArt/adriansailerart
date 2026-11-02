@@ -17,6 +17,8 @@ const { activeIndex, currentItem, next, prev, swipeHandlers, isDragging } =
 
 const isSingleImage = computed(() => props.images.length === 1);
 
+const { lock, unlock } = useScrollLock();
+
 const isFullscreen = ref(false);
 const dialog = ref<HTMLElement | null>(null);
 let previouslyFocused: HTMLElement | null = null;
@@ -26,11 +28,13 @@ const openFullscreen = async () => {
 
     if (import.meta.client) {
         previouslyFocused = document.activeElement as HTMLElement | null;
-        document.body.style.overflow = 'hidden';
+        lock();
         globalThis.addEventListener('keydown', handleKeydown);
 
         await nextTick();
-        dialog.value?.querySelector<HTMLElement>('button')?.focus();
+        dialog.value
+            ?.querySelector<HTMLElement>('button')
+            ?.focus({ preventScroll: true });
     }
 };
 
@@ -43,9 +47,9 @@ const closeFullscreen = () => {
     isFullscreen.value = false;
 
     if (import.meta.client) {
-        document.body.style.overflow = '';
+        unlock();
         globalThis.removeEventListener('keydown', handleKeydown);
-        previouslyFocused?.focus();
+        previouslyFocused?.focus({ preventScroll: true });
     }
 };
 
@@ -78,7 +82,7 @@ const handleKeydown = (e: KeyboardEvent) => {
 
 onUnmounted(() => {
     if (import.meta.client) {
-        document.body.style.overflow = '';
+        if (isFullscreen.value) unlock();
         globalThis.removeEventListener('keydown', handleKeydown);
     }
 });

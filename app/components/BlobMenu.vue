@@ -10,6 +10,8 @@ const route = useRoute();
 const isCurrent = (path: string) =>
     route.path === path || route.path === `${path}/`;
 
+const { lock, unlock } = useScrollLock();
+
 const dialog = ref<HTMLElement | null>(null);
 let previouslyFocused: HTMLElement | null = null;
 
@@ -47,22 +49,24 @@ watch(isOpen, async (open) => {
 
     if (open) {
         previouslyFocused = document.activeElement as HTMLElement | null;
-        document.body.style.overflow = 'hidden';
+        lock();
         globalThis.addEventListener('keydown', handleKeydown);
 
         await nextTick();
-        dialog.value?.querySelector<HTMLElement>('nav a')?.focus();
+        dialog.value
+            ?.querySelector<HTMLElement>('nav a')
+            ?.focus({ preventScroll: true });
     } else {
-        document.body.style.overflow = '';
+        unlock();
         globalThis.removeEventListener('keydown', handleKeydown);
-        previouslyFocused?.focus();
+        previouslyFocused?.focus({ preventScroll: true });
     }
 });
 
 onUnmounted(() => {
     if (!import.meta.client) return;
 
-    document.body.style.overflow = '';
+    if (isOpen.value) unlock();
     globalThis.removeEventListener('keydown', handleKeydown);
 });
 
@@ -98,7 +102,7 @@ onUnmounted(() => {
                 />
 
                 <!-- Schließen-Button exakt an der Position des Menü-Buttons in der NavBar -->
-                <div class="absolute inset-x-0 top-0 z-modal">
+                <div class="absolute inset-x-0 top-0 z-tooltip">
                     <div class="mx-auto max-w-7xl px-small2 lg:px-medium">
                         <div class="flex h-16 items-center justify-end">
                             <Hamburger />
@@ -107,9 +111,9 @@ onUnmounted(() => {
                 </div>
 
                 <!-- Nur der Inhalt scrollt (kleine Displays), nicht der große Blob -->
-                <div class="absolute inset-0 overflow-y-auto overscroll-contain">
+                <div class="absolute inset-0 z-base overflow-y-auto overscroll-contain">
                     <nav
-                        class="relative z-modal flex min-h-full items-center justify-center px-small4 pt-large pb-medium2"
+                        class="relative flex min-h-full items-center justify-center px-small4 pt-large pb-medium2"
                         aria-label="Hauptnavigation"
                     >
                         <ul class="flex flex-col items-center gap-small5 md:gap-8">
