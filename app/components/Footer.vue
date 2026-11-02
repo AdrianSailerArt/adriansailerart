@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Text from '~/atomics/text/Text.vue';
+import Icon from '~/atomics/icons/Icon.vue';
 import { footerNavigation } from '~/statics/routes';
 import { contactInformation } from '~/resources/contactInformation';
 </script>
@@ -21,6 +22,18 @@ import { contactInformation } from '~/resources/contactInformation';
                                 class="footer-link"
                             >
                                 Kontakt
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                :href="contactInformation.instagram"
+                                class="footer-link inline-flex items-center gap-small"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Icon name="PlatformInstagram" color="inherit" size="small5" />
+                                Instagram
+                                <span class="sr-only">(öffnet in neuem Tab)</span>
                             </a>
                         </li>
                         <li v-for="item in footerNavigation" :key="item.path">

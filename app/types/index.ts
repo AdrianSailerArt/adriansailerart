@@ -12,3 +12,8 @@ export type Plan = {
     highlight?: boolean;
     cta: () => void;
 };
+
+export type ProcessStep = {
+    title: string;
+    description: string;
+};

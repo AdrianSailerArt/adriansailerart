@@ -1,24 +1,23 @@
 # Impressum
 
-## Angaben gemäß § 5 TMG
+## Angaben gemäß § 5 DDG
 
 Adrian Sailer  
 Adrian Sailer Art  
-Waldkircher Strasse 32
-79350 Sexau
-
+Waldkircher Strasse 32  
+79350 Sexau  
 Deutschland
 
 ## Kontakt
 
-E-Mail: adriansailer@me.com
+E-Mail: [adriansailer@me.com](mailto:adriansailer@me.com)
 
 ---
 
-## Verantwortlich für den Inhalt
+## Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
 
 Adrian Sailer  
-Waldkircher Strasse 32
+Waldkircher Strasse 32  
 79350 Sexau
 
 
@@ -38,7 +37,7 @@ Soweit Inhalte auf dieser Website nicht vom Betreiber erstellt wurden, werden di
 
 ## Haftung für Inhalte
 
-Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+Als Diensteanbieter bin ich gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
 
 Eine Gewähr für die Vollständigkeit, Richtigkeit und Aktualität der Inhalte kann jedoch nicht übernommen werden.
 
@@ -64,10 +63,6 @@ Bei Bekanntwerden von Rechtsverletzungen werden entsprechende Links umgehend ent
 
 ---
 
-## Hinweis zur Online-Streitbeilegung
-
-Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
-
-https://ec.europa.eu/consumers/odr/
+## Verbraucherstreitbeilegung
 
 Ich bin nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.

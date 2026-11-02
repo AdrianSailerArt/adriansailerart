@@ -6,6 +6,7 @@ import md2 from '~/resources/markdown/hochzeitsfotografie-leistungen.md?raw';
 import md3 from '~/resources/markdown/hochzeitsfotograf-freiburg.md?raw';
 
 import { weddingPlans } from '~/resources/buyBoxes/wedding';
+import { weddingProcess } from '~/resources/process/wedding';
 import { hochzeitImages } from '~/resources/imageSrc/hochzeit';
 import Text from '~/atomics/text/Text.vue';
 import Sheet from '~/atomics/Sheet.vue';
@@ -40,6 +41,13 @@ useSeoMeta({
         />
 
         <div class="mx-auto max-w-full">
+            <ProcessSteps
+                title="So läuft's ab"
+                :steps="weddingProcess"
+                link-text="Pakete ansehen"
+                link-to="#buchen"
+            />
+
             <div
                 class="flex flex-col md:flex-row gap-small3 py-medium items-start"
             >

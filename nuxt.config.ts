@@ -17,9 +17,8 @@ export default defineNuxtConfig({
 
     modules: ['@nuxt/a11y', '@nuxt/image', '@nuxtjs/sitemap', '@nuxtjs/seo'],
 
-    // Nur die Domain – der Pfad /adriansailerart/ kommt aus app.baseURL
     site: {
-        url: 'https://adriansailerart.github.io',
+        url: 'https://adriansailer.de',
         name: 'Adrian Sailer Art',
         description:
             'Hochzeits-, Portrait- und Konzertfotografie aus dem Schwarzwald und Freiburg.',
@@ -27,11 +26,6 @@ export default defineNuxtConfig({
     },
     robots: {
         robotsTxt: false
-    },
-
-    // Die vorgerenderte Startseite /adriansailerart/ landet sonst doppelt in der Sitemap
-    sitemap: {
-        exclude: ['/adriansailerart', '/adriansailerart/**']
     },
 
     // OG-Bilder kommen als echte Fotos aus useSocialImage(), keine generierten Bilder
@@ -43,10 +37,11 @@ export default defineNuxtConfig({
         identity: {
             '@type': ['Organization', 'LocalBusiness', 'ProfessionalService'],
             name: 'Adrian Sailer Art',
-            url: 'https://adriansailerart.github.io/adriansailerart/',
+            url: 'https://adriansailer.de/',
             description:
                 'Fotograf aus dem Schwarzwald für Hochzeiten, Portraits, Regenshootings und Konzerte.',
             founder: { '@type': 'Person', name: 'Adrian Sailer' },
+            sameAs: ['https://www.instagram.com/adriansailerart/'],
             email: 'adriansailer@me.com',
             priceRange: '€€',
             currenciesAccepted: 'EUR',
@@ -80,8 +75,8 @@ export default defineNuxtConfig({
 
             mode: 'out-in'
         },
-        baseURL:
-            process.env.NODE_ENV === 'production' ? '/adriansailerart/' : '/'
+        // Eigene Domain adriansailer.de – die Seite liegt direkt im Root
+        baseURL: '/'
     },
 
     nitro: {
