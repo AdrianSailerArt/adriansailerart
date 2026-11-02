@@ -1,5 +1,12 @@
 import tailwindcss from '@tailwindcss/vite';
 
+/**
+ * Wo die Seite ausgeliefert wird. Standard ist die eigene Domain adriansailer.de.
+ * Für die github.io-Adresse setzt der Deploy-Workflow DEPLOY_SITE_URL und DEPLOY_BASE_URL.
+ */
+const siteUrl = process.env.DEPLOY_SITE_URL || 'https://adriansailer.de';
+const baseURL = process.env.DEPLOY_BASE_URL || '/';
+
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
 
@@ -18,7 +25,7 @@ export default defineNuxtConfig({
     modules: ['@nuxt/a11y', '@nuxt/image', '@nuxtjs/sitemap', '@nuxtjs/seo'],
 
     site: {
-        url: 'https://adriansailer.de',
+        url: siteUrl,
         name: 'Adrian Sailer Art',
         description:
             'Hochzeits-, Portrait- und Konzertfotografie aus dem Schwarzwald und Freiburg.',
@@ -26,6 +33,11 @@ export default defineNuxtConfig({
     },
     robots: {
         robotsTxt: false
+    },
+
+    // Mit Unterpfad landet die vorgerenderte Startseite sonst doppelt in der Sitemap
+    sitemap: {
+        exclude: baseURL === '/' ? [] : [baseURL.replace(/\/$/, ''), `${baseURL}**`]
     },
 
     // OG-Bilder kommen als echte Fotos aus useSocialImage(), keine generierten Bilder
@@ -37,7 +49,7 @@ export default defineNuxtConfig({
         identity: {
             '@type': ['Organization', 'LocalBusiness', 'ProfessionalService'],
             name: 'Adrian Sailer Art',
-            url: 'https://adriansailer.de/',
+            url: `${siteUrl}${baseURL}`,
             description:
                 'Fotograf aus dem Schwarzwald für Hochzeiten, Portraits, Regenshootings und Konzerte.',
             founder: { '@type': 'Person', name: 'Adrian Sailer' },
@@ -75,8 +87,7 @@ export default defineNuxtConfig({
 
             mode: 'out-in'
         },
-        // Eigene Domain adriansailer.de – die Seite liegt direkt im Root
-        baseURL: '/'
+        baseURL
     },
 
     nitro: {
