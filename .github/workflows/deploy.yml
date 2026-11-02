@@ -26,11 +26,6 @@ jobs:
 
       - name: Generate Nuxt site
         run: bun run generate
-        # Solange adriansailer.de noch nicht aktiv ist, läuft die Seite unter github.io/adriansailerart/.
-        # Sobald die eigene Domain in den Pages-Einstellungen eingetragen ist: diese env-Zeilen löschen.
-        env:
-          DEPLOY_SITE_URL: https://adriansailerart.github.io
-          DEPLOY_BASE_URL: /adriansailerart/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
