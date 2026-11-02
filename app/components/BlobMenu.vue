@@ -6,6 +6,10 @@ import { navigationRoutes } from '~/statics/routes';
 const {isOpen, setClosed} = useNavigationTrigger();
 const route = useRoute();
 
+// /people und /people/ gelten beide als aktuelle Seite
+const isCurrent = (path: string) =>
+    route.path === path || route.path === `${path}/`;
+
 const dialog = ref<HTMLElement | null>(null);
 let previouslyFocused: HTMLElement | null = null;
 
@@ -82,10 +86,8 @@ onUnmounted(() => {
                 role="dialog"
                 aria-modal="true"
                 aria-label="Hauptmenü"
-                class="fixed inset-0 z-modal flex items-center justify-center overflow-y-auto"
+                class="fixed inset-0 z-modal overflow-hidden"
             >
-            <div class="absolute right-small top-small" >
-               <Hamburger /></div>
                 <div
                     aria-hidden="true"
                     class="animate-blob bg-gray90"
@@ -95,39 +97,53 @@ onUnmounted(() => {
                     }"
                 />
 
-                <nav class="relative z-modal py-large" aria-label="Hauptnavigation">
-                    
-                    <ul class="flex flex-col items-center gap-8">
-                        <li aria-hidden="true">
-                            <NuxtImg
-                             preset="static"
-                                src="Logo_Adrian_Sailer_Art.png"
-                                alt=""
-                                width="160"
-                                height="160"
-                                densities="x1 x2"
-                                class="h-large5 w-auto"
-                            />
-                        </li>
-                        <li
-                            v-for="(item, index) in navigationRoutes"
-                            :key="item.path"
-                            class="animate-fade-up"
-                            :style="{
-                                animationDelay: `${index * 120 + 450}ms`
-                            }"
-                        >
-                            <NuxtLink
-                                :to="item.path"
-                                :aria-current="route.path === item.path ? 'page' : undefined"
-                                class="text-white uppercase font-black tracking-wider text-4xl md:text-6xl hover:text-primary focus-visible:text-primary aria-[current=page]:text-primary transition-colors"
-                                @click="setClosed"
+                <!-- Schließen-Button exakt an der Position des Menü-Buttons in der NavBar -->
+                <div class="absolute inset-x-0 top-0 z-modal">
+                    <div class="mx-auto max-w-7xl px-small2 lg:px-medium">
+                        <div class="flex h-16 items-center justify-end">
+                            <Hamburger />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nur der Inhalt scrollt (kleine Displays), nicht der große Blob -->
+                <div class="absolute inset-0 overflow-y-auto overscroll-contain">
+                    <nav
+                        class="relative z-modal flex min-h-full items-center justify-center px-small4 pt-large pb-medium2"
+                        aria-label="Hauptnavigation"
+                    >
+                        <ul class="flex flex-col items-center gap-small5 md:gap-8">
+                            <li aria-hidden="true">
+                                <NuxtImg
+                                    preset="static"
+                                    src="Logo_Adrian_Sailer_Art.png"
+                                    alt=""
+                                    width="160"
+                                    height="160"
+                                    densities="x1 x2"
+                                    class="h-28 md:h-large5 w-auto"
+                                />
+                            </li>
+                            <li
+                                v-for="(item, index) in navigationRoutes"
+                                :key="item.path"
+                                class="animate-fade-up text-center"
+                                :style="{
+                                    animationDelay: `${index * 120 + 450}ms`
+                                }"
                             >
-                                {{ item.name }}
-                            </NuxtLink>
-                        </li>
-                    </ul>
-                </nav>
+                                <NuxtLink
+                                    :to="item.path"
+                                    :aria-current="isCurrent(item.path) ? 'page' : undefined"
+                                    class="text-white uppercase font-black tracking-wider text-4xl md:text-6xl hover:text-primary focus-visible:text-primary aria-[current=page]:text-primary transition-colors"
+                                    @click="setClosed"
+                                >
+                                    {{ item.name }}
+                                </NuxtLink>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </Transition>
     </div>

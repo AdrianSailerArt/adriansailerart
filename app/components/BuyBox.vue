@@ -14,7 +14,7 @@ defineProps<{
 <template>
     <div class="relative isolate">
         <div
-            class="mx-auto grid max-w-xl grid-cols-1 gap-small4 sm:mt-large4 xl:max-w-7xl xl:grid-cols-3"
+            class="mx-auto grid max-w-xl grid-cols-1 gap-medium2 px-medium sm:gap-small4 sm:mt-large4 xl:max-w-7xl xl:grid-cols-3 xl:px-none"
         >
             <Sheet
                 v-for="(plan, planIndex) in plans"
@@ -67,7 +67,7 @@ defineProps<{
                 <Button
                     fluid
                     :variant="plan.highlight ? 'standard' : 'outlined'"
-                    class="mt-large4"
+                    class="mt-medium2 xl:mt-large4"
                     :aria-label="`Paket ${plan.name} jetzt per E-Mail anfragen`"
                     @click="plan.cta()"
                 >

@@ -28,7 +28,7 @@ useSeoMeta({
             subtitle="Menschen & Emotionen"
             background-image="/people/Elvira-2.jpg"
         />
-        <div class="mx-auto px-medium my-medium">
+        <div class="mx-auto px-small4 sm:px-medium my-medium">
             <Tab :tabs="['Portraits', 'Regenshooting', 'Trachten']">
                 <template #tab-0>
                     <div>

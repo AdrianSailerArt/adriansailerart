@@ -25,7 +25,7 @@ useSeoMeta({
             subtitle="Einzigartige Momente & Energie"
             background-image="/concert/BossHoss.jpg"
         />
-        <div class="mx-auto px-medium my-medium">
+        <div class="mx-auto px-small4 sm:px-medium my-medium">
             <Tab :tabs="['On Stage', 'Promotion']">
                 <template #tab-0>
                     <ImagePost :images="concertImages" layout="grid"

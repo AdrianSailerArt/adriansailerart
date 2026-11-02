@@ -133,8 +133,14 @@ const hasContent = computed(() => {
             class="relative z-background mx-auto flex w-full max-w-screen-2xl px-small4"
             :class="alignClass"
         >
-            <div v-reveal class="max-w-3xl">
-                <Text v-if="title" as="h2" variant="h1" color="primary">
+            <div v-reveal class="min-w-0 max-w-3xl">
+                <Text
+                    v-if="title"
+                    as="h2"
+                    variant="h1"
+                    color="primary"
+                    class="parallax-title"
+                >
                     {{ title }}
                 </Text>
 
@@ -158,3 +164,17 @@ const hasContent = computed(() => {
         </div>
     </section>
 </template>
+
+<style scoped>
+/* Lange Wörter (z. B. „Portraitfotografie“) auf dem Handy umbrechen statt abschneiden */
+.parallax-title {
+    hyphens: auto;
+    overflow-wrap: break-word;
+}
+
+@media (max-width: 639px) {
+    .parallax-title {
+        font-size: clamp(2rem, 10vw, 3rem) !important;
+    }
+}
+</style>

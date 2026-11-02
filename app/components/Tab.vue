@@ -45,7 +45,7 @@ const handleKeydown = (e: KeyboardEvent, index: number) => {
 <template>
     <div class="flex flex-col w-full">
         <div class="-mb-px relative">
-            <div class="flex flex-wrap gap-small3" role="tablist">
+            <div class="flex flex-wrap gap-small2 sm:gap-small3" role="tablist">
                 <button
                     v-for="(tab, index) in tabs"
                     :id="`${uid}-tab-${index}`"
@@ -56,7 +56,7 @@ const handleKeydown = (e: KeyboardEvent, index: number) => {
                     :aria-selected="activeIndex === index"
                     :aria-controls="`${uid}-panel-${index}`"
                     :tabindex="activeIndex === index ? 0 : -1"
-                    class="tab-button relative px-small4 py-small3"
+                    class="tab-button relative whitespace-nowrap px-small2 py-small3 sm:px-small4"
                     :class="{ 'is-active': activeIndex === index }"
                     @click="selectTab(index)"
                     @keydown="handleKeydown($event, index)"

@@ -177,9 +177,10 @@ const backgroundImageUrl = computed(() => {
     }
 }
 
+/* Text setzt die Größe inline – auf dem Handy muss die Zeile sicher in die Breite passen */
 @media (max-width: 639px) {
     .hero-word {
-        font-size: clamp(2.5rem, 12vw, 4rem);
+        font-size: clamp(2rem, 11vw, 3rem) !important;
     }
 }
 </style>

@@ -5,7 +5,7 @@ import { footerNavigation } from '~/statics/routes';
 import { contactInformation } from '~/resources/contactInformation';
 </script>
 <template>
-    <footer class="bg-background py-medium2 md:py-medium3">
+    <footer class="bg-background pt-medium2 pb-large2 md:py-medium3">
         <div class="mx-auto max-w-7xl px-small2 lg:px-medium">
             <div
                 class="flex flex-col items-center justify-between gap-4 md:flex-row text-center md:text-left"

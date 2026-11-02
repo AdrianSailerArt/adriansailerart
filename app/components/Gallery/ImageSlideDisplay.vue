@@ -107,6 +107,7 @@ onUnmounted(() => unbind());
         <div
             v-if="image"
             class="flex items-center justify-between gap-small2 pt-small2"
+            :class="mode === 'fullscreen' ? 'px-small4 pb-[max(1rem,env(safe-area-inset-bottom))]' : ''"
         >
             <div
                 class="flex overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
