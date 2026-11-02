@@ -118,6 +118,8 @@ const imageClass = computed(() => {
                      preset="static"
                         :src="image"
                         :alt="imageAlt ?? title"
+                        sizes="xs:100vw xl:50vw 2xl:50vw"
+                        loading="lazy"
                         class="h-full w-full object-cover"
                         :class="[imageRatioClass, imageClass]"
                     />

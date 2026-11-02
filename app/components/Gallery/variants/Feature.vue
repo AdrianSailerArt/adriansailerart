@@ -19,7 +19,7 @@ const emit = defineEmits<EmitGalleryType>();
         <!-- Hauptbild -->
         <button
             type="button"
-            :aria-label="`Bild vergrößern: ${firstImage.title ?? firstImage.alt}`"
+            :aria-label="`Bild vergrößern: ${firstImage.alt ?? firstImage.title}`"
             class="relative block flex-1 overflow-hidden group cursor-pointer"
             @click="emit('imageClick', firstImage, 0)"
         >
@@ -28,6 +28,8 @@ const emit = defineEmits<EmitGalleryType>();
                 :alt="firstImage.alt"
                 
                  preset="static"
+                sizes="xs:100vw lg:50vw 2xl:50vw"
+                loading="lazy"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
 
@@ -49,7 +51,7 @@ const emit = defineEmits<EmitGalleryType>();
                 :key="`${image.media}-${index}`"
                 v-reveal="(index % 2) * 80"
                 type="button"
-                :aria-label="`Bild vergrößern: ${image.title ?? image.alt}`"
+                :aria-label="`Bild vergrößern: ${image.alt ?? image.title}`"
                 class="relative block overflow-hidden group cursor-pointer"
                 @click="emit('imageClick', image, index + 1)"
             >
@@ -57,6 +59,8 @@ const emit = defineEmits<EmitGalleryType>();
                     :src="image.media"
                     :alt="image.alt"
                      preset="static"
+                    sizes="xs:50vw lg:25vw 2xl:25vw"
+                    loading="lazy"
                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 

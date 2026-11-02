@@ -1,9 +1,16 @@
 <script setup lang="ts">
 const config = useRuntimeConfig();
 
-const faviconUrl = computed(() => {
-    return `${config.app.baseURL}favicon.png`;
+// apple-touch-icon.png in /public wird von nuxt-seo-utils automatisch verlinkt
+useHead({
+    link: [
+        { rel: 'icon', type: 'image/png', sizes: '48x48', href: `${config.app.baseURL}favicon-48.png` },
+        { rel: 'icon', type: 'image/png', sizes: '192x192', href: `${config.app.baseURL}favicon-192.png` }
+    ]
 });
+
+// Standard-Vorschaubild, einzelne Seiten überschreiben es
+useSocialImage('/people/Myra.jpg', 'Schwarzweiß-Portrait einer jungen Frau – Adrian Sailer Art');
 
 useSeoMeta({
     title: 'Adrian Sailer Art | Fotograf aus dem Schwarzwald',
@@ -15,9 +22,6 @@ useSeoMeta({
 
     keywords:
         'Fotograf Schwarzwald, Fotograf Freiburg, Hochzeitsfotograf Freiburg, Hochzeitsfotograf Schwarzwald, Portraitfotograf Freiburg, Konzertfotograf, Naturfotografie, People Fotografie, Adrian Sailer',
-
-    ogImage: faviconUrl,
-    twitterImage: faviconUrl,
 
     ogType: 'website',
     ogLocale: 'de_DE',

@@ -11,13 +11,11 @@ type HeroProps = {
 
 const props = defineProps<HeroProps>();
 
-const config = useRuntimeConfig();
+const optimizedImage = useOptimizedImage();
 
-const backgroundImageUrl = computed(() => {
-    const image = props.backgroundImage ?? '/images/hero.jpg';
-
-    return `${config.app.baseURL}${image.replace(/^\//, '')}`;
-});
+const backgroundImageUrl = computed(() =>
+    optimizedImage(props.backgroundImage ?? '/images/hero.jpg')
+);
 </script>
 
 <template>
@@ -38,6 +36,9 @@ const backgroundImageUrl = computed(() => {
                 :src="image"
                 preset="static"
                 alt=""
+                width="320"
+                height="320"
+                densities="x1 x2"
                 class="hero-in mx-auto mb-large h-40 w-40 object-contain sm:h-56 sm:w-56 md:h-72 md:w-72 lg:h-80 lg:w-80"
             />
 

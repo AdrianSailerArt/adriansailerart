@@ -2,6 +2,8 @@
 import ImagePost from '~/components/Gallery/ImagePost.vue';
 import { cosplayImages } from '~/resources/imageSrc/cosplay';
 
+useSocialImage('/cosplay/Viking-3.jpg', 'Wikinger-Cosplay: Kriegerin mit Widderhörnern und Federschmuck');
+
 useSeoMeta({
     title: 'Cosplay Fotografie | Adrian Sailer Art',
     ogTitle: 'Cosplay Fotografie',

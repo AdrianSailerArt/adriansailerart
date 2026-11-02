@@ -32,11 +32,12 @@ const props = withDefaults(defineProps<ParallaxSectionProps>(), {
     imageOnly: false
 });
 
-const config = useRuntimeConfig();
+const optimizedImage = useOptimizedImage();
 
-const backgroundImageUrl = computed(() => {
-    return `${config.app.baseURL}${props.backgroundImage.replace(/^\//, '')}`;
-});
+// Bild ist per scale-150 vergrößert, daher etwas breiter laden
+const backgroundImageUrl = computed(() =>
+    optimizedImage(props.backgroundImage, 2560)
+);
 
 const section = ref<HTMLElement | null>(null);
 const offset = ref(0);

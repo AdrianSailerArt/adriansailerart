@@ -19,7 +19,7 @@ const emit = defineEmits<EmitGalleryType>();
             :key="image.id"
             v-reveal="(index % 3) * 80"
             type="button"
-            :aria-label="`Bild vergrößern: ${image.title ?? image.alt}`"
+            :aria-label="`Bild vergrößern: ${image.alt ?? image.title}`"
             class="relative block w-full aspect-square overflow-hidden cursor-pointer group"
             @click="emit('imageClick', image, index)"
         >
@@ -27,6 +27,8 @@ const emit = defineEmits<EmitGalleryType>();
                 :src="image.media"
                 :alt="image.alt"
                  preset="static"
+                 sizes="xs:50vw lg:33vw 2xl:33vw"
+                 loading="lazy"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
 

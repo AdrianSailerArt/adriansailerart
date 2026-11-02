@@ -3,6 +3,8 @@ import ImagePost from '~/components/Gallery/ImagePost.vue';
 import { concertImages } from '~/resources/imageSrc/concet';
 import Text from '~/atomics/text/Text.vue';
 
+useSocialImage('/concert/BossHoss.jpg', 'The BossHoss mit Gitarre im grünen Bühnenlicht');
+
 useSeoMeta({
     title: 'Konzertfotografie | Adrian Sailer Art',
     ogTitle: 'Live- & Konzertfotograf',
@@ -11,7 +13,6 @@ useSeoMeta({
     ogDescription: 'Konzertfotografie aus dem Schwarzwald und deutschlandweit.',
     keywords:
         'Konzertfotograf, Festivalfotografie, Bandfotografie, Livefotografie',
-    // ogImage: '/images/social/concert.jpg',
 
     ogType: 'article'
 });

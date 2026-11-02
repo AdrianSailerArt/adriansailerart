@@ -59,6 +59,9 @@ onUnmounted(() => {
                         <NuxtImg
                             src="/Logo_Adrian_Sailer_Art.png"
                             alt=""
+                            width="96"
+                            height="96"
+                            densities="x1 x2"
                             class="h-medium4 w-auto"
                              preset="static"
                         />

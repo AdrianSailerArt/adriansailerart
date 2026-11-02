@@ -7,8 +7,6 @@ useSeoMeta({
     ogDescription: 'Naturfotografie aus Baden-Württemberg und dem Schwarzwald.',
     keywords:
         'Naturfotografie Schwarzwald, Landschaftsfotografie, Schwarzwald Bilder',
-    ogImage: '/images/social/nature.jpg',
-    twitterCard: 'summary_large_image',
     ogType: 'article'
 });
 </script>

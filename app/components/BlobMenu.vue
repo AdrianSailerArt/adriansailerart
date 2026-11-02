@@ -103,6 +103,9 @@ onUnmounted(() => {
                              preset="static"
                                 src="Logo_Adrian_Sailer_Art.png"
                                 alt=""
+                                width="160"
+                                height="160"
+                                densities="x1 x2"
                                 class="h-large5 w-auto"
                             />
                         </li>

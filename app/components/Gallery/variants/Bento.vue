@@ -14,7 +14,7 @@ const emit = defineEmits<EmitGalleryType>();
         <template v-for="(image, index) in images" :key="index">
             <button
                 type="button"
-                :aria-label="`Bild vergrößern: ${image.title ?? image.alt}`"
+                :aria-label="`Bild vergrößern: ${image.alt ?? image.title}`"
                 :class="{
                     'col-span-2 row-span-2': index === 0,
                     'col-span-2': index === 3
@@ -26,6 +26,8 @@ const emit = defineEmits<EmitGalleryType>();
                     :src="image.media"
                     :alt="image.alt"
                     preset="static"
+                    sizes="xs:50vw 2xl:50vw"
+                    loading="lazy"
                     class="object-cover w-full h-full hover:opacity-80 transition-opacity"
                 />
             </button>

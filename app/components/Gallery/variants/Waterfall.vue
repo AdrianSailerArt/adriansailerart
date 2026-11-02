@@ -19,7 +19,7 @@ const emit = defineEmits<EmitGalleryType>();
         >
             <button
                 type="button"
-                :aria-label="`Bild vergrößern: ${image.title ?? image.alt}`"
+                :aria-label="`Bild vergrößern: ${image.alt ?? image.title}`"
                 class="block w-full cursor-pointer"
                 @click="emit('imageClick', image, index)"
             >
@@ -27,6 +27,8 @@ const emit = defineEmits<EmitGalleryType>();
                     :src="image.media"
                     :alt="image.alt"
                     preset="static"
+                    sizes="xs:300px"
+                    loading="lazy"
                     class="w-full h-auto object-cover hover:opacity-80 transition-opacity rounded"
                 />
             </button>

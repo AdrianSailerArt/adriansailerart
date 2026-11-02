@@ -6,6 +6,8 @@ import { peopleImages } from '~/resources/imageSrc/people';
 import { regenImages } from '~/resources/imageSrc/regen';
 import { trachtImages } from '~/resources/imageSrc/tracht';
 
+useSocialImage('/people/Elvira-2.jpg', 'Studioportrait: Frau mit roten Haaren auf einer Holzkiste neben Leiter und Scheinwerfer');
+
 useSeoMeta({
     title: 'Portraitfotografie | Adrian Sailer Art',
     ogTitle: 'Portraitfotograf Freiburg & Schwarzwald',
@@ -14,7 +16,6 @@ useSeoMeta({
     ogDescription: 'Portraitfotografie in Freiburg und dem Schwarzwald.',
     keywords:
         'Portraitfotograf Freiburg, Business Portrait, Paarshooting, People Fotografie',
-    //  ogImage: '/images/social/portrait.jpg',
 
     ogType: 'article'
 });

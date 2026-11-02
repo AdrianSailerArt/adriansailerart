@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<HeroStackProps>(), {
     align: 'left'
 });
 
-const config = useRuntimeConfig();
+const optimizedImage = useOptimizedImage();
 
 const scrollToContent = () => {
     const reduceMotion = window.matchMedia(
@@ -29,9 +29,7 @@ const scrollToContent = () => {
 };
 
 const backgroundImageUrl = computed(() => {
-    const image = props.backgroundImage || '/images/hero.jpg';
-
-    return `${config.app.baseURL}${image.replace(/^\//, '')}`;
+    return optimizedImage(props.backgroundImage || '/images/hero.jpg');
 });
 </script>
 

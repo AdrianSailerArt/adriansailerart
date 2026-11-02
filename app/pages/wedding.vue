@@ -13,6 +13,8 @@ import Button from '~/atomics/button/Button.vue';
 import { createMailtoCta } from '~/helpers/ctaMail';
 
 const requestIndividual = createMailtoCta('Individuelles Paket');
+useSocialImage('/hochzeit/Hochzeit-5.jpg', 'Brautpaar küsst sich auf einer Wiese mit Bergpanorama');
+
 useSeoMeta({
     title: 'Hochzeitsfotografie | Adrian Sailer Art',
     ogTitle: 'Hochzeitsfotograf Schwarzwald & Freiburg',
@@ -22,7 +24,6 @@ useSeoMeta({
         'Emotionale Hochzeitsfotografie mit natürlichen Bildern und echten Momenten.',
     keywords:
         'Hochzeitsfotograf Freiburg, Hochzeitsfotograf Schwarzwald, Hochzeitsreportage, Hochzeit Baden-Württemberg',
-    // ogImage: '/images/social/wedding.jpg',
 
     ogType: 'article'
 });
@@ -46,6 +47,8 @@ useSeoMeta({
                     src="/hochzeit/Hochzeit-2.jpg"
                     alt="Lächelnde Braut mit buntem Brautstrauß im Grünen"
                     preset="static"
+                    sizes="xs:100vw lg:50vw 2xl:50vw"
+                    loading="lazy"
                     class="w-full md:w-1/2 h-auto shrink-0"
                 />
 
@@ -75,6 +78,8 @@ useSeoMeta({
                     src="/hochzeit/Hochzeit-9.jpg"
                     alt="Schwarzweißfoto: Brautpaar tanzt auf einer Wiese"
                     preset="static"
+                    sizes="xs:100vw lg:50vw 2xl:50vw"
+                    loading="lazy"
                     class="w-full md:w-1/2 h-auto shrink-0 order-1 md:order-2"
                 />
             </div>
@@ -92,6 +97,8 @@ useSeoMeta({
                     src="/hochzeit/Hochzeit-4.jpg"
                     alt="Brautpaar im verschneiten, nebligen Winterwald"
                     preset="static"
+                    sizes="xs:100vw lg:50vw 2xl:50vw"
+                    loading="lazy"
                     class="w-full md:w-1/2 h-auto shrink-0"
                 />
 

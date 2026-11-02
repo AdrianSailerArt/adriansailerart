@@ -6,7 +6,7 @@ import Text from '~/atomics/text/Text.vue';
 
 const props = defineProps<{
     images: Array<MediumReference>;
-}>();
+    }>();
 
 const emit = defineEmits<EmitGalleryType>();
 
@@ -18,7 +18,7 @@ const imageGroups = computed(() => {
     }
 
     return groups;
-});
+    });
 </script>
 
 <template>
@@ -32,13 +32,15 @@ const imageGroups = computed(() => {
                     <button
                         v-if="group[0]"
                         type="button"
-:aria-label="`Bild vergrößern: ${group[0].title ?? group[0].alt}`"
-class="relative block w-full overflow-hidden group cursor-pointer"
+                        :aria-label="`Bild vergrößern: ${group[0].alt ?? group[0].title}`"
+                        class="relative block w-full overflow-hidden group cursor-pointer"
                         @click="emit('imageClick', group[0], groupIndex * 6)">
                         <NuxtImg
                             :src="group[0].media"
                             :alt="group[0].alt"
                              preset="static"
+                            sizes="xs:100vw lg:50vw 2xl:50vw"
+                            loading="lazy"
                             class="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
 
@@ -62,8 +64,8 @@ class="relative block w-full overflow-hidden group cursor-pointer"
                             v-for="(image, index) in group.slice(1, 3)"
                             :key="image.id"
                             type="button"
-:aria-label="`Bild vergrößern: ${image.title ?? image.alt}`"
-class="relative block w-full overflow-hidden group cursor-pointer"
+                            :aria-label="`Bild vergrößern: ${image.alt ?? image.title}`"
+                            class="relative block w-full overflow-hidden group cursor-pointer"
                             @click="
                                 emit(
                                     'imageClick',
@@ -75,6 +77,8 @@ class="relative block w-full overflow-hidden group cursor-pointer"
                                 :src="image.media"
                                 :alt="image.alt"
                                  preset="static"
+                            sizes="xs:50vw lg:25vw 2xl:25vw"
+                            loading="lazy"
                                 class="object-cover transition-transform duration-500 group-hover:scale-105"
                             />
 
@@ -104,8 +108,8 @@ class="relative block w-full overflow-hidden group cursor-pointer"
                             v-for="(image, index) in group.slice(3, 5)"
                             :key="image.id"
                             type="button"
-:aria-label="`Bild vergrößern: ${image.title ?? image.alt}`"
-class="relative block w-full overflow-hidden group cursor-pointer"
+                            :aria-label="`Bild vergrößern: ${image.alt ?? image.title}`"
+                            class="relative block w-full overflow-hidden group cursor-pointer"
                             @click="
                                 emit(
                                     'imageClick',
@@ -117,6 +121,8 @@ class="relative block w-full overflow-hidden group cursor-pointer"
                                 :src="image.media"
                                 :alt="image.alt"
                                  preset="static"
+                            sizes="xs:50vw lg:25vw 2xl:25vw"
+                            loading="lazy"
                                 class="object-cover transition-transform duration-500 group-hover:scale-105"
                             />
 
@@ -136,8 +142,8 @@ class="relative block w-full overflow-hidden group cursor-pointer"
                     <button
                         v-if="group[5]"
                         type="button"
-:aria-label="`Bild vergrößern: ${group[5].title ?? group[5].alt}`"
-class="relative block w-full overflow-hidden group cursor-pointer"
+                        :aria-label="`Bild vergrößern: ${group[5].alt ?? group[5].title}`"
+                        class="relative block w-full overflow-hidden group cursor-pointer"
                         @click="
                             emit('imageClick', group[5], groupIndex * 6 + 5)
                         ">
@@ -145,6 +151,8 @@ class="relative block w-full overflow-hidden group cursor-pointer"
                             :src="group[5].media"
                             :alt="group[5].alt"
                              preset="static"
+                            sizes="xs:100vw lg:50vw 2xl:50vw"
+                            loading="lazy"
                             class="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
 

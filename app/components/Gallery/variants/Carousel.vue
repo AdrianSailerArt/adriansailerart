@@ -20,7 +20,7 @@ const emit = defineEmits<EmitGalleryType>();
             v-for="(image, index) in images"
             :key="image.id"
             type="button"
-            :aria-label="`Bild vergrößern: ${image.title ?? image.alt}`"
+            :aria-label="`Bild vergrößern: ${image.alt ?? image.title}`"
             class="relative block w-[80vw] md:w-[400px] h-[400px] flex-none overflow-hidden snap-center group cursor-pointer"
             @click="emit('imageClick', image, index)"
         >
@@ -28,6 +28,8 @@ const emit = defineEmits<EmitGalleryType>();
                 :src="image.media"
                 :alt="image.alt"
                  preset="static"
+                 sizes="xs:80vw lg:400px"
+                 loading="lazy"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
 

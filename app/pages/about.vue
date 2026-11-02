@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import md from '~/resources/markdown/about.md?raw';
 
+useSocialImage('/adrian-sailer.jpg', 'Adrian Sailer mit Sofortbildkamera im Studio');
+
 useSeoMeta({
     title: 'Über mich | Adrian Sailer',
     ogTitle: 'Über Adrian Sailer',
@@ -9,7 +11,6 @@ useSeoMeta({
     ogDescription:
         'Mehr über Adrian Sailer und seine fotografische Leidenschaft.',
     keywords: 'Adrian Sailer, Fotograf Freiburg, Fotograf Schwarzwald',
-    // ogImage: '/images/social/about.jpg',
 
     ogType: 'profile'
 });
@@ -21,6 +22,7 @@ useSeoMeta({
             src="/adrian-sailer.jpg"
             alt="Adrian Sailer mit Sofortbildkamera im Studio"
             preset="static"
+            sizes="xs:100vw lg:50vw 2xl:50vw"
             class="w-full md:w-1/2 h-auto shrink-0"
         />
 
