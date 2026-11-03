@@ -6,6 +6,7 @@ import IconButton from '~/atomics/button/IconButton.vue';
 import Button from '~/atomics/button/Button.vue';
 import type { MediumReference } from '~/types';
 import Text from '~/atomics/text/Text.vue';
+import { FULLSCREEN_IMAGE_WIDTH } from '~/statics/images';
 
 export type ImageSliderProps = {
     image: MediumReference;
@@ -67,7 +68,8 @@ onUnmounted(() => unbind());
                         :src="image.media"
                         :alt="image.alt"
                         preset="static"
-                        sizes="xs:100vw 2xl:100vw"
+                        :width="FULLSCREEN_IMAGE_WIDTH"
+                        densities="x1"
                         class="pointer-events-none animate-fade-in"
                         :class="[
                             mode === 'preview'

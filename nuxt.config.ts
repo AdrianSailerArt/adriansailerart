@@ -1,4 +1,6 @@
+import { readdirSync } from 'node:fs';
 import tailwindcss from '@tailwindcss/vite';
+import { FULLSCREEN_IMAGE_WIDTH, GALLERY_IMAGE_DIRS } from './app/statics/images';
 
 /**
  * Wo die Seite ausgeliefert wird. Standard ist die eigene Domain adriansailer.de.
@@ -6,6 +8,13 @@ import tailwindcss from '@tailwindcss/vite';
  */
 const siteUrl = process.env.DEPLOY_SITE_URL || 'https://adriansailer.de';
 const baseURL = process.env.DEPLOY_BASE_URL || '/';
+
+/** Vollbild-Varianten aller Galeriebilder, die der Crawler beim Generieren nicht findet */
+const fullscreenImageRoutes = GALLERY_IMAGE_DIRS.flatMap((dir) =>
+    readdirSync(`public/${dir}`)
+        .filter((file) => /\.(jpe?g|png|webp)$/i.test(file))
+        .map((file) => `/_ipx/f_webp&q_80&w_${FULLSCREEN_IMAGE_WIDTH}/${dir}/${encodeURIComponent(file)}`)
+);
 
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
@@ -91,7 +100,10 @@ export default defineNuxtConfig({
     },
 
     nitro: {
-        preset: 'github-pages'
+        preset: 'github-pages',
+        prerender: {
+            routes: fullscreenImageRoutes
+        }
     },
 
     image: {
