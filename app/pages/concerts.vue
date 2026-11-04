@@ -6,7 +6,7 @@ import Text from '~/atomics/text/Text.vue';
 useSocialImage('/concert/BossHoss.jpg', 'The BossHoss mit Gitarre im grünen Bühnenlicht');
 
 useSeoMeta({
-    title: 'Konzertfotografie | Adrian Sailer Art',
+    title: 'Konzertfotografie',
     ogTitle: 'Live- & Konzertfotograf',
     description:
         'Dynamische Konzertfotografie für Bands, Festivals und Veranstalter. Energiegeladene Live-Momente professionell festgehalten.',

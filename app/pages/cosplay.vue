@@ -5,7 +5,7 @@ import { cosplayImages } from '~/resources/imageSrc/cosplay';
 useSocialImage('/cosplay/Viking-3.jpg', 'Wikinger-Cosplay: Kriegerin mit Widderhörnern und Federschmuck');
 
 useSeoMeta({
-    title: 'Cosplay Fotografie | Adrian Sailer Art',
+    title: 'Cosplay Fotografie',
     ogTitle: 'Cosplay Fotografie',
     description:
         'Cosplay-Shootings voller mystischer Welten und Fantasy – inszeniert mit gezieltem Licht und cineastischer Bildsprache.',

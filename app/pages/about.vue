@@ -4,7 +4,7 @@ import md from '~/resources/markdown/about.md?raw';
 useSocialImage('/adrian-sailer.jpg', 'Adrian Sailer mit Sofortbildkamera im Studio');
 
 useSeoMeta({
-    title: 'Über mich | Adrian Sailer',
+    title: 'Über mich',
     ogTitle: 'Über Adrian Sailer',
     description:
         'Lerne den Fotografen Adrian Sailer kennen. Leidenschaft für Hochzeiten, Portraits, Konzerte und die Natur des Schwarzwalds.',

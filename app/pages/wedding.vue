@@ -17,7 +17,7 @@ const requestIndividual = createMailtoCta('Individuelles Paket');
 useSocialImage('/hochzeit/Hochzeit-5.jpg', 'Brautpaar küsst sich auf einer Wiese mit Bergpanorama');
 
 useSeoMeta({
-    title: 'Hochzeitsfotografie | Adrian Sailer Art',
+    title: 'Hochzeitsfotografie',
     ogTitle: 'Hochzeitsfotograf Schwarzwald & Freiburg',
     description:
         'Authentische Hochzeitsreportagen voller Emotionen. Begleitung vom Getting Ready bis zur Feier in Freiburg und dem Schwarzwald.',

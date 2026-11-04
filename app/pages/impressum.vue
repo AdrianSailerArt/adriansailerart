@@ -2,7 +2,7 @@
 import md from '~/resources/markdown/impressum.md?raw';
 
 useSeoMeta({
-    title: 'Impressum | Adrian Sailer Art',
+    title: 'Impressum',
     robots: 'noindex, follow'
 });
 </script>

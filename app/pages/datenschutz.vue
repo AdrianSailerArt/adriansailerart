@@ -2,7 +2,7 @@
 import md from '~/resources/markdown/datenschutz.md?raw';
 
 useSeoMeta({
-    title: 'Datenschutzerklärung | Adrian Sailer Art',
+    title: 'Datenschutzerklärung',
     robots: 'noindex, follow'
 });
 </script>

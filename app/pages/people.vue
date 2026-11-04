@@ -9,7 +9,7 @@ import { trachtImages } from '~/resources/imageSrc/tracht';
 useSocialImage('/people/Elvira-2.jpg', 'Studioportrait: Frau mit roten Haaren auf einer Holzkiste neben Leiter und Scheinwerfer');
 
 useSeoMeta({
-    title: 'Portraitfotografie | Adrian Sailer Art',
+    title: 'Portraitfotografie',
     ogTitle: 'Portraitfotograf Freiburg & Schwarzwald',
     description:
         'Natürliche Portraits für Privatpersonen, Paare und Business. Authentische Bilder mit Persönlichkeit.',

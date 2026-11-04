@@ -23,6 +23,15 @@ export default defineNuxtConfig({
         enabled: true
     },
 
+    // Interne Links gleich mit Schrägstrich, sonst folgt jeder Klick einer 301-Umleitung
+    experimental: {
+        defaults: {
+            nuxtLink: {
+                trailingSlash: 'append'
+            }
+        }
+    },
+
     ssr: true,
 
     css: ['~/assets/css/main.css', '~/assets/css/tailwind.generated.css'],
@@ -38,15 +47,19 @@ export default defineNuxtConfig({
         name: 'Adrian Sailer Art',
         description:
             'Hochzeits-, Portrait- und Konzertfotografie aus dem Schwarzwald und Freiburg.',
-        defaultLocale: 'de'
-    },
-    robots: {
-        robotsTxt: false
+        defaultLocale: 'de',
+
+        // GitHub Pages leitet /about auf /about/ um – Canonical und Sitemap zeigen direkt auf das Ziel
+        trailingSlash: true
     },
 
-    // Mit Unterpfad landet die vorgerenderte Startseite sonst doppelt in der Sitemap
+    // Mit Unterpfad landet die vorgerenderte Startseite sonst doppelt in der Sitemap.
+    // /nature hat noch keinen Inhalt und bleibt draußen
     sitemap: {
-        exclude: baseURL === '/' ? [] : [baseURL.replace(/\/$/, ''), `${baseURL}**`]
+        exclude: [
+            '/nature/**',
+            ...(baseURL === '/' ? [] : [baseURL.replace(/\/$/, ''), `${baseURL}**`])
+        ]
     },
 
     // OG-Bilder kommen als echte Fotos aus useSocialImage(), keine generierten Bilder
