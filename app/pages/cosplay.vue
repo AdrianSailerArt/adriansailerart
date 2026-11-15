@@ -5,7 +5,7 @@ import { cosplayIntro } from '~/resources/intros';
 
 useSocialImage('/cosplay/Viking-3.jpg', 'Wikinger-Cosplay: Kriegerin mit Widderhörnern und Federschmuck');
 
-useServiceSchema('Cosplay-Fotografie', 'Cosplay-Shootings mit gezieltem Licht und cineastischer Bildsprache im Studio in Sexau bei Freiburg.');
+useServiceSchema('Cosplay-Fotografie', 'Cosplay-Shootings mit gezieltem Licht und cineastischer Bildsprache, im Studio in Sexau bei Freiburg oder an passenden Orten draußen.');
 
 useSeoMeta({
     title: 'Cosplay-Fotograf Freiburg & Schwarzwald',

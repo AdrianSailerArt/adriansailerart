@@ -11,6 +11,8 @@ export const peopleIntro = [
 ];
 
 export const cosplayIntro = [
-    'Bei einem Cosplay-Shooting geht es um mehr als ein gutes Kostüm: Figur, Haltung, Licht und Umgebung müssen zusammenpassen. Ich inszeniere deinen Charakter mit gezieltem Licht und einer cineastischen Bildsprache, ob Fantasy, Wikinger oder mystische Welten.',
-    'Fotografiert wird in meinem Studio in Sexau bei Freiburg. Vorab sprechen wir über Charakter, Posen und Bildidee, damit die Bilder zu deinem Cosplay passen.'
+    'Bei einem Cosplay-Shooting geht es um mehr als ein gutes Kostüm: Figur, Haltung, Licht und Umgebung müssen zusammenpassen. Ich inszeniere deinen Charakter mit gezieltem Licht und einer cineastischen Bildsprache, damit die Bilder wirken wie ein Standbild aus Film oder Spiel.',
+    'In der Galerie findest du Charaktere aus The Witcher, The Elder Scrolls, Cyberpunk und Star Wars, dazu Wikinger-Kriegerinnen und Fantasy-Figuren. Ob Rüstung, Fell, Neon oder Blumenkranz: Ich achte auf die Details, an denen du stundenlang gearbeitet hast, von Nähten und Requisiten bis zu Make-up und Perücke.',
+    'Fotografiert wird je nach Charakter im Studio in Sexau bei Freiburg oder draußen an Orten, die zur Geschichte passen: im dunklen Wald, vor alten Mauern und Torbögen oder in einer Burgruine. Im Studio lassen sich Licht und Farben genau steuern, draußen sorgen Wald und Gemäuer für Atmosphäre.',
+    'Vor dem Shooting sprechen wir über deinen Charakter, typische Posen und die Bildidee, gern auch mit Referenzbildern aus Film, Serie oder Spiel. So weißt du vorher, was dich erwartet, und wir nutzen die Zeit vor der Kamera für die Bilder, die du dir wünschst.'
 ];

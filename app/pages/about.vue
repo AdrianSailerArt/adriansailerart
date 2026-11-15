@@ -17,10 +17,12 @@ useSeoMeta({
 </script>
 
 <template>
-    <div class="my-none mx-auto flex flex-col md:flex-row gap-small3 py-medium">
+    <div class="my-none mx-auto flex flex-col md:flex-row md:items-start gap-small3 py-medium">
         <NuxtImg
             src="/adrian-sailer.jpg"
             alt="Adrian Sailer mit Sofortbildkamera im Studio"
+            width="800"
+            height="800"
             preset="static"
             sizes="xs:100vw lg:50vw 2xl:50vw"
             class="w-full md:w-1/2 h-auto shrink-0"
