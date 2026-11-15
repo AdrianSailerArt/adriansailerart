@@ -59,5 +59,6 @@ import { ROUTES } from '~/statics/routes';
             image-style="frame"
             background="dark"
         />
+        <GoogleReviews />
     </div>
 </template>

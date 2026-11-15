@@ -78,7 +78,10 @@ export default defineNuxtConfig({
                 url: `${siteUrl}${baseURL}about/`,
                 sameAs: ['https://www.instagram.com/adriansailerart/']
             },
-            sameAs: ['https://www.instagram.com/adriansailerart/'],
+            sameAs: [
+                'https://www.instagram.com/adriansailerart/',
+                'https://maps.google.com/?cid=16697525716938601992'
+            ],
             email: 'adriansailer@me.com',
             telephone: '+4917678389036',
             priceRange: '€€',

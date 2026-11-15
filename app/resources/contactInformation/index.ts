@@ -6,6 +6,8 @@ export type Contact = {
     whatsapp: string;
     mail: string;
     instagram: string;
+    /** Google-Unternehmensprofil mit Rezensionen */
+    googleProfile: string;
     address: {
         street: string;
         city: string;
@@ -18,6 +20,7 @@ export const contactInformation: Contact = {
     whatsapp: 'https://wa.me/4917678389036',
     mail: 'adriansailer@me.com',
     instagram: 'https://www.instagram.com/adriansailerart/',
+    googleProfile: 'https://maps.google.com/?cid=16697525716938601992',
     address: {
         street: 'Waldkircher Strasse 32',
         city: '79350 Sexau'

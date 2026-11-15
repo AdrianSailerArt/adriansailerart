@@ -71,5 +71,6 @@ useSeoMeta({
                 </template>
             </Tab>
         </div>
+        <GoogleReviews />
     </div>
 </template>
