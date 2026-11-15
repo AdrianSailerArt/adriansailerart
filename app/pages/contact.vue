@@ -11,6 +11,7 @@ useSeoMeta({
     ogTitle: 'Kontakt – Adrian Sailer Art',
     description:
         'Fotoshooting oder Hochzeitsreportage anfragen: per Formular, E-Mail, Telefon oder WhatsApp. Fotograf aus Sexau bei Freiburg.',
+    ogDescription: 'Hochzeit, Portrait, Konzert oder Cosplay anfragen – per Formular, E-Mail oder WhatsApp.',
     ogType: 'website'
 });
 </script>

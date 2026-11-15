@@ -48,7 +48,7 @@ const emit = defineEmits<EmitGalleryType>();
                     class="px-small4 py-small3 bg-black/30 backdrop-blur-md"
                 >
                     <Text as="span" color="white">
-                        {{ image.title }}
+                        {{ getImageCaption(image) }}
                     </Text>
                 </div>
             </div>

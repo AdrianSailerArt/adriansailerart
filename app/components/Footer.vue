@@ -1,12 +1,26 @@
 <script setup lang="ts">
 import Text from '~/atomics/text/Text.vue';
 import Icon from '~/atomics/icons/Icon.vue';
-import { footerNavigation, ROUTES } from '~/statics/routes';
+import { footerNavigation, navigationRoutes, ROUTES } from '~/statics/routes';
 import { contactInformation } from '~/resources/contactInformation';
+
+// Alle Bereiche stehen hier fest im HTML, weil das Hauptmenü erst beim Öffnen gerendert wird
+const serviceNavigation = navigationRoutes.filter(
+    (item) => item.path !== ROUTES.HOME && item.path !== ROUTES.CONTACT
+);
 </script>
 <template>
     <footer class="bg-background pt-medium2 pb-large2 md:py-medium3">
-        <div class="mx-auto max-w-7xl px-small2 lg:px-medium">
+        <div class="mx-auto max-w-7xl px-small2 lg:px-medium flex flex-col gap-small5">
+            <nav aria-label="Bereiche">
+                <ul class="flex flex-wrap justify-center gap-small4">
+                    <li v-for="item in serviceNavigation" :key="item.path">
+                        <NuxtLink :to="item.path" class="footer-link">
+                            {{ item.name }}
+                        </NuxtLink>
+                    </li>
+                </ul>
+            </nav>
             <div
                 class="flex flex-col items-center justify-between gap-4 md:flex-row text-center md:text-left"
             >

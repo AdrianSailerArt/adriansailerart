@@ -36,7 +36,7 @@ const emit = defineEmits<EmitGalleryType>();
                 class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 group-focus-visible:translate-y-0 transition-transform duration-300"
             >
                 <div class="px-small4 py-small3 bg-black/30 backdrop-blur-md">
-                    <Text as="span" color="white"> {{ image.title }}</Text>
+                    <Text as="span" color="white"> {{ getImageCaption(image) }}</Text>
                 </div>
             </div>
         </button>

@@ -38,7 +38,7 @@ const emit = defineEmits<EmitGalleryType>();
             >
                 <div class="px-small4 py-small3 bg-black/30 backdrop-blur-md">
                     <Text as="span" color="white">
-                        {{ firstImage.title }}
+                        {{ getImageCaption(firstImage) }}
                     </Text>
                 </div>
             </div>
@@ -71,7 +71,7 @@ const emit = defineEmits<EmitGalleryType>();
                         class="px-small4 py-small3 bg-black/30 backdrop-blur-md"
                     >
                         <Text as="span" color="white">
-                            {{ image.title }}
+                            {{ getImageCaption(image) }}
                         </Text>
                     </div>
                 </div>

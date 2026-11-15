@@ -49,7 +49,7 @@ const imageGroups = computed(() => {
                         >
                             <div class="px-small4 py-small3 bg-black/30 backdrop-blur-md">
                                 <Text as="span" color="white">
-                                    {{ group[0].title }}
+                                    {{ getImageCaption(group[0]) }}
                                 </Text>
                             </div>
                         </div>
@@ -87,7 +87,7 @@ const imageGroups = computed(() => {
                             >
                                 <div class="px-small4 py-small3 bg-black/30 backdrop-blur-md">
                                     <Text as="span" color="white">
-                                        {{ image.title }}
+                                        {{ getImageCaption(image) }}
                                     </Text>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@ const imageGroups = computed(() => {
                             >
                                 <div class="px-small4 py-small3 bg-black/30 backdrop-blur-md">
                                     <Text as="span" color="white">
-                                        {{ image.title }}
+                                        {{ getImageCaption(image) }}
                                     </Text>
                                 </div>
                             </div>
@@ -161,7 +161,7 @@ const imageGroups = computed(() => {
                         >
                             <div class="px-small4 py-small3 bg-black/30 backdrop-blur-md">
                                 <Text as="span" color="white">
-                                    {{ group[5].title }}
+                                    {{ getImageCaption(group[5]) }}
                                 </Text>
                             </div>
                         </div>

@@ -20,7 +20,7 @@ useSeoMeta({
     keywords:
         'Portraitfotograf Freiburg, Business Portrait, Paarshooting, People Fotografie',
 
-    ogType: 'article'
+    ogType: 'website'
 });
 </script>
 <template>

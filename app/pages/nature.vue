@@ -23,7 +23,7 @@ useSeoMeta({
     ogDescription: 'Naturfotografie aus dem Schwarzwald, Südtirol, Island, Norwegen und Kanada.',
     keywords:
         'Naturfotografie Schwarzwald, Landschaftsfotografie, Burgbachwasserfall, Hünersedel, Lofoten, Island',
-    ogType: 'article'
+    ogType: 'website'
 });
 
 type Region = {

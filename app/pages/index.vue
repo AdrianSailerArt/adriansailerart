@@ -15,7 +15,7 @@ import { ROUTES } from '~/statics/routes';
         <FeatureSection
             image="/hochzeit/Hochzeit-3.jpg"
             image-alt="Schwarzweißfoto eines Brautpaars auf einer Wiese vor Schwarzwaldhügeln"
-            title="Wedding Fotografie"
+            title="Hochzeitsfotografie"
             description="Natürliche Bilder, echte Emotionen und Erinnerungen, die euch ein Leben lang begleiten. Ich begleite euren Tag aufmerksam und unaufdringlich – vom ersten Moment bis zur letzten Umarmung."
             button-text="Mehr entdecken & buchen"
             :button-link="ROUTES.WEDDING"

@@ -17,7 +17,7 @@ useSeoMeta({
     keywords:
         'Konzertfotograf, Festivalfotografie, Bandfotografie, Livefotografie',
 
-    ogType: 'article'
+    ogType: 'website'
 });
 </script>
 <template>

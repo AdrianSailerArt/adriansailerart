@@ -114,7 +114,7 @@ onUnmounted(() => unbind());
             <div
                 class="flex overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             >
-                <Text color="info" aria-live="polite">{{ image.title }}</Text>
+                <Text color="info" aria-live="polite">{{ getImageCaption(image) }}</Text>
                 <slot name="footer" />
             </div>
             <div v-if="!hidePagination" class="flex shrink-0 gap-small">

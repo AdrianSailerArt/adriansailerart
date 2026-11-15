@@ -12,7 +12,8 @@ useSeoMeta({
     ogTitle: 'Cosplay Fotografie',
     description:
         'Cosplay-Shootings voller mystischer Welten und Fantasy – inszeniert mit gezieltem Licht und cineastischer Bildsprache.',
-    ogType: 'article'
+    ogDescription: 'Cosplay-Shootings im Studio bei Freiburg oder draußen im Schwarzwald, mit Licht wie im Film.',
+    ogType: 'website'
 });
 </script>
 <template>

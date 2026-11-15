@@ -15,7 +15,7 @@ import { ROUTES } from '~/statics/routes';
 
 useSocialImage('/hochzeit/Hochzeit-5.jpg', 'Brautpaar küsst sich auf einer Wiese mit Bergpanorama');
 
-useServiceSchema('Hochzeitsfotografie', 'Hochzeitsreportagen vom Standesamt bis zur ganztägigen Begleitung in Freiburg, am Kaiserstuhl und im Schwarzwald.');
+useServiceSchema('Hochzeitsfotografie', 'Hochzeitsreportagen vom Standesamt bis zur ganztägigen Begleitung in Freiburg, am Kaiserstuhl und im Schwarzwald.', weddingPlans);
 
 useSeoMeta({
     title: 'Hochzeitsfotograf Freiburg & Schwarzwald',
@@ -27,7 +27,7 @@ useSeoMeta({
     keywords:
         'Hochzeitsfotograf Freiburg, Hochzeitsfotograf Schwarzwald, Hochzeitsreportage, Hochzeit Baden-Württemberg',
 
-    ogType: 'article'
+    ogType: 'website'
 });
 </script>
 
