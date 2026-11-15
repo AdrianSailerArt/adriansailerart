@@ -37,8 +37,9 @@ const backgroundImageUrl = computed(() => {
 
 <template>
     <section
-        class="relative flex min-h-screen items-end overflow-hidden"
+        class="relative flex min-h-[calc(100svh-4rem)] items-end overflow-hidden"
     >
+        <!-- svh statt vh: auf dem Handy zählt die Adressleiste nicht mit; 4rem = feste NavBar (h-16) -->
         <!-- Hintergrund mit langsamem Ken-Burns-Zoom -->
         <div
             aria-hidden="true"
@@ -53,7 +54,7 @@ const backgroundImageUrl = computed(() => {
 
         <!-- Content -->
         <div
-            class="relative z-base w-full px-small4 pb-medium2 md:pb-large3 md:ml-large2"
+            class="relative z-base w-full px-small4 pb-large2 md:pb-large3 md:ml-large2"
             :class="
                 props.align === 'right'
                     ? 'flex justify-end'
