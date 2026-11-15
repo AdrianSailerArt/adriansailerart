@@ -16,3 +16,8 @@ export type ProcessStep = {
     title: string;
     description: string;
 };
+
+export type FaqEntry = {
+    question: string;
+    answer: string;
+};

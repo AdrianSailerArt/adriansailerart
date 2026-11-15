@@ -7,6 +7,7 @@ import md3 from '~/resources/markdown/hochzeitsfotograf-freiburg.md?raw';
 
 import { weddingPlans } from '~/resources/buyBoxes/wedding';
 import { weddingProcess } from '~/resources/process/wedding';
+import { weddingFaq } from '~/resources/faq/wedding';
 import { hochzeitImages } from '~/resources/imageSrc/hochzeit';
 import Text from '~/atomics/text/Text.vue';
 import Sheet from '~/atomics/Sheet.vue';
@@ -140,6 +141,8 @@ useSeoMeta({
                     </Sheet>
                 </div>
             </div>
+
+            <FaqList :entries="weddingFaq" />
         </div>
     </div>
 </template>

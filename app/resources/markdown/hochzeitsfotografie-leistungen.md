@@ -1,40 +1,47 @@
-
 ## Eure Hochzeit fotografisch begleitet
 
-Jede Hochzeit ist anders.
-Deshalb entsteht eure Begleitung individuell nach euren Wünschen.
+Jede Hochzeit ist anders. Deshalb gibt es drei Pakete als Orientierung und auf Wunsch eine Begleitung, die wir gemeinsam zusammenstellen.
 
 ---
 
-### Kleine Begleitung
+### Standesamt – 490 €
 
-Ideal für:
+Etwa 2 Stunden Begleitung, mindestens 80 bearbeitete Fotos. Ideal für:
 - Standesamt
 - kleine Feiern
 - kurze Reportagen
 
-### Tagesbegleitung
+### Classic – 1.290 €
 
-Für die komplette Geschichte:
-- Vorbereitung
+Etwa 6 Stunden, mindestens 350 bearbeitete Fotos. Von der Trauung bis zum Sektempfang:
+- Trauung
+- Gratulation
+- Gruppenfotos
+- Paarfotos
+- Sektempfang
+
+### Premium – 1.990 €
+
+Etwa 10 Stunden, mindestens 600 bearbeitete Fotos. Die ganze Geschichte:
+- Getting Ready
+- First Look
 - Trauung
 - Paarshooting
+- Gruppenfotos
 - Feier
-- emotionale Momente
 
 ### Individuell
 
-Ihr habt besondere Wünsche?
-
-Gemeinsam planen wir die passende Begleitung für euren Tag.
+Ihr braucht mehr Stunden, nur die Trauung oder etwas ganz anderes? Gemeinsam planen wir die passende Begleitung für euren Tag.
 
 ---
 
-## Mein Fokus
+## In jedem Paket enthalten
 
-✓ echte Emotionen  
-✓ natürliche Momente  
-✓ zeitlose Bilder  
-✓ entspannte Begleitung  
+✓ Kennenlerngespräch vorab  
+✓ professionelle Bildbearbeitung jedes Fotos  
+✓ Online-Galerie mit allen bearbeiteten Bildern  
+✓ private Nutzungsrechte  
+✓ Anfahrt bis 50 km ab Sexau  
 
-- [Jetzt buchen](#buchen)
+- [Jetzt anfragen](#buchen)
