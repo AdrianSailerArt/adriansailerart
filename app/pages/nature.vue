@@ -13,7 +13,7 @@ import {
     suedtirolImages
 } from '~/resources/imageSrc/nature';
 
-useSocialImage('/nature/Hünersedel-Bearbeitet.jpg', 'Aussichtsturm auf dem Hünersedel bei Nacht unter der Milchstraße');
+useSocialImage('/nature/Krai Woog Gumpen.jpg', 'Wasserfall Krai-Woog-Gumpen im Schwarzwald zwischen moosigen Felsen');
 
 useSeoMeta({
     title: 'Naturfotografie Schwarzwald & Reisen',
@@ -79,7 +79,7 @@ const regions: Array<Region> = [
             show-logo
             title="Natur & Landschaft"
             subtitle="Wälder, Berge & Meer"
-            background-image="/nature/Hünersedel-Bearbeitet.jpg"
+            background-image="/nature/Krai Woog Gumpen.jpg"
             context="Naturfotografie aus dem Schwarzwald und von Reisen"
         />
         <PageIntro :paragraphs="natureIntro" />
