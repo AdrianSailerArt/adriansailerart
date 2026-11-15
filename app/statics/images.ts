@@ -6,4 +6,4 @@
 export const FULLSCREEN_IMAGE_WIDTH = 1920;
 
 /** Ordner in /public, deren Bilder in Galerien (und damit im Vollbild) auftauchen */
-export const GALLERY_IMAGE_DIRS = ['concert', 'cosplay', 'hochzeit', 'people', 'regen', 'tracht'];
+export const GALLERY_IMAGE_DIRS = ['concert', 'concert/promotion', 'cosplay', 'hochzeit', 'people', 'regen', 'tracht'];

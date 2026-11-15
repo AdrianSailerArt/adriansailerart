@@ -2,7 +2,7 @@
 
 export const concertIntro = [
     'Seit über zehn Jahren fotografiere ich Konzerte und Festivals. Angefangen hat alles in der Musikszene mit meiner Arbeit für Tribe Online. Ob kleine Clubshow in Freiburg oder große Festivalbühne wie beim Wacken Open Air: Ich halte Energie, Licht und Atmosphäre eines Auftritts so fest, wie das Publikum ihn erlebt.',
-    'In der Galerie findest du unter anderem Bilder von The BossHoss, Andreas Gabalier, Arch Enemy, Alter Bridge und Emil Bulls. Für Bands, Künstlerinnen, Künstler und Veranstalter fotografiere ich Live-Auftritte im Schwarzwald, in Freiburg und deutschlandweit.'
+    'In der Galerie findest du unter anderem Bilder von The BossHoss, Andreas Gabalier, Arch Enemy, Alter Bridge und Emil Bulls. Für Bands, Künstlerinnen, Künstler und Veranstalter fotografiere ich Live-Auftritte im Schwarzwald, in Freiburg und deutschlandweit, dazu Bandfotos für Promotion, Presse und Social Media, etwa für Inner Sanctum, Unantastbar oder Nina & The Hotspots.'
 ];
 
 export const peopleIntro = [

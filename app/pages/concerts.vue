@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import ImagePost from '~/components/Gallery/ImagePost.vue';
 import { concertImages } from '~/resources/imageSrc/concet';
-import Text from '~/atomics/text/Text.vue';
+import { promotionImages } from '~/resources/imageSrc/promotion';
 import { concertIntro } from '~/resources/intros';
 
 useSocialImage('/concert/BossHoss.jpg', 'The BossHoss mit Gitarre im grünen Bühnenlicht');
 
-useServiceSchema('Konzertfotografie', 'Live- und Konzertfotografie für Bands, Künstler und Veranstalter im Schwarzwald, in Freiburg und deutschlandweit.');
+useServiceSchema('Konzertfotografie', 'Live- und Konzertfotografie sowie Bandfotos für Promotion für Bands, Künstler und Veranstalter im Schwarzwald, in Freiburg und deutschlandweit.');
 
 useSeoMeta({
     title: 'Konzertfotograf Freiburg & Schwarzwald',
@@ -36,7 +36,7 @@ useSeoMeta({
                     <ImagePost :images="concertImages" layout="grid"
                 /></template>
                 <template #tab-1>
-                    <Text class="p-medium" variant="bodySemibold">Coming soon</Text>
+                    <ImagePost :images="promotionImages" layout="grid" />
                 </template>
             </Tab>
         </div>
