@@ -26,10 +26,40 @@ export const testimonials: Array<Testimonial> = [
         text: 'Adrian hat ein feines Gespür für Fotografie. Seine Bilder wirken durchdacht und gleichzeitig intuitiv – das zeigt sich auch in dem Kalender, den ich von ihm bekommen habe. Jeder Monat bringt eine neue Stimmung, eingefangen mit viel Gefühl für Licht und Komposition. Man merkt, dass hier jemand mit Leidenschaft hinter der Kamera steht.'
     },
     {
+        author: 'Agnes K.',
+        rating: 5,
+        year: '2024',
+        text: 'Klare Empfehlung: zuverlässig und professionell. Wir haben ein kleines Fotoshooting gemacht und sind mit den Ergebnissen sehr zufrieden.'
+    },
+    {
+        author: 'Ralf',
+        rating: 5,
+        year: '2022',
+        text: 'Netter, freundlicher, junger Fotograf. Klasse Bilder. Danke!'
+    },
+    {
         author: 'Elvira F.',
         rating: 5,
         year: '2021',
         text: 'Die Zusammenarbeit macht jedes mal aufs neue Spaß, die Ergebnisse sind schnell da und übertreffen stets die Erwartungen;) Adrian weiß auf jeden Fall mit Licht und Schatten umzugehen!'
+    },
+    {
+        author: 'Florian S.',
+        rating: 5,
+        year: '2021',
+        text: 'Super Fotograf. Schönes Studio. Tolle Fotos. Gerne wieder!'
+    },
+    {
+        author: 'Heinz B.',
+        rating: 5,
+        year: '2020',
+        text: 'Ich kann den Adrian nur empfehlen. Er macht hoch professionelle Fotos.'
+    },
+    {
+        author: 'Mad Era',
+        rating: 5,
+        year: '2020',
+        text: 'Rundum professionell und sehr zufrieden mit den Ergebnissen.'
     },
     {
         author: 'Eightrocks Photography',

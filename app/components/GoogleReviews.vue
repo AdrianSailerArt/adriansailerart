@@ -27,7 +27,7 @@ const stars = (rating: number) => '★'.repeat(rating) + '☆'.repeat(5 - rating
             </Text>
         </div>
 
-        <ul class="grid gap-medium lg:grid-cols-3">
+        <ul class="grid gap-medium sm:grid-cols-2 lg:grid-cols-4">
             <li v-for="item in testimonials" :key="item.author" class="flex">
                 <Sheet class="flex flex-col gap-small4 w-full">
                     <Text as="p" variant="label" color="primary">

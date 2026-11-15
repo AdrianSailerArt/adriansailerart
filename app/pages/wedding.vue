@@ -22,7 +22,7 @@ useSeoMeta({
     title: 'Hochzeitsfotograf Freiburg & Schwarzwald',
     ogTitle: 'Hochzeitsfotograf Schwarzwald & Freiburg',
     description:
-        'Authentische Hochzeitsreportagen voller Emotionen. Begleitung vom Getting Ready bis zur Feier in Freiburg und dem Schwarzwald.',
+        'Hochzeitsfotograf aus Sexau bei Freiburg: Pakete von 490 € bis 1.990 €, Bilder nach 2–4 Wochen. Freiburg, Kaiserstuhl und Schwarzwald.',
     ogDescription:
         'Emotionale Hochzeitsfotografie mit natürlichen Bildern und echten Momenten.',
     keywords:
