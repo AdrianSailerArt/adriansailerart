@@ -26,7 +26,7 @@ useSeoMeta({
 <template>
     <div>
         <Hero
-            image="/Logo_Adrian_Sailer_Art.png"
+            show-logo
             title="People Galerie"
             subtitle="Menschen & Emotionen"
             background-image="/people/Elvira-2.jpg"

@@ -23,7 +23,7 @@ useSeoMeta({
 <template>
     <div>
         <Hero
-            image="/Logo_Adrian_Sailer_Art.png"
+            show-logo
             title="Konzerte und Artist Galerie"
             subtitle="Einzigartige Momente & Energie"
             background-image="/concert/BossHoss.jpg"

@@ -70,7 +70,15 @@ Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.
 
 ## 5. Kontaktaufnahme
 
-Wenn du mich per E-Mail kontaktierst, werden die von dir übermittelten Daten zur Bearbeitung deiner Anfrage verarbeitet.
+Wenn du mich per E-Mail, Telefon oder WhatsApp kontaktierst, werden die von dir übermittelten Daten zur Bearbeitung deiner Anfrage verarbeitet.
+
+### Anfrageformular
+
+Das Anfrageformular auf dieser Website überträgt keine Daten an diese Website oder an einen Formulardienst. Es setzt deine Eingaben nur in deinem Browser zu einer Nachricht zusammen und öffnet sie in deinem E-Mail-Programm oder in WhatsApp. Erst wenn du die Nachricht dort selbst abschickst, erhalte ich sie.
+
+### WhatsApp
+
+Wenn du mir über WhatsApp schreibst (über den Link oder das Formular), wird die Nachricht über WhatsApp übertragen, einen Dienst der WhatsApp Ireland Ltd. (Meta). Dabei gelten die Datenschutzbestimmungen von WhatsApp; Daten können dabei auch in die USA übermittelt werden. Wenn du das nicht möchtest, nutze bitte E-Mail oder Telefon.
 
 Diese Daten werden nicht ohne deine Zustimmung weitergegeben.
 

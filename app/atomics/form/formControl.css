@@ -1,0 +1,27 @@
+/* Eingabefelder im Stil der Seite: eckig, schwarzer Rahmen, Fokus in Primärfarbe */
+.form-control {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: var(--spacing-small3);
+    border: 2px solid var(--color-black);
+    border-radius: 0;
+    background: var(--color-white);
+    color: var(--color-black);
+    font: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus-visible {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 4px 4px 0 var(--color-black);
+}
+
+.form-control[aria-invalid='true'] {
+    border-color: var(--color-primary);
+}
+
+textarea.form-control {
+    min-height: 9rem;
+    resize: vertical;
+}

@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import Button from '~/atomics/button/Button.vue';
+import Link from '~/atomics/link/Link.vue';
 import Icon from '~/atomics/icons/Icon.vue';
 import Sheet from '~/atomics/Sheet.vue';
 import Tag from '~/atomics/Tag.vue';
 import Text from '~/atomics/text/Text.vue';
 import type { Plan } from '~/types';
+import { ROUTES } from '~/statics/routes';
 
 defineProps<{
     plans: Array<Plan>;
@@ -64,15 +65,15 @@ defineProps<{
                     </li>
                 </ul>
 
-                <Button
+                <Link
                     fluid
                     :variant="plan.highlight ? 'standard' : 'outlined'"
                     class="mt-medium2 xl:mt-large4"
-                    :aria-label="`Paket ${plan.name} jetzt per E-Mail anfragen`"
-                    @click="plan.cta()"
+                    :aria-label="`Paket ${plan.name} anfragen`"
+                    :to="`${ROUTES.CONTACT}/?package=${encodeURIComponent(plan.name.toLowerCase())}`"
                 >
                     Jetzt buchen
-                </Button>
+                </Link>
             </Sheet>
         </div>
     </div>

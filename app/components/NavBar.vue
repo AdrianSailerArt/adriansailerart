@@ -56,15 +56,7 @@ onUnmounted(() => {
             <div class="mx-auto max-w-7xl px-small2 lg:px-medium">
                 <div class="flex h-16 items-center justify-between">
                     <NuxtLink to="/" aria-label="Adrian Sailer Art – Startseite">
-                        <NuxtImg
-                            src="/Logo_Adrian_Sailer_Art.png"
-                            alt=""
-                            width="96"
-                            height="96"
-                            densities="x1 x2"
-                            class="h-medium4 w-auto"
-                             preset="static"
-                        />
+                        <Logo sizes="48px" class="h-medium4 w-auto" />
                     </NuxtLink>
 
                     <Hamburger />

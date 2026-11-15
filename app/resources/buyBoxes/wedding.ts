@@ -1,4 +1,3 @@
-import { createMailtoCta } from '~/helpers/ctaMail';
 import type { Plan } from '~/types';
 
 export const weddingPlans: Array<Plan> = [
@@ -14,8 +13,7 @@ export const weddingPlans: Array<Plan> = [
             'Mind. 80 bearbeitete Fotos',
             'Online-Galerie',
             'Private Nutzungsrechte'
-        ],
-        cta: createMailtoCta('Standesamt')
+        ]
     },
     {
         name: 'Classic',
@@ -31,8 +29,7 @@ export const weddingPlans: Array<Plan> = [
             'Online-Galerie',
             'Gruppen- & Paarfotos',
             'Private Nutzungsrechte'
-        ],
-        cta: createMailtoCta('Classic')
+        ]
     },
     {
         name: 'Premium',
@@ -51,8 +48,7 @@ export const weddingPlans: Array<Plan> = [
             'Paarshooting',
             'Gruppenfotos',
             'Private Nutzungsrechte'
-        ],
-        cta: createMailtoCta('Premium')
+        ]
     },
   
   

@@ -10,10 +10,9 @@ import { weddingProcess } from '~/resources/process/wedding';
 import { hochzeitImages } from '~/resources/imageSrc/hochzeit';
 import Text from '~/atomics/text/Text.vue';
 import Sheet from '~/atomics/Sheet.vue';
-import Button from '~/atomics/button/Button.vue';
-import { createMailtoCta } from '~/helpers/ctaMail';
+import Link from '~/atomics/link/Link.vue';
+import { ROUTES } from '~/statics/routes';
 
-const requestIndividual = createMailtoCta('Individuelles Paket');
 useSocialImage('/hochzeit/Hochzeit-5.jpg', 'Brautpaar küsst sich auf einer Wiese mit Bergpanorama');
 
 useServiceSchema('Hochzeitsfotografie', 'Hochzeitsreportagen vom Standesamt bis zur ganztägigen Begleitung in Freiburg, am Kaiserstuhl und im Schwarzwald.');
@@ -131,13 +130,13 @@ useSeoMeta({
                             Nichts dabei? Gerne können wir auch ein
                             individuelles Paket erstellen</Text
                         >
-                        <Button
+                        <Link
                             class="mt-medium"
-                            aria-label="Individuelles Paket per E-Mail anfragen"
-                            @click="requestIndividual"
+                            aria-label="Individuelles Paket anfragen"
+                            :to="`${ROUTES.CONTACT}/?package=individuell`"
                         >
                             Jetzt anfragen
-                        </Button>
+                        </Link>
                     </Sheet>
                 </div>
             </div>

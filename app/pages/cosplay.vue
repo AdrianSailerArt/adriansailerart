@@ -18,7 +18,7 @@ useSeoMeta({
 <template>
     <div>
         <Hero
-            image="/Logo_Adrian_Sailer_Art.png"
+            show-logo
             title="Cosplay Galerie"
             subtitle="Mystische Welten & Fantasy"
             background-image="/cosplay/Viking-3.jpg"

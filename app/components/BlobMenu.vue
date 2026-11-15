@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { NuxtImg } from '#components';
-
 import Hamburger from '~/atomics/button/Hamburger.vue';
 import { navigationRoutes } from '~/statics/routes';
 const {isOpen, setClosed} = useNavigationTrigger();
@@ -118,13 +116,8 @@ onUnmounted(() => {
                     >
                         <ul class="flex flex-col items-center gap-small5 md:gap-8">
                             <li aria-hidden="true">
-                                <NuxtImg
-                                    preset="static"
-                                    src="Logo_Adrian_Sailer_Art.png"
-                                    alt=""
-                                    width="160"
-                                    height="160"
-                                    densities="x1 x2"
+                                <Logo
+                                    sizes="(min-width: 768px) 160px, 112px"
                                     class="h-28 md:h-large5 w-auto"
                                 />
                             </li>

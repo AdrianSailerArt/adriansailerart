@@ -5,6 +5,7 @@ export const ROUTES = {
     COSPLAY: '/cosplay',
     CONCERTS: '/concerts',
     PEOPLE: '/people',
+    CONTACT: '/contact',
     IMPRESSUM: '/impressum',
     DATA_SECURITY: '/datenschutz'
 } as const;
@@ -46,6 +47,11 @@ export const navigationRoutes: Array<NavigationRoute> = [
         name: 'Cosplay',
         icon: 'mask',
         path: ROUTES.COSPLAY
+    },
+    {
+        name: 'Kontakt',
+        icon: 'mail',
+        path: ROUTES.CONTACT
     }
 ];
 

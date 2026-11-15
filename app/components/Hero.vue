@@ -3,7 +3,7 @@ import { computed } from 'vue';
 import Text from '~/atomics/text/Text.vue';
 
 type HeroProps = {
-    image?: string;
+    showLogo?: boolean;
     title: string;
     subtitle: string;
     backgroundImage?: string;
@@ -33,14 +33,9 @@ const backgroundImageUrl = computed(() =>
         />
 
         <div class="relative z-base mx-auto max-w-4xl px-small4 text-center">
-            <NuxtImg
-                v-if="image"
-                :src="image"
-                preset="static"
-                alt=""
-                width="320"
-                height="320"
-                densities="x1 x2"
+            <Logo
+                v-if="showLogo"
+                sizes="(min-width: 1024px) 320px, (min-width: 768px) 288px, (min-width: 640px) 224px, 160px"
                 class="hero-in mx-auto mb-large h-40 w-40 object-contain sm:h-56 sm:w-56 md:h-72 md:w-72 lg:h-80 lg:w-80"
             />
 

@@ -34,7 +34,7 @@ export default defineNuxtConfig({
 
     ssr: true,
 
-    css: ['~/assets/css/main.css', '~/assets/css/tailwind.generated.css'],
+    css: ['~/assets/css/main.css', '~/assets/css/tailwind.generated.css', '~/atomics/form/formControl.css'],
 
     vite: {
         plugins: [tailwindcss()]
@@ -84,6 +84,7 @@ export default defineNuxtConfig({
             },
             sameAs: ['https://www.instagram.com/adriansailerart/'],
             email: 'adriansailer@me.com',
+            telephone: '+4917678389036',
             priceRange: '€€',
             currenciesAccepted: 'EUR',
             address: {

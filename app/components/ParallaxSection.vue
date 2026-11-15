@@ -34,10 +34,14 @@ const props = withDefaults(defineProps<ParallaxSectionProps>(), {
 
 const optimizedImage = useOptimizedImage();
 
-// Bild ist per scale-150 vergrößert, daher etwas breiter laden
-const backgroundImageUrl = computed(() =>
-    optimizedImage(props.backgroundImage, 2560)
-);
+// Bild ist per scale-150 vergrößert, daher etwas breiter laden.
+// Die URL wird schon beim Generieren erzeugt, damit das Bild vorgerendert wird
+const backgroundImageUrl = optimizedImage(props.backgroundImage, 2560);
+
+// Hintergrund erst kurz vor dem Sichtbarwerden laden – CSS-Hintergründe
+// kennen kein loading="lazy" und würden sonst alle sofort geladen
+const isNear = ref(false);
+let observer: IntersectionObserver | null = null;
 
 const section = ref<HTMLElement | null>(null);
 const offset = ref(0);
@@ -62,6 +66,21 @@ const handleScroll = () => {
 };
 
 onMounted(() => {
+    if (section.value && 'IntersectionObserver' in window) {
+        observer = new IntersectionObserver(
+            ([entry]) => {
+                if (!entry?.isIntersecting) return;
+
+                isNear.value = true;
+                observer?.disconnect();
+            },
+            { rootMargin: '800px 0px' }
+        );
+        observer.observe(section.value);
+    } else {
+        isNear.value = true;
+    }
+
     handleScroll();
     window.addEventListener('scroll', handleScroll, {
         passive: true
@@ -69,6 +88,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
+    observer?.disconnect();
     window.removeEventListener('scroll', handleScroll);
     cancelAnimationFrame(frame);
 });
@@ -115,7 +135,7 @@ const hasContent = computed(() => {
             aria-hidden="true"
             class="absolute inset-0 scale-150 bg-cover bg-center will-change-transform"
             :style="{
-                backgroundImage: `url('${backgroundImageUrl}')`,
+                backgroundImage: isNear ? `url('${backgroundImageUrl}')` : undefined,
                 transform: `translateY(${offset}px)`
             }"
         />

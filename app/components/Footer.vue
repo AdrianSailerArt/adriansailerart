@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Text from '~/atomics/text/Text.vue';
 import Icon from '~/atomics/icons/Icon.vue';
-import { footerNavigation } from '~/statics/routes';
+import { footerNavigation, ROUTES } from '~/statics/routes';
 import { contactInformation } from '~/resources/contactInformation';
 </script>
 <template>
@@ -17,11 +17,28 @@ import { contactInformation } from '~/resources/contactInformation';
                 <nav aria-label="Rechtliches und Kontakt">
                     <ul class="flex flex-wrap justify-center gap-small4">
                         <li>
-                            <a
-                                :href="`mailto:${contactInformation.mail}`"
-                                class="footer-link"
-                            >
+                            <NuxtLink :to="ROUTES.CONTACT" class="footer-link">
                                 Kontakt
+                            </NuxtLink>
+                        </li>
+                        <li>
+                            <a
+                                :href="`tel:${contactInformation.telLink}`"
+                                class="footer-link inline-flex items-center gap-small"
+                            >
+                                <Icon name="Phone" color="inherit" size="small5" />
+                                {{ contactInformation.tel }}
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                :href="contactInformation.whatsapp"
+                                class="footer-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                WhatsApp
+                                <span class="sr-only">(öffnet in neuem Tab)</span>
                             </a>
                         </li>
                         <li>
