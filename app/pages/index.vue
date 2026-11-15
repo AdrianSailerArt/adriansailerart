@@ -10,6 +10,7 @@ import { ROUTES } from '~/statics/routes';
             line2="Menschen"
             line3="Schwarzwald"
             align="left"
+            context="Fotograf in Freiburg und im Schwarzwald"
         />
         <FeatureSection
             image="/hochzeit/Hochzeit-3.jpg"

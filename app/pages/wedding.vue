@@ -16,8 +16,10 @@ import { createMailtoCta } from '~/helpers/ctaMail';
 const requestIndividual = createMailtoCta('Individuelles Paket');
 useSocialImage('/hochzeit/Hochzeit-5.jpg', 'Brautpaar küsst sich auf einer Wiese mit Bergpanorama');
 
+useServiceSchema('Hochzeitsfotografie', 'Hochzeitsreportagen vom Standesamt bis zur ganztägigen Begleitung in Freiburg, am Kaiserstuhl und im Schwarzwald.');
+
 useSeoMeta({
-    title: 'Hochzeitsfotografie',
+    title: 'Hochzeitsfotograf Freiburg & Schwarzwald',
     ogTitle: 'Hochzeitsfotograf Schwarzwald & Freiburg',
     description:
         'Authentische Hochzeitsreportagen voller Emotionen. Begleitung vom Getting Ready bis zur Feier in Freiburg und dem Schwarzwald.',
@@ -38,6 +40,7 @@ useSeoMeta({
             line2="Emotionen"
             line3="Leidenschaft"
             align="left"
+            context="Hochzeitsfotograf in Freiburg und im Schwarzwald"
         />
 
         <div class="mx-auto max-w-full">

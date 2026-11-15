@@ -13,7 +13,7 @@ useHead({
 useSocialImage('/people/Myra.jpg', 'Schwarzweiß-Portrait einer jungen Frau – Adrian Sailer Art');
 
 useSeoMeta({
-    title: 'Fotograf aus dem Schwarzwald',
+    title: 'Fotograf in Freiburg & im Schwarzwald',
     ogTitle: 'Adrian Sailer Art | Hochzeits-, Portrait- & Konzertfotograf',
     description:
         'Professionelle Fotografie aus dem Schwarzwald. Hochzeitsfotografie, Portraits, Konzertfotografie und Naturfotografie – authentische Bilder mit Charakter.',

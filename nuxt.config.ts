@@ -74,7 +74,14 @@ export default defineNuxtConfig({
             url: `${siteUrl}${baseURL}`,
             description:
                 'Fotograf aus dem Schwarzwald für Hochzeiten, Portraits, Regenshootings und Konzerte.',
-            founder: { '@type': 'Person', name: 'Adrian Sailer' },
+            founder: {
+                '@type': 'Person',
+                name: 'Adrian Sailer',
+                jobTitle: 'Fotograf',
+                image: `${siteUrl}${baseURL}adrian-sailer.jpg`,
+                url: `${siteUrl}${baseURL}about/`,
+                sameAs: ['https://www.instagram.com/adriansailerart/']
+            },
             sameAs: ['https://www.instagram.com/adriansailerart/'],
             email: 'adriansailer@me.com',
             priceRange: '€€',
@@ -86,6 +93,17 @@ export default defineNuxtConfig({
                 addressRegion: 'Baden-Württemberg',
                 addressCountry: 'DE'
             },
+            geo: {
+                '@type': 'GeoCoordinates',
+                latitude: 48.0916,
+                longitude: 7.9016
+            },
+            knowsAbout: [
+                'Hochzeitsfotografie',
+                'Portraitfotografie',
+                'Konzertfotografie',
+                'Cosplay-Fotografie'
+            ],
             areaServed: [
                 'Freiburg im Breisgau',
                 'Waldkirch',

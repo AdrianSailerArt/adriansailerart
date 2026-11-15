@@ -9,6 +9,8 @@ type HeroStackProps = {
     line2: string;
     line3: string;
     align?: 'left' | 'right';
+    /** Nur für Screenreader und Suchmaschinen: worum es auf der Seite geht */
+    context?: string;
 };
 
 const props = withDefaults(defineProps<HeroStackProps>(), {
@@ -75,6 +77,8 @@ const backgroundImageUrl = computed(() => {
                 >
                     {{ props.line1 }}
                 </Text>
+                <!-- Leerzeichen, damit die Wörter nicht zu einem verschmelzen -->
+                {{ ' ' }}
 
                 <Text
                     as="span"
@@ -85,6 +89,7 @@ const backgroundImageUrl = computed(() => {
                 >
                     {{ props.line2 }}
                 </Text>
+                {{ ' ' }}
 
                 <Text
                     as="span"
@@ -95,6 +100,8 @@ const backgroundImageUrl = computed(() => {
                 >
                     {{ props.line3 }}
                 </Text>
+
+                <span v-if="props.context" class="sr-only"> – {{ props.context }}</span>
             </h1>
         </div>
 

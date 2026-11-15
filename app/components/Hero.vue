@@ -7,6 +7,8 @@ type HeroProps = {
     title: string;
     subtitle: string;
     backgroundImage?: string;
+    /** Nur für Screenreader und Suchmaschinen: worum es auf der Seite geht */
+    context?: string;
 };
 
 const props = defineProps<HeroProps>();
@@ -45,6 +47,7 @@ const backgroundImageUrl = computed(() =>
             <div class="hero-in hero-title inline-block -rotate-1 px-medium py-small4">
                 <Text as="h1" variant="h1" color="white">
                     {{ title }}
+                    <span v-if="context" class="sr-only"> – {{ context }}</span>
                 </Text>
             </div>
 

@@ -19,6 +19,11 @@ body {
   font-family: var(--font-sans, "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif);
 }
 
+/* Ausdrücklich weiß, damit Browser mit Dunkelmodus keinen dunklen Standard-Hintergrund setzen */
+html {
+    background-color: var(--color-white);
+}
+
 /* Anker (#buchen) landen nicht unter der fixen Navigation */
 html {
     scroll-padding-top: 5rem;

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { marked } from 'marked';
-interface MarkdownProps {
+type MarkdownProps = {
     markdownContent: string;
-}
+};
 
 const props = defineProps<MarkdownProps>();
 
@@ -42,7 +42,8 @@ defineExpose({ htmlOutput });
     line-height: 1.1;
 }
 
-.markdown-content :deep(h1) {
+.markdown-content :deep(h1),
+.markdown-content :deep(.md-h1) {
     font-size: var(--h1-font-size);
     line-height: var(--h1-line-height);
     letter-spacing: var(--h1-letter-spacing);

@@ -1,4 +1,5 @@
-# Hochzeitsfotograf Freiburg
+<!-- Optik wie H1, aber H2: die Seite hat schon eine H1 im Hero -->
+<h2 class="md-h1">Hochzeitsfotograf Freiburg</h2>
 
 ## Emotionen. Menschen. Erinnerungen.
 

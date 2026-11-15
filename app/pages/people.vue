@@ -5,11 +5,14 @@ import Tab from '~/components/Tab.vue';
 import { peopleImages } from '~/resources/imageSrc/people';
 import { regenImages } from '~/resources/imageSrc/regen';
 import { trachtImages } from '~/resources/imageSrc/tracht';
+import { peopleIntro } from '~/resources/intros';
 
 useSocialImage('/people/Elvira-2.jpg', 'Studioportrait: Frau mit roten Haaren auf einer Holzkiste neben Leiter und Scheinwerfer');
 
+useServiceSchema('Portraitfotografie', 'Portraits für Privatpersonen, Paare und Business sowie Regenshootings und Trachtenportraits im Studio in Sexau und im Schwarzwald.');
+
 useSeoMeta({
-    title: 'Portraitfotografie',
+    title: 'Portraitfotograf Freiburg & Schwarzwald',
     ogTitle: 'Portraitfotograf Freiburg & Schwarzwald',
     description:
         'Natürliche Portraits für Privatpersonen, Paare und Business. Authentische Bilder mit Persönlichkeit.',
@@ -27,7 +30,9 @@ useSeoMeta({
             title="People Galerie"
             subtitle="Menschen & Emotionen"
             background-image="/people/Elvira-2.jpg"
+            context="Portraitfotograf in Freiburg und im Schwarzwald"
         />
+        <PageIntro :paragraphs="peopleIntro" />
         <div class="mx-auto px-small4 sm:px-medium my-medium">
             <Tab :tabs="['Portraits', 'Regenshooting', 'Trachten']">
                 <template #tab-0>
