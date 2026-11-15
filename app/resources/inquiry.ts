@@ -6,6 +6,7 @@ export const inquiryTopics = [
     'Portrait',
     'Regenshooting',
     'Trachtenportrait',
+    'TFP-Shooting',
     'Konzert / Band',
     'Cosplay',
     'Sonstiges'

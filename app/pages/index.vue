@@ -1,5 +1,12 @@
 <script lang="ts" setup>
 import { ROUTES } from '~/statics/routes';
+import { homeIntro } from '~/resources/intros';
+import { homeFaq } from '~/resources/faq/home';
+
+useSeoMeta({
+    description:
+        'Fotograf aus Sexau bei Freiburg: Hochzeiten von 490 € bis 1.990 €, Portraits ab 149 €, Konzert- und Bandfotos. Studio in Sexau, Shootings im Schwarzwald.'
+});
 </script>
 
 <template>
@@ -12,11 +19,12 @@ import { ROUTES } from '~/statics/routes';
             align="left"
             context="Fotograf in Freiburg und im Schwarzwald"
         />
+        <PageIntro :paragraphs="homeIntro" />
         <FeatureSection
             image="/hochzeit/Hochzeit-3.jpg"
             image-alt="Schwarzweißfoto eines Brautpaars auf einer Wiese vor Schwarzwaldhügeln"
             title="Hochzeitsfotografie"
-            description="Natürliche Bilder, echte Emotionen und Erinnerungen, die euch ein Leben lang begleiten. Ich begleite euren Tag aufmerksam und unaufdringlich – vom ersten Moment bis zur letzten Umarmung."
+            description="Natürliche Bilder, echte Emotionen und Erinnerungen, die euch ein Leben lang begleiten. Ich begleite euren Tag aufmerksam und unaufdringlich, in Freiburg, am Kaiserstuhl und im Schwarzwald. Pakete von 490 € bis 1.990 €, eure Bilder kommen nach 2 bis 4 Wochen."
             button-text="Mehr entdecken & buchen"
             :button-link="ROUTES.WEDDING"
             image-ratio="landscape"
@@ -25,7 +33,7 @@ import { ROUTES } from '~/statics/routes';
         <ParallaxSection
             background-image="/people/Charlotte.jpg"
             title="Portraitfotografie"
-            description="Zeitlose Portraits mit Fokus auf Persönlichkeit statt steifen Posen. Gemeinsam schaffen wir natürliche Bilder mit Charakter."
+            description="Zeitlose Portraits mit Fokus auf Persönlichkeit statt steifen Posen. Im Studio in Sexau oder draußen, ab 149 €, dazu Regen-, Trachten- und TFP-Shootings."
             button-text="Schau vorbei"
             height="large"
             :button-link="ROUTES.PEOPLE"
@@ -37,7 +45,7 @@ import { ROUTES } from '~/statics/routes';
             image="/concert/KD Wacken 2022.jpg"
             image-alt="Crowdsurfer über dem Publikum vor der Bühne beim Wacken Open Air 2022"
             title="Konzertfotografie"
-            description="Von kleinen Clubshows bis hin zu Festivals halte ich Emotionen, Energie und Atmosphäre in einzigartigen Bildern fest."
+            description="Von kleinen Clubshows bis hin zum Wacken Open Air halte ich Emotionen, Energie und Atmosphäre fest. Live-Fotos bekommt ihr 1 bis 3 Tage nach der Show, Promo-Shootings für Bands gibt es ab 500 €."
             button-text="Mehr entdecken"
             :button-link="ROUTES.CONCERTS"
             image-ratio="landscape"
@@ -60,5 +68,6 @@ import { ROUTES } from '~/statics/routes';
             background="dark"
         />
         <GoogleReviews />
+        <FaqList :entries="homeFaq" />
     </div>
 </template>

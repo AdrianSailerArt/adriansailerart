@@ -6,16 +6,19 @@ import { peopleImages } from '~/resources/imageSrc/people';
 import { regenImages } from '~/resources/imageSrc/regen';
 import { trachtImages } from '~/resources/imageSrc/tracht';
 import { peopleIntro } from '~/resources/intros';
+import { portraitPlans } from '~/resources/buyBoxes/people';
+import { peopleFaq } from '~/resources/faq/people';
+import portraitMd from '~/resources/markdown/portraitfotografie.md?raw';
 
 useSocialImage('/people/Elvira-2.jpg', 'Studioportrait: Frau mit roten Haaren auf einer Holzkiste neben Leiter und Scheinwerfer');
 
-useServiceSchema('Portraitfotografie', 'Portraits für Privatpersonen, Paare und Business sowie Regenshootings und Trachtenportraits im Studio in Sexau und im Schwarzwald.');
+useServiceSchema('Portraitfotografie', 'Portraits für Privatpersonen, Paare und Business sowie Regenshootings und Trachtenportraits im Studio in Sexau und im Schwarzwald.', portraitPlans);
 
 useSeoMeta({
     title: 'Portraitfotograf Freiburg & Schwarzwald',
     ogTitle: 'Portraitfotograf Freiburg & Schwarzwald',
     description:
-        'Natürliche Portraits für Privatpersonen, Paare und Business. Authentische Bilder mit Persönlichkeit.',
+        'Portraitfotograf bei Freiburg: Shooting ab 149 € im Studio in Sexau oder im Schwarzwald. Auch Regen-, Trachten- und TFP-Shootings.',
     ogDescription: 'Portraitfotografie in Freiburg und dem Schwarzwald.',
     keywords:
         'Portraitfotograf Freiburg, Business Portrait, Paarshooting, People Fotografie',
@@ -71,6 +74,12 @@ useSeoMeta({
                 </template>
             </Tab>
         </div>
+
+        <div class="mx-auto max-w-4xl px-small4">
+            <MarkdownRenderer :markdown-content="portraitMd" chip-lists />
+        </div>
+
+        <FaqList :entries="peopleFaq" />
         <GoogleReviews />
     </div>
 </template>

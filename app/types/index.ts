@@ -10,6 +10,8 @@ export type Plan = {
     description: string;
     features: Array<string>;
     highlight?: boolean;
+    /** Preis ist ein Mindestpreis ("ab 149 €") */
+    priceFrom?: boolean;
 };
 
 export type ProcessStep = {

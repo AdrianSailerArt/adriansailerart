@@ -5,9 +5,15 @@ export const concertIntro = [
     'In der Galerie findest du unter anderem Bilder von The BossHoss, Andreas Gabalier, Arch Enemy, Alter Bridge und Emil Bulls. Für Bands, Künstlerinnen, Künstler und Veranstalter fotografiere ich Live-Auftritte im Schwarzwald, in Freiburg und deutschlandweit, dazu Bandfotos für Promotion, Presse und Social Media, etwa für Inner Sanctum, Unantastbar oder Nina & The Hotspots.'
 ];
 
+export const homeIntro = [
+    'Ich bin Adrian Sailer, Fotograf aus Sexau bei Freiburg im Breisgau. Seit über zehn Jahren fotografiere ich Hochzeiten, Portraits, Konzerte und Bands, im eigenen Studio und draußen im Schwarzwald.',
+    'Hochzeitspakete gibt es von 490 € bis 1.990 €, Portrait-Shootings ab 149 € und Promo-Shootings für Bands ab 500 €. Cosplay fotografiere ich auf TFP-Basis. Schreib mir, was du vorhast, ich melde mich in der Regel innerhalb weniger Tage.'
+];
+
 export const peopleIntro = [
     'Ich fotografiere Portraits für Privatpersonen, Paare und Business, in meinem Studio in Sexau bei Freiburg oder draußen im Schwarzwald. Statt steifer Posen nehmen wir uns Zeit, damit du dich vor der Kamera wohlfühlst und Bilder entstehen, auf denen du dich wiedererkennst.',
-    'Dazu kommen besondere Formate: Regenshootings im Studio mit gezieltem Licht und kreativen Sets und Trachtenportraits, die die Traditionen des Schwarzwalds fernab von Klischees zeigen.'
+    'Ein Portrait-Shooting kostet bei mir ab 149 €. Dafür fotografieren wir etwa eine Stunde, und du bekommst nach 1 bis 2 Wochen rund 10 fertig bearbeitete Bilder. Für Business-Portraits, Teamfotos und größere Projekte mache ich dir ein eigenes Angebot. TFP-Shootings sind ebenfalls möglich.',
+    'Dazu kommen besondere Formate: Regenshootings im Studio mit gezieltem Licht und kreativen Sets und Trachtenportraits, die die Traditionen des Schwarzwalds fernab von Klischees zeigen. Beide plane ich individuell, den Preis bespreche ich mit dir auf Anfrage.'
 ];
 
 export const cosplayIntro = [

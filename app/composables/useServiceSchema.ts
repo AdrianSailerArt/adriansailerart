@@ -19,6 +19,9 @@ export const useServiceSchema = (name: string, description: string, plans: Array
             description: [plan.description, ...plan.features].join(' · '),
             price: plan.price,
             priceCurrency: 'EUR',
+            ...(plan.priceFrom
+                ? { priceSpecification: { '@type': 'PriceSpecification', minPrice: plan.price, priceCurrency: 'EUR' } }
+                : {}),
             url: pageUrl,
             availability: 'https://schema.org/InStock'
         }));

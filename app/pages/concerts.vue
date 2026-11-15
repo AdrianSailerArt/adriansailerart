@@ -3,16 +3,19 @@ import ImagePost from '~/components/Gallery/ImagePost.vue';
 import { concertImages } from '~/resources/imageSrc/concet';
 import { promotionImages } from '~/resources/imageSrc/promotion';
 import { concertIntro } from '~/resources/intros';
+import { concertPlans } from '~/resources/buyBoxes/concerts';
+import { concertFaq } from '~/resources/faq/concerts';
+import concertMd from '~/resources/markdown/konzertfotografie.md?raw';
 
 useSocialImage('/concert/BossHoss.jpg', 'The BossHoss mit Gitarre im grünen Bühnenlicht');
 
-useServiceSchema('Konzertfotografie', 'Live- und Konzertfotografie sowie Bandfotos für Promotion für Bands, Künstler und Veranstalter im Schwarzwald, in Freiburg und deutschlandweit.');
+useServiceSchema('Konzertfotografie', 'Live- und Konzertfotografie sowie Bandfotos für Promotion für Bands, Künstler und Veranstalter im Schwarzwald, in Freiburg und deutschlandweit.', concertPlans);
 
 useSeoMeta({
     title: 'Konzertfotograf Freiburg & Schwarzwald',
     ogTitle: 'Live- & Konzertfotograf',
     description:
-        'Dynamische Konzertfotografie für Bands, Festivals und Veranstalter. Energiegeladene Live-Momente professionell festgehalten.',
+        'Konzert- und Bandfotograf bei Freiburg: Live-Fotos 1–3 Tage nach der Show, Promo-Shootings für Bands ab 500 €. Im Schwarzwald und deutschlandweit.',
     ogDescription: 'Konzertfotografie aus dem Schwarzwald und deutschlandweit.',
     keywords:
         'Konzertfotograf, Festivalfotografie, Bandfotografie, Livefotografie',
@@ -40,5 +43,11 @@ useSeoMeta({
                 </template>
             </Tab>
         </div>
+
+        <div class="mx-auto max-w-4xl px-small4">
+            <MarkdownRenderer :markdown-content="concertMd" chip-lists />
+        </div>
+
+        <FaqList :entries="concertFaq" />
     </div>
 </template>

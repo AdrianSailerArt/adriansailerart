@@ -5,6 +5,8 @@ import Tab from '~/components/Tab.vue';
 import type { LayoutProps } from '~/components/Gallery/variants/types';
 import type { MediumReference } from '~/types';
 import { natureIntro } from '~/resources/intros';
+import { natureFaq } from '~/resources/faq/nature';
+import natureMd from '~/resources/markdown/naturfotografie.md?raw';
 import {
     islandImages,
     kanadaImages,
@@ -98,5 +100,11 @@ const regions: Array<Region> = [
                 </template>
             </Tab>
         </div>
+
+        <div class="mx-auto max-w-4xl px-small4">
+            <MarkdownRenderer :markdown-content="natureMd" />
+        </div>
+
+        <FaqList :entries="natureFaq" />
     </div>
 </template>
