@@ -27,6 +27,10 @@ export const peopleFaq: Array<FaqEntry> = [
         answer: 'Ja. Die meisten Menschen fühlen sich vor der Kamera erst einmal unsicher. Ich leite dich an, zeige dir zwischendurch Bilder und lasse dir Zeit. Nach ein paar Minuten wird es meist deutlich lockerer.'
     },
     {
+        question: 'Machst du Passfotos für Personalausweis oder Führerschein?',
+        answer: 'Nein. Biometrische Fotos für Personalausweis, Reisepass oder Führerschein mache ich nicht. Dafür ist ein Fotostudio mit Passbild-Service oder ein Fotoautomat die richtige Adresse. Bei mir geht es um Portraits mit Persönlichkeit.'
+    },
+    {
         question: 'Machst du auch TFP-Shootings?',
         answer: 'Ja. Bei einem TFP-Shooting (Time for Prints) bezahlt niemand: Du bringst deine Zeit mit, ich meine Arbeit, und wir beide dürfen die Bilder nutzen. Schreib mir deine Idee, am besten mit ein paar Beispielbildern.'
     },

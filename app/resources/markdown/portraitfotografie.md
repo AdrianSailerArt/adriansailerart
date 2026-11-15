@@ -3,7 +3,7 @@
 
 ## Auf einen Blick
 
-Ich bin Portraitfotograf aus Sexau bei Freiburg im Breisgau. Ich fotografiere Privatpersonen, Paare und Business-Kunden in meinem Studio oder draußen im Schwarzwald. Ein Portrait-Shooting kostet ab 149 €, dauert etwa eine Stunde, und du bekommst rund 10 bearbeitete Bilder nach 1 bis 2 Wochen. Regenshootings und Trachtenportraits plane ich individuell, TFP-Shootings sind ebenfalls möglich.
+Ich bin Portraitfotograf aus Sexau bei Freiburg im Breisgau. Ich fotografiere Privatpersonen, Paare und Business-Kunden in meinem Studio oder draußen im Schwarzwald. Ein Portrait-Shooting kostet ab 149 €, dauert etwa eine Stunde, und du bekommst rund 10 bearbeitete Bilder nach 1 bis 2 Wochen. Regenshootings und Trachtenportraits plane ich individuell, TFP-Shootings sind ebenfalls möglich. Passfotos für Personalausweis oder Führerschein mache ich nicht.
 
 ---
 
