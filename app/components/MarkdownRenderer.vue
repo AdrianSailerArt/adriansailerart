@@ -3,6 +3,8 @@ import { computed } from 'vue';
 import { marked } from 'marked';
 type MarkdownProps = {
     markdownContent: string;
+    /** Aufzählungen (ohne Links) in Button-Optik statt mit Punkten */
+    chipLists?: boolean;
 };
 
 const props = defineProps<MarkdownProps>();
@@ -17,7 +19,11 @@ defineExpose({ htmlOutput });
 </script>
 
 <template>
-    <div class="markdown-content" v-html="htmlOutput"/>
+    <div
+        class="markdown-content"
+        :class="{ 'chip-lists': chipLists }"
+        v-html="htmlOutput"
+    />
 </template>
 
 <style scoped>
@@ -124,6 +130,40 @@ defineExpose({ htmlOutput });
     padding: 1rem;
     overflow-x: auto;
     line-height: 1.5;
+}
+
+/* Aufzählungen in Button-Optik (gleiche Farbe, Schrift, Neigung und versetzter Rahmen wie Button.vue).
+   Sie sind nicht klickbar, deshalb ohne Hover und mit normalem Mauszeiger */
+.chip-lists :deep(ul:not(:has(a))) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-small4) var(--spacing-small3);
+    padding: var(--spacing-small) 0 0 var(--spacing-small);
+    list-style: none;
+}
+
+.chip-lists :deep(ul:not(:has(a)) li) {
+    position: relative;
+    margin: 0;
+    padding: var(--spacing-small3) var(--spacing-small4);
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-size: var(--caption-font-size);
+    line-height: var(--caption-line-height);
+    letter-spacing: var(--caption-letter-spacing);
+    font-weight: 700;
+    rotate: -1deg;
+}
+
+.chip-lists :deep(ul:not(:has(a)) li)::after {
+    content: '';
+    position: absolute;
+    bottom: var(--spacing-small);
+    left: var(--spacing-small);
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+    border: 1px solid var(--color-black);
+    pointer-events: none;
 }
 
 .markdown-content :deep(a) {

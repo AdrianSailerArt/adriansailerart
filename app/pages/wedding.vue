@@ -81,6 +81,7 @@ useSeoMeta({
                 <div class="w-full md:w-1/2 order-2 md:order-1">
                     <MarkdownRenderer
                         :markdown-content="md2"
+                        chip-lists
                         class="m-medium"
                     />
                 </div>
@@ -116,6 +117,7 @@ useSeoMeta({
                 <div class="w-full md:w-1/2">
                     <MarkdownRenderer
                         :markdown-content="md3"
+                        chip-lists
                         class="m-medium"
                     />
                 </div>
