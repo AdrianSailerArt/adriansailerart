@@ -53,13 +53,9 @@ export default defineNuxtConfig({
         trailingSlash: true
     },
 
-    // Mit Unterpfad landet die vorgerenderte Startseite sonst doppelt in der Sitemap.
-    // /nature hat noch keinen Inhalt und bleibt draußen
+    // Mit Unterpfad landet die vorgerenderte Startseite sonst doppelt in der Sitemap
     sitemap: {
-        exclude: [
-            '/nature/**',
-            ...(baseURL === '/' ? [] : [baseURL.replace(/\/$/, ''), `${baseURL}**`])
-        ]
+        exclude: baseURL === '/' ? [] : [baseURL.replace(/\/$/, ''), `${baseURL}**`]
     },
 
     // OG-Bilder kommen als echte Fotos aus useSocialImage(), keine generierten Bilder
@@ -103,7 +99,8 @@ export default defineNuxtConfig({
                 'Hochzeitsfotografie',
                 'Portraitfotografie',
                 'Konzertfotografie',
-                'Cosplay-Fotografie'
+                'Cosplay-Fotografie',
+                'Naturfotografie'
             ],
             areaServed: [
                 'Freiburg im Breisgau',

@@ -16,3 +16,8 @@ export const cosplayIntro = [
     'Fotografiert wird je nach Charakter im Studio in Sexau bei Freiburg oder draußen an Orten, die zur Geschichte passen: im dunklen Wald, vor alten Mauern und Torbögen oder in einer Burgruine. Im Studio lassen sich Licht und Farben genau steuern, draußen sorgen Wald und Gemäuer für Atmosphäre.',
     'Vor dem Shooting sprechen wir über deinen Charakter, typische Posen und die Bildidee, gern auch mit Referenzbildern aus Film, Serie oder Spiel. So weißt du vorher, was dich erwartet, und wir nutzen die Zeit vor der Kamera für die Bilder, die du dir wünschst.'
 ];
+
+export const natureIntro = [
+    'Wenn ich nicht gerade Menschen fotografiere, bin ich draußen unterwegs: im Schwarzwald vor der Haustür und auf Reisen. Mich reizen Orte mit Stimmung, Wasserfälle zwischen moosigen Felsen, Wälder im Herbstlicht, Nachthimmel über dem Hünersedel und Berge unter schweren Wolken.',
+    'Neben dem Schwarzwald und Freiburg findest du hier Bilder aus Südtirol, Island, von den Lofoten in Norwegen und aus Kanada. Lange Belichtungen lassen Wasser weich fließen, Nachtaufnahmen zeigen die Milchstraße, und die Bildbearbeitung bleibt bei der gleichen Handschrift wie bei meinen Portraits: kräftige Farben, dunkle Töne und viel Atmosphäre.'
+];
