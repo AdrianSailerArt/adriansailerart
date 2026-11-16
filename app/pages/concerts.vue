@@ -30,6 +30,7 @@ useSeoMeta({
             title="Konzerte und Artist Galerie"
             subtitle="Einzigartige Momente & Energie"
             background-image="/concert/BossHoss.jpg"
+            background-alt="The BossHoss mit Gitarre im grünen Bühnenlicht"
             context="Konzertfotograf aus dem Schwarzwald"
         />
         <PageIntro :paragraphs="concertIntro" />

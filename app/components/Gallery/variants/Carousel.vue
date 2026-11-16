@@ -26,6 +26,7 @@ const emit = defineEmits<EmitGalleryType>();
         >
             <NuxtImg
                 :src="image.media"
+                :style="getImageAspectStyle(image.media)"
                 :alt="image.alt"
                  preset="static"
                  sizes="xs:80vw lg:400px"

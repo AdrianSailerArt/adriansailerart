@@ -1,3 +1,5 @@
+import { PHOTO_CREDIT } from '~/statics/photoCredit';
+
 /**
  * Setzt das Vorschaubild für WhatsApp, Instagram, Facebook & Co.
  * Das Foto wird auf 1200×630 (empfohlenes OG-Format) zugeschnitten
@@ -16,6 +18,23 @@ export const useSocialImage = (src: string, alt: string) => {
     });
 
     const url = new URL(path, site.url).href;
+
+    // Hauptbild der Seite für Google statt des Logos, mit Urheberangaben
+    useSchemaOrg([
+        defineWebPage({
+            primaryImageOfPage: {
+                '@type': 'ImageObject',
+                contentUrl: url,
+                url,
+                width: 1200,
+                height: 630,
+                caption: alt,
+                creator: { '@type': 'Person', name: PHOTO_CREDIT.creator },
+                creditText: PHOTO_CREDIT.credit,
+                copyrightNotice: PHOTO_CREDIT.copyright
+            }
+        })
+    ]);
 
     useSeoMeta({
         ogImage: url,

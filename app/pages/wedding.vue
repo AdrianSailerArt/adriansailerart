@@ -36,6 +36,7 @@ useSeoMeta({
     <div class="overflow-x-hidden">
         <HeroStack
             background-image="/hochzeit/Hochzeit-5.jpg"
+            background-alt="Brautpaar küsst sich auf einer Wiese mit Bergpanorama"
             line1="Liebe"
             line2="Emotionen"
             line3="Leidenschaft"

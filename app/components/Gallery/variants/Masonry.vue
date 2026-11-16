@@ -37,6 +37,7 @@ const imageGroups = computed(() => {
                         @click="emit('imageClick', group[0], groupIndex * 6)">
                         <NuxtImg
                             :src="group[0].media"
+                            :style="getImageAspectStyle(group[0].media)"
                             :alt="group[0].alt"
                              preset="static"
                             sizes="xs:100vw lg:50vw 2xl:50vw"
@@ -75,6 +76,7 @@ const imageGroups = computed(() => {
                             ">
                             <NuxtImg
                                 :src="image.media"
+                                :style="getImageAspectStyle(image.media)"
                                 :alt="image.alt"
                                  preset="static"
                             sizes="xs:50vw lg:25vw 2xl:25vw"
@@ -119,6 +121,7 @@ const imageGroups = computed(() => {
                             ">
                             <NuxtImg
                                 :src="image.media"
+                                :style="getImageAspectStyle(image.media)"
                                 :alt="image.alt"
                                  preset="static"
                             sizes="xs:50vw lg:25vw 2xl:25vw"
@@ -149,6 +152,7 @@ const imageGroups = computed(() => {
                         ">
                         <NuxtImg
                             :src="group[5].media"
+                            :style="getImageAspectStyle(group[5].media)"
                             :alt="group[5].alt"
                              preset="static"
                             sizes="xs:100vw lg:50vw 2xl:50vw"

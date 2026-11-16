@@ -27,8 +27,8 @@ const stars = (rating: number) => '★'.repeat(rating) + '☆'.repeat(5 - rating
             </Text>
         </div>
 
-        <ul class="grid gap-medium sm:grid-cols-2 lg:grid-cols-4">
-            <li v-for="item in testimonials" :key="item.author" class="flex">
+        <ContentSlider label="Google-Rezensionen" :per-view="{ xs: 1.1, sm: 2, lg: 3 }">
+            <li v-for="item in testimonials" :key="item.author">
                 <Sheet class="flex flex-col gap-small4 w-full">
                     <Text as="p" variant="label" color="primary">
                         <span aria-hidden="true">{{ stars(item.rating) }}</span>
@@ -42,7 +42,7 @@ const stars = (rating: number) => '★'.repeat(rating) + '☆'.repeat(5 - rating
                     </Text>
                 </Sheet>
             </li>
-        </ul>
+        </ContentSlider>
 
         <div class="flex flex-col md:flex-row md:items-center gap-small4">
             <Link

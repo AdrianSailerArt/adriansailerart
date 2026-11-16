@@ -25,6 +25,7 @@ useSeoMeta({
             title="Cosplay Galerie"
             subtitle="Mystische Welten & Fantasy"
             background-image="/cosplay/Viking-3.jpg"
+            background-alt="Wikinger-Cosplay: Kriegerin mit Widderhörnern und Federschmuck"
             context="Cosplay-Fotograf im Schwarzwald"
         />
         <PageIntro :paragraphs="cosplayIntro" />

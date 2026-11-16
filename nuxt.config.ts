@@ -1,6 +1,8 @@
-import { readdirSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
+import { imageMeta } from 'image-meta';
 import tailwindcss from '@tailwindcss/vite';
 import { FULLSCREEN_IMAGE_WIDTH, GALLERY_IMAGE_DIRS } from './app/statics/images';
+import { IMAGE_METADATA_BITS, photoCreditXmp } from './app/statics/photoCredit';
 
 /**
  * Wo die Seite ausgeliefert wird. Standard ist die eigene Domain adriansailer.de.
@@ -16,7 +18,26 @@ const fullscreenImageRoutes = GALLERY_IMAGE_DIRS.flatMap((dir) =>
         .map((file) => `/_ipx/f_webp&q_80&w_${FULLSCREEN_IMAGE_WIDTH}/${dir}/${encodeURIComponent(file)}`)
 );
 
+/**
+ * Pixelmaße aller Galeriebilder, beim Bauen aus den Dateien gelesen. Damit reservieren die
+ * Galerien vorab den richtigen Platz (aspect-ratio) und das Layout springt beim Laden nicht.
+ */
+const imageSizes = Object.fromEntries(
+    GALLERY_IMAGE_DIRS.flatMap((dir) =>
+        readdirSync(`public/${dir}`)
+            .filter((file) => /\.(jpe?g|png|webp)$/i.test(file))
+            .map((file) => {
+                const { width, height } = imageMeta(readFileSync(`public/${dir}/${file}`));
+                return [`/${dir}/${file}`, [width, height]];
+            })
+    )
+) as Record<string, [number, number]>;
+
 export default defineNuxtConfig({
+    appConfig: {
+        imageSizes
+    },
+
     compatibilityDate: '2025-07-15',
 
     devtools: {
@@ -140,6 +161,15 @@ export default defineNuxtConfig({
 
     image: {
         provider: 'ipx',
+
+        // Urheber und Copyright als XMP (IPTC-Felder) in jedes ausgelieferte Bild schreiben,
+        // ohne die übrigen Metadaten der Originale wie GPS, Kameradaten oder EXIF-Vorschaubild
+        ipx: {
+            sharpOptions: {
+                keepMetadata: IMAGE_METADATA_BITS,
+                withXmp: photoCreditXmp
+            }
+        },
 
         // WebP mit 80 % Qualität: optisch gleich, ein Bruchteil der Dateigröße
         quality: 80,

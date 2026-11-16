@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue';
 import Text from '~/atomics/text/Text.vue';
 
 type HeroProps = {
@@ -7,26 +6,23 @@ type HeroProps = {
     title: string;
     subtitle: string;
     backgroundImage?: string;
+    /** Beschreibung des Titelbilds für Screenreader und Google Bilder */
+    backgroundAlt?: string;
     /** Nur für Screenreader und Suchmaschinen: worum es auf der Seite geht */
     context?: string;
 };
 
-const props = defineProps<HeroProps>();
+withDefaults(defineProps<HeroProps>(), {
+    backgroundImage: '/images/hero.jpg',
+    backgroundAlt: ''
+});
 
-const optimizedImage = useOptimizedImage();
-
-const backgroundImageUrl = computed(() =>
-    optimizedImage(props.backgroundImage ?? '/images/hero.jpg')
-);
 </script>
 
 <template>
-    <section
-        class="relative flex min-h-screen items-center justify-center overflow-hidden bg-cover bg-center"
-        :style="{
-            backgroundImage: `url('${backgroundImageUrl}')`
-        }"
-    >
+    <section class="relative flex min-h-screen items-center justify-center overflow-hidden">
+        <HeroImage :src="backgroundImage" :alt="backgroundAlt" />
+
         <div
             class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"
             aria-hidden="true"

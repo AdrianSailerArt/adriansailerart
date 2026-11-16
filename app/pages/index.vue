@@ -13,6 +13,7 @@ useSeoMeta({
     <div>
         <HeroStack
             background-image="/people/Myra.jpg"
+            background-alt="Schwarzweiß-Portrait: junge Frau mit hellen Haaren"
             line1="Emotion"
             line2="Menschen"
             line3="Schwarzwald"

@@ -33,6 +33,7 @@ useSeoMeta({
             title="People Galerie"
             subtitle="Menschen & Emotionen"
             background-image="/people/Elvira-2.jpg"
+            background-alt="Studioportrait: Frau mit roten Haaren auf einer Holzkiste neben Leiter und Scheinwerfer"
             context="Portraitfotograf in Freiburg und im Schwarzwald"
         />
         <PageIntro :paragraphs="peopleIntro" />

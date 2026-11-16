@@ -82,6 +82,7 @@ const regions: Array<Region> = [
             title="Natur & Landschaft"
             subtitle="Wälder, Berge & Meer"
             background-image="/nature/Krai Woog Gumpen.jpg"
+            background-alt="Wasserfall Krai-Woog-Gumpen im Schwarzwald zwischen moosigen Felsen"
             context="Naturfotografie aus dem Schwarzwald und von Reisen"
         />
         <PageIntro :paragraphs="natureIntro" />

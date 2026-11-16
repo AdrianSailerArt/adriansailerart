@@ -25,6 +25,7 @@ const emit = defineEmits<EmitGalleryType>();
         >
             <NuxtImg
                 :src="firstImage.media"
+                :style="getImageAspectStyle(firstImage.media)"
                 :alt="firstImage.alt"
                 
                  preset="static"
@@ -57,6 +58,7 @@ const emit = defineEmits<EmitGalleryType>();
             >
                 <NuxtImg
                     :src="image.media"
+                    :style="getImageAspectStyle(image.media)"
                     :alt="image.alt"
                      preset="static"
                     sizes="xs:50vw lg:25vw 2xl:25vw"

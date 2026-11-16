@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed } from 'vue';
 import Text from '~/atomics/text/Text.vue';
 import Icon from '~/atomics/icons/Icon.vue';
 
 type HeroStackProps = {
     backgroundImage?: string;
+    /** Beschreibung des Titelbilds für Screenreader und Google Bilder */
+    backgroundAlt?: string;
     line1: string;
     line2: string;
     line3: string;
@@ -14,10 +15,11 @@ type HeroStackProps = {
 };
 
 const props = withDefaults(defineProps<HeroStackProps>(), {
-    align: 'left'
+    align: 'left',
+    backgroundImage: '/images/hero.jpg',
+    backgroundAlt: ''
 });
 
-const optimizedImage = useOptimizedImage();
 
 const scrollToContent = () => {
     const reduceMotion = window.matchMedia(
@@ -30,9 +32,6 @@ const scrollToContent = () => {
     });
 };
 
-const backgroundImageUrl = computed(() => {
-    return optimizedImage(props.backgroundImage || '/images/hero.jpg');
-});
 </script>
 
 <template>
@@ -41,13 +40,7 @@ const backgroundImageUrl = computed(() => {
     >
         <!-- svh statt vh: auf dem Handy zählt die Adressleiste nicht mit; 4rem = feste NavBar (h-16) -->
         <!-- Hintergrund mit langsamem Ken-Burns-Zoom -->
-        <div
-            aria-hidden="true"
-            class="hero-bg absolute inset-0 bg-cover bg-center"
-            :style="{
-                backgroundImage: `url('${backgroundImageUrl}')`
-            }"
-        />
+        <HeroImage :src="props.backgroundImage" :alt="props.backgroundAlt" class="hero-bg" />
 
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/30" aria-hidden="true" />
