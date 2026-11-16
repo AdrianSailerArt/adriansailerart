@@ -2,8 +2,9 @@
 /**
  * Titelbild eines Heros als echtes <img> statt CSS-Hintergrund:
  * Google Bilder kann es indexieren, und der Browser lädt es sofort mit hoher Priorität
- * in der passenden Größe (srcset). Auf dem Handy im Hochformat füllt das Querformatbild die
- * Höhe, deshalb 200vw für kleine Bildschirme. Größte Stufe 2560 px = Breite der Originale.
+ * in der passenden Größe (srcset). Kein `preload`: Der Vorlade-Hinweis kennt nur die größte Datei
+ * und würde das Bild sonst doppelt laden. Das <img> steht ohnehin früh im HTML.
+ * Auf dem Handy im Hochformat füllt das Querformatbild die Höhe, deshalb 200vw für kleine Bildschirme. Größte Stufe 2560 px = Breite der Originale.
  */
 type HeroImageProps = {
     src: string;
@@ -21,7 +22,6 @@ defineProps<HeroImageProps>();
         sizes="xs:200vw md:100vw lg:100vw xl:100vw"
         loading="eager"
         fetchpriority="high"
-        preload
         class="absolute inset-0 h-full w-full object-cover object-center"
     />
 </template>

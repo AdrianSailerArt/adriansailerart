@@ -57,6 +57,7 @@ useSeoMeta({
             >
                 <NuxtImg
                     src="/hochzeit/Hochzeit-2.jpg"
+                    :style="getImageAspectStyle('/hochzeit/Hochzeit-2.jpg')"
                     alt="Lächelnde Braut mit buntem Brautstrauß im Grünen"
                     preset="static"
                     sizes="xs:100vw lg:50vw 2xl:50vw"
@@ -89,6 +90,7 @@ useSeoMeta({
 
                 <NuxtImg
                     src="/hochzeit/Hochzeit-9.jpg"
+                    :style="getImageAspectStyle('/hochzeit/Hochzeit-9.jpg')"
                     alt="Schwarzweißfoto: Brautpaar tanzt auf einer Wiese"
                     preset="static"
                     sizes="xs:100vw lg:50vw 2xl:50vw"
@@ -108,6 +110,7 @@ useSeoMeta({
             >
                 <NuxtImg
                     src="/hochzeit/Hochzeit-4.jpg"
+                    :style="getImageAspectStyle('/hochzeit/Hochzeit-4.jpg')"
                     alt="Brautpaar im verschneiten, nebligen Winterwald"
                     preset="static"
                     sizes="xs:100vw lg:50vw 2xl:50vw"
