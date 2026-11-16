@@ -3,13 +3,12 @@ import ImagePost from '~/components/Gallery/ImagePost.vue';
 import { concertImages } from '~/resources/imageSrc/concet';
 import { promotionImages } from '~/resources/imageSrc/promotion';
 import { concertIntro } from '~/resources/intros';
-import { concertPlans } from '~/resources/buyBoxes/concerts';
 import { concertFaq } from '~/resources/faq/concerts';
 import concertMd from '~/resources/markdown/konzertfotografie.md?raw';
 
 useSocialImage('/concert/BossHoss.jpg', 'The BossHoss mit Gitarre im grünen Bühnenlicht');
 
-useServiceSchema('Konzertfotografie', 'Live- und Konzertfotografie sowie Bandfotos für Promotion für Bands, Künstler und Veranstalter im Schwarzwald, in Freiburg und deutschlandweit.', concertPlans);
+useServiceSchema('Konzertfotografie', 'Live- und Konzertfotografie für Bands, Künstler und Veranstalter im Schwarzwald, in Freiburg und deutschlandweit. Promo-Shootings für Bands: siehe Bandfotografie.');
 
 useSeoMeta({
     title: 'Konzertfotograf Freiburg & Schwarzwald',

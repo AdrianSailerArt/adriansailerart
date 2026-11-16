@@ -5,7 +5,15 @@ import type { Plan } from '~/types';
  * als schema.org `Service`, verknüpft mit dem Unternehmen aus nuxt.config.ts.
  * Mit `plans` erscheinen die Pakete samt Preis als `Offer`, damit Google und KI-Assistenten sie nennen können.
  */
-export const useServiceSchema = (name: string, description: string, plans: Array<Plan> = []) => {
+const REGION = ['Freiburg im Breisgau', 'Emmendingen', 'Kaiserstuhl', 'Schwarzwald'];
+
+export const useServiceSchema = (
+    name: string,
+    description: string,
+    plans: Array<Plan> = [],
+    /** Einsatzgebiet, Standard ist die Region um Freiburg */
+    areaServed: Array<string> = REGION
+) => {
     const { url } = useSiteConfig();
     const base = url.replace(/\/$/, '');
     // Gleiche Schreibweise wie die Canonicals (mit Schrägstrich am Ende)
@@ -33,7 +41,7 @@ export const useServiceSchema = (name: string, description: string, plans: Array
             serviceType: name,
             description,
             provider: { '@id': `${base}/#identity` },
-            areaServed: ['Freiburg im Breisgau', 'Emmendingen', 'Kaiserstuhl', 'Schwarzwald'],
+            areaServed,
             availableLanguage: 'de',
             ...(offers.length ? { offers } : {})
         }

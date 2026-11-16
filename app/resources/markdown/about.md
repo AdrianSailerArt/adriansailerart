@@ -8,7 +8,7 @@ Ich fotografiere seit über zehn Jahren Konzerte, Bands, Menschen und Hochzeiten
 
 ## Mein Weg
 
-Seit über zehn Jahren begleite ich Konzerte, Festivals, Künstler und Menschen mit meiner Kamera. Angefangen hat alles in der Musikszene, wo ich durch meine Arbeit für **Tribe Online** die ersten Konzerte fotografierte. Später kamen Aufträge für **Metal Hammer** und für Bands dazu, live auf der Bühne und bei Promo-Shootings. Was damals als Leidenschaft begann, entwickelte sich schnell zu meinem persönlichen Stil: authentische Bilder mit Atmosphäre, Emotion und Charakter.
+Seit über zehn Jahren begleite ich Konzerte, Festivals, Künstler und Menschen mit meiner Kamera. Angefangen hat alles in der Musikszene, wo ich durch meine Arbeit für **Tribe Online** die ersten Konzerte fotografierte. Später kamen Aufträge für **Metal Hammer** und für Bands dazu, live auf der Bühne und bei Promo-Shootings. Ein Live-Foto von mir ist auf dem Cover des Albums „Generation Goodbye – Dynamite Nights“ von Kissin' Dynamite. 2019 hat mich konzertfotos.app [zu meiner Arbeit interviewt](https://www.konzertfotos.app/konzertfotografie-und-expertentipps-von-adrian-sailer). Was damals als Leidenschaft begann, entwickelte sich schnell zu meinem persönlichen Stil: authentische Bilder mit Atmosphäre, Emotion und Charakter.
 
 Heute arbeite ich sowohl im Studio als auch on Location. Mein Schwerpunkt liegt auf Künstler-, Band- und Portraitfotografie sowie außergewöhnlichen Inszenierungen mit gezieltem Licht, kreativen Sets und einer cineastischen Bildsprache. Dabei entstehen keine austauschbaren Fotos, sondern Aufnahmen, die Persönlichkeit zeigen und Geschichten erzählen.
 
@@ -24,7 +24,8 @@ In meinem Studio in Sexau entstehen Portraits, Bandshootings und kreative Konzep
 
 - [Hochzeiten](/wedding/): Reportagen in Freiburg, am Kaiserstuhl und im Schwarzwald, Pakete von 490 € bis 1.990 €
 - [Portraits](/people/): Studio oder draußen, ab 149 €, dazu Regen-, Trachten- und TFP-Shootings
-- [Konzerte und Bands](/concerts/): Live-Fotos nach 1 bis 3 Tagen, Promo-Shootings ab 500 €
+- [Konzerte](/concerts/): Live-Fotos nach 1 bis 3 Tagen
+- [Bandfotos](/band-photography/): Promo-Shootings für Rock- und Metal-Bands ab 500 €
 - [Cosplay](/cosplay/): ausschließlich TFP, bei Ideen, die mich begeistern
 - [Natur](/nature/): Schwarzwald, Südtirol, Island, Lofoten und Kanada
 

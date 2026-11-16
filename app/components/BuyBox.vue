@@ -7,15 +7,25 @@ import Text from '~/atomics/text/Text.vue';
 import type { Plan } from '~/types';
 import { ROUTES } from '~/statics/routes';
 
-defineProps<{
+type BuyBoxProps = {
     plans: Array<Plan>;
-}>();
+    /** Ziel der Buchen-Buttons, sonst das Anfrageformular mit vorausgewähltem Paket */
+    inquiryLink?: string;
+};
+
+const props = defineProps<BuyBoxProps>();
+
+const linkFor = (plan: Plan) =>
+    props.inquiryLink ?? `${ROUTES.CONTACT}/?package=${encodeURIComponent(plan.name.toLowerCase())}`;
 </script>
 
 <template>
     <div class="relative isolate">
         <div
-            class="mx-auto grid max-w-xl grid-cols-1 gap-medium2 px-medium sm:gap-small4 sm:mt-large4 xl:max-w-7xl xl:grid-cols-3 xl:px-none"
+            :class="[
+                'mx-auto grid max-w-xl grid-cols-1 gap-medium2 px-medium sm:gap-small4 sm:mt-large4',
+                plans.length > 1 && 'xl:max-w-7xl xl:grid-cols-3 xl:px-none'
+            ]"
         >
             <Sheet
                 v-for="(plan, planIndex) in plans"
@@ -42,8 +52,8 @@ defineProps<{
 
                 <div class="mt-medium flex items-end gap-small2">
                     <span class="text-6xl font-black leading-none">
-                        <span aria-hidden="true">€{{ plan.price }}</span>
-                        <span class="sr-only">{{ plan.price }} Euro</span>
+                        <span aria-hidden="true">{{ plan.priceFrom ? 'ab ' : '' }}€{{ plan.price }}</span>
+                        <span class="sr-only">{{ plan.priceFrom ? 'ab ' : '' }}{{ plan.price }} Euro</span>
                     </span>
                 </div>
 
@@ -70,7 +80,7 @@ defineProps<{
                     :variant="plan.highlight ? 'standard' : 'outlined'"
                     class="mt-medium2 xl:mt-large4"
                     :aria-label="`Paket ${plan.name} anfragen`"
-                    :to="`${ROUTES.CONTACT}/?package=${encodeURIComponent(plan.name.toLowerCase())}`"
+                    :to="linkFor(plan)"
                 >
                     Jetzt buchen
                 </Link>

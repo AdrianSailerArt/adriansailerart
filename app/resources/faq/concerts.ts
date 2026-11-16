@@ -3,8 +3,8 @@ import type { FaqEntry } from '~/types';
 /** Häufige Fragen zur Konzert- und Bandfotografie, auch als schema.org FAQPage ausgegeben */
 export const concertFaq: Array<FaqEntry> = [
     {
-        question: 'Was kostet ein Promo-Shooting für unsere Band?',
-        answer: 'Promo-Shootings für Bands gibt es ab 500 €. Der genaue Preis hängt vom Aufwand ab, zum Beispiel von Location, Dauer und Anfahrt. Schreibt mir, was ihr vorhabt, dann bekommt ihr ein Angebot.'
+        question: 'Machst du auch Promo-Shootings für Bands?',
+        answer: 'Ja, ab 500 €. Der genaue Preis hängt von Aufwand und Umfang ab, zum Beispiel von Location, Dauer und Anfahrt. Ihr bekommt die vollen Nutzungsrechte bei Namensnennung. Alles zu Promo-Shootings steht auf der Seite Bandfotografie.'
     },
     {
         question: 'Was kosten Live-Fotos von unserem Konzert?',

@@ -2,6 +2,12 @@ import type { MediumReference } from '~/types';
 
 export const promotionImages = <Array<MediumReference>>[
     {
+        id: 8,
+        title: 'ANORAK 2026',
+        alt: 'Bandfoto ANORAK: Sängerin mit Tattoos im schwarzen Korsett und drei Musiker in einer dunklen Industriehalle mit hohen Fenstern',
+        media: '/concert/promotion/ANORAK 2026.jpg'
+    },
+    {
         id: 1,
         title: 'Blindfall 2024',
         alt: 'Bandfoto Blindfall: vier Musiker lehnen einzeln an einer weißen Fassade mit hohen Bogenfenstern',

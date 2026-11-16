@@ -4,6 +4,7 @@ export const ROUTES = {
     WEDDING: '/wedding',
     COSPLAY: '/cosplay',
     CONCERTS: '/concerts',
+    BAND_PHOTOGRAPHY: '/band-photography',
     PEOPLE: '/people',
     CONTACT: '/contact',
     NATURE: '/nature',
@@ -39,6 +40,11 @@ export const navigationRoutes: Array<NavigationRoute> = [
         name: 'Musik & Artist',
         icon: 'mask',
         path: ROUTES.CONCERTS
+    },
+    {
+        name: 'Bandfotos',
+        icon: 'mask',
+        path: ROUTES.BAND_PHOTOGRAPHY
     },
     {
         name: 'People',

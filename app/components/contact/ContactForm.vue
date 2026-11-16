@@ -3,7 +3,7 @@ import Button from '~/atomics/button/Button.vue';
 import FormField from '~/atomics/form/FormField.vue';
 import Text from '~/atomics/text/Text.vue';
 import { contactInformation } from '~/resources/contactInformation';
-import { inquiryPackages, inquiryTopics } from '~/resources/inquiry';
+import { inquiryPackages, inquiryTopicSlugs, inquiryTopics } from '~/resources/inquiry';
 
 type Inquiry = {
     name: string;
@@ -24,11 +24,14 @@ const requestedPackage = inquiryPackages.find(
     (item) => item.toLowerCase() === String(route.query.package ?? '').toLowerCase()
 );
 
+// ?topic=band aus den Anfrage-Links der Leistungsseiten
+const requestedTopic = inquiryTopicSlugs[String(route.query.topic ?? '')];
+
 const form = reactive<Inquiry>({
     name: '',
     email: '',
     phone: '',
-    topic: requestedPackage ? 'Hochzeit' : '',
+    topic: requestedPackage ? 'Hochzeit' : requestedTopic ?? '',
     package: requestedPackage ?? '',
     date: '',
     location: '',

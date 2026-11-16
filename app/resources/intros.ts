@@ -32,3 +32,8 @@ export const photoSpotsFreiburgIntro = [
     'Freiburg ist meine Stadt vor der Haustür. Ich fotografiere hier bei Nacht, im Regen und mit Menschen, für Portraits und Paarshootings genauso wie für mich selbst.',
     'Auf dieser Seite findest du meine liebsten Fotospots in Freiburg: wo du stehst, wann das Licht am besten ist, wie du hinkommst und was ich dort einstelle.'
 ];
+
+export const bandIntro = [
+    'Ich fotografiere Rock- und Metal-Bands seit über zehn Jahren, auf der Bühne und abseits davon. Für Promo-Shootings komme ich zu euch, egal wo in Deutschland, oder ihr kommt in mein Studio in Sexau bei Freiburg.',
+    'Bei mir gibt es keine langweiligen Gruppenfotos vor einer Wand. Wir planen Location, Licht und Look gemeinsam, und ihr bekommt Bilder, die nach eurer Musik aussehen. Promo-Shootings gibt es ab 500 €, mit vollen Nutzungsrechten bei Namensnennung.'
+];

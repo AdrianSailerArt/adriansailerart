@@ -52,6 +52,16 @@ useSeoMeta({
             image-ratio="landscape"
             layout="right"
         />
+        <FeatureSection
+            image="/concert/promotion/Unantastbar Shooting Südtirol 2021.jpg"
+            image-alt="Bandfoto Unantastbar: fünf Musiker auf einem Altstadtplatz in Südtirol vor einem mittelalterlichen Uhrturm"
+            title="Bandfotos & Promo"
+            description="Promo-Shootings für Rock- und Metal-Bands in ganz Deutschland: im Studio oder an einer Location, die zu eurem Sound passt, mit Blitz statt Handy-Gruppenfoto. Ab 500 €, volle Nutzungsrechte bei Namensnennung."
+            button-text="Bandfotos ansehen"
+            :button-link="ROUTES.BAND_PHOTOGRAPHY"
+            image-ratio="portrait"
+            layout="left"
+        />
         <ParallaxSection
             background-image="/people/Elvira.jpg"
             height="large"
