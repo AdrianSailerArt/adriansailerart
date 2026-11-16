@@ -29,7 +29,7 @@ Ich bearbeite die besten Aufnahmen in meinem Stil: kräftige Farben, dunkle Tön
 
 ## Studio oder draußen?
 
-Im Studio in Sexau steuere ich Licht und Hintergrund genau. Das passt für klassische Portraits, Business-Bilder und alles mit dramatischem Licht. Auch draußen bringe ich mein Licht mit: Elinchrom-Blitze mit TTL, damit Gesichter auch bei Gegenlicht oder im Wald gut ausgeleuchtet sind. Draußen im Schwarzwald wird es natürlicher: Wald, Wiesen und Weinberge in der Nähe von Freiburg, Waldkirch und Emmendingen.
+Im Studio in Sexau steuere ich Licht und Hintergrund genau. Das passt für klassische Portraits, Business-Bilder und alles mit dramatischem Licht. Auch draußen bringe ich mein Licht mit: Elinchrom-Blitze mit TTL, damit Gesichter auch bei Gegenlicht oder im Wald gut ausgeleuchtet sind. Draußen im Schwarzwald wird es natürlicher: Wald, Wiesen und Weinberge in der Nähe von Freiburg, Waldkirch und Emmendingen. In der Stadt fotografiere ich gern in der Freiburger Altstadt und auf dem Schlossberg, die Orte stelle ich bei den [Fotospots in Freiburg](/photo-spots/freiburg/) vor.
 
 ---
 

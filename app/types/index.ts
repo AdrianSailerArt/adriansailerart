@@ -23,3 +23,14 @@ export type FaqEntry = {
     question: string;
     answer: string;
 };
+
+/** Ein Ort zum Fotografieren, z. B. für die Fotospot-Seiten und ihr Schema */
+export type PhotoSpot = {
+    name: string;
+    description: string;
+    /** Ort, in dem der Spot liegt, z. B. „Freiburg im Breisgau“ */
+    locality: string;
+    latitude: number;
+    longitude: number;
+    image?: string;
+};

@@ -19,7 +19,7 @@ Der Aussichtsturm auf dem Hünersedel ist einer meiner liebsten Orte für Nachta
 
 ### Freiburg bei Nacht und im Regen
 
-Das beleuchtete Münster wirkt zur blauen Stunde am besten, kurz nach Sonnenuntergang, wenn der Himmel noch Farbe hat. Bei Regen lohnt sich ein Gang durch die Stadt: Nasse Straßen spiegeln das Licht, Schirme bringen Menschen ins Bild, und Schwarzweiß macht daraus eine Szene wie aus einem alten Film.
+Das beleuchtete Münster wirkt zur blauen Stunde am besten, kurz nach Sonnenuntergang, wenn der Himmel noch Farbe hat. Bei Regen lohnt sich ein Gang durch die Stadt: Nasse Straßen spiegeln das Licht, Schirme bringen Menschen ins Bild, und Schwarzweiß macht daraus eine Szene wie aus einem alten Film. Wo genau ich in Freiburg stehe und was ich dort einstelle, zeige ich auf meiner Seite [Fotospots in Freiburg](/photo-spots/freiburg/).
 
 ### Pilze und Details im Wald
 

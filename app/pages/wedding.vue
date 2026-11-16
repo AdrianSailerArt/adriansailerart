@@ -52,52 +52,24 @@ useSeoMeta({
                 link-to="#buchen"
             />
 
-            <div
-                class="flex flex-col md:flex-row gap-small3 py-medium items-start"
+            <ImageText
+                src="/hochzeit/Hochzeit-2.jpg"
+                alt="Lächelnde Braut mit buntem Brautstrauß im Grünen"
             >
-                <NuxtImg
-                    src="/hochzeit/Hochzeit-2.jpg"
-                    :style="getImageAspectStyle('/hochzeit/Hochzeit-2.jpg')"
-                    alt="Lächelnde Braut mit buntem Brautstrauß im Grünen"
-                    preset="static"
-                    sizes="xs:100vw lg:50vw 2xl:50vw"
-                    loading="lazy"
-                    class="w-full md:w-1/2 h-auto shrink-0"
-                />
-
-                <div class="w-full md:w-1/2">
-                    <MarkdownRenderer
-                        :markdown-content="md1"
-                        class="m-medium"
-                    />
-                </div>
-            </div>
+                <MarkdownRenderer :markdown-content="md1" class="m-medium" />
+            </ImageText>
 
             <div class="w-full max-w-full overflow-hidden">
                 <ImagePost :images="hochzeitImages" layout="carousel" />
             </div>
 
-            <div
-                class="flex flex-col md:flex-row gap-small3 py-medium items-start"
+            <ImageText
+                src="/hochzeit/Hochzeit-9.jpg"
+                alt="Schwarzweißfoto: Brautpaar tanzt auf einer Wiese"
+                reverse
             >
-                <div class="w-full md:w-1/2 order-2 md:order-1">
-                    <MarkdownRenderer
-                        :markdown-content="md2"
-                        chip-lists
-                        class="m-medium"
-                    />
-                </div>
-
-                <NuxtImg
-                    src="/hochzeit/Hochzeit-9.jpg"
-                    :style="getImageAspectStyle('/hochzeit/Hochzeit-9.jpg')"
-                    alt="Schwarzweißfoto: Brautpaar tanzt auf einer Wiese"
-                    preset="static"
-                    sizes="xs:100vw lg:50vw 2xl:50vw"
-                    loading="lazy"
-                    class="w-full md:w-1/2 h-auto shrink-0 order-1 md:order-2"
-                />
-            </div>
+                <MarkdownRenderer :markdown-content="md2" chip-lists class="m-medium" />
+            </ImageText>
 
             <ParallaxSection
                 background-image="/hochzeit/Hochzeit-7.jpg"
@@ -105,27 +77,12 @@ useSeoMeta({
                 image-only
             />
 
-            <div
-                class="flex flex-col md:flex-row gap-small3 py-medium items-start"
+            <ImageText
+                src="/hochzeit/Hochzeit-4.jpg"
+                alt="Brautpaar im verschneiten, nebligen Winterwald"
             >
-                <NuxtImg
-                    src="/hochzeit/Hochzeit-4.jpg"
-                    :style="getImageAspectStyle('/hochzeit/Hochzeit-4.jpg')"
-                    alt="Brautpaar im verschneiten, nebligen Winterwald"
-                    preset="static"
-                    sizes="xs:100vw lg:50vw 2xl:50vw"
-                    loading="lazy"
-                    class="w-full md:w-1/2 h-auto shrink-0"
-                />
-
-                <div class="w-full md:w-1/2">
-                    <MarkdownRenderer
-                        :markdown-content="md3"
-                        chip-lists
-                        class="m-medium"
-                    />
-                </div>
-            </div>
+                <MarkdownRenderer :markdown-content="md3" chip-lists class="m-medium" />
+            </ImageText>
 
             <div id="buchen">
                 <BuyBox :plans="weddingPlans" />

@@ -27,3 +27,8 @@ export const natureIntro = [
     'Wenn ich nicht gerade Menschen fotografiere, bin ich draußen unterwegs: im Schwarzwald vor der Haustür und auf Reisen. Mich reizen Orte mit Stimmung, Wasserfälle zwischen moosigen Felsen, Wälder im Herbstlicht, Nachthimmel über dem Hünersedel und Berge unter schweren Wolken.',
     'Neben dem Schwarzwald und Freiburg findest du hier Bilder aus Südtirol, Island, von den Lofoten in Norwegen und aus Kanada. Lange Belichtungen lassen Wasser weich fließen, Nachtaufnahmen zeigen die Milchstraße, und die Bildbearbeitung bleibt bei der gleichen Handschrift wie bei meinen Portraits: kräftige Farben, dunkle Töne und viel Atmosphäre.'
 ];
+
+export const photoSpotsFreiburgIntro = [
+    'Freiburg ist meine Stadt vor der Haustür. Ich fotografiere hier bei Nacht, im Regen und mit Menschen, für Portraits und Paarshootings genauso wie für mich selbst.',
+    'Auf dieser Seite findest du meine liebsten Fotospots in Freiburg: wo du stehst, wann das Licht am besten ist, wie du hinkommst und was ich dort einstelle.'
+];

@@ -7,6 +7,7 @@ export const ROUTES = {
     PEOPLE: '/people',
     CONTACT: '/contact',
     NATURE: '/nature',
+    PHOTO_SPOTS_FREIBURG: '/photo-spots/freiburg',
     IMPRESSUM: '/impressum',
     DATA_SECURITY: '/datenschutz'
 } as const;
