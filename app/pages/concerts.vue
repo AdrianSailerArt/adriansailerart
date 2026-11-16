@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import ImagePost from '~/components/Gallery/ImagePost.vue';
+import Link from '~/atomics/link/Link.vue';
+import { ROUTES } from '~/statics/routes';
 import { concertImages } from '~/resources/imageSrc/concet';
 import { promotionImages } from '~/resources/imageSrc/promotion';
 import { concertIntro } from '~/resources/intros';
@@ -40,6 +42,9 @@ useSeoMeta({
                 /></template>
                 <template #tab-1>
                     <ImagePost :images="promotionImages" layout="grid" />
+                    <div class="flex justify-center pb-medium">
+                        <Link :to="`${ROUTES.BAND_PHOTOGRAPHY}/`">Alles zu Promo-Shootings</Link>
+                    </div>
                 </template>
             </Tab>
         </div>

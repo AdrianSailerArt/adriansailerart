@@ -42,11 +42,6 @@ export const navigationRoutes: Array<NavigationRoute> = [
         path: ROUTES.CONCERTS
     },
     {
-        name: 'Bandfotos',
-        icon: 'mask',
-        path: ROUTES.BAND_PHOTOGRAPHY
-    },
-    {
         name: 'People',
         icon: 'mask',
         path: ROUTES.PEOPLE
