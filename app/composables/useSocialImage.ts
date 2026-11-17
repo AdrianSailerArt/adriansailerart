@@ -31,7 +31,9 @@ export const useSocialImage = (src: string, alt: string) => {
                 caption: alt,
                 creator: { '@type': 'Person', name: PHOTO_CREDIT.creator },
                 creditText: PHOTO_CREDIT.credit,
-                copyrightNotice: PHOTO_CREDIT.copyright
+                copyrightNotice: PHOTO_CREDIT.copyright,
+                license: PHOTO_CREDIT.license,
+                acquireLicensePage: PHOTO_CREDIT.acquireLicensePage
             }
         })
     ]);

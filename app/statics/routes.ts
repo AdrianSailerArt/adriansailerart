@@ -9,6 +9,7 @@ export const ROUTES = {
     CONTACT: '/contact',
     NATURE: '/nature',
     PHOTO_SPOTS_FREIBURG: '/photo-spots/freiburg',
+    IMAGE_LICENSE: '/image-license',
     IMPRESSUM: '/impressum',
     DATA_SECURITY: '/datenschutz'
 } as const;
@@ -71,5 +72,9 @@ export const footerNavigation: Array<NavigationRoute> = [
     {
         name: 'Datenschutz',
         path: ROUTES.DATA_SECURITY
+    },
+    {
+        name: 'Bildrechte',
+        path: ROUTES.IMAGE_LICENSE
     }
 ];
