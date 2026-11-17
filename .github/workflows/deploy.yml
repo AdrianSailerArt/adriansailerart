@@ -4,14 +4,24 @@ on:
   push:
     branches:
       - main
+  # Manuell neu starten (Actions → Deploy Nuxt to GitHub Pages → Run workflow)
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Nur ein Deployment gleichzeitig; ein laufendes wird nicht abgebrochen
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
-  deploy:
+  # Bauen und Hochladen getrennt vom Veröffentlichen (Aufbau laut GitHub-Vorlage):
+  # Das Artefakt ist abgeschlossen, bevor der Deploy-Job danach sucht, und
+  # „Re-run failed jobs“ wiederholt nur das Veröffentlichen ohne doppeltes Artefakt.
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,5 +42,15 @@ jobs:
         with:
           path: .output/public
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
       - name: Deploy
+        id: deployment
         uses: actions/deploy-pages@v4
